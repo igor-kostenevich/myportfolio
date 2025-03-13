@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-primary-light text-secondary-light;
+}
+html.dark {
+  @apply dark:bg-primary-dark dark:text-secondary-dark;
+}
+
+@layer base {
+  :root {
+
+    --radius: 0.5rem
+  }
+}
