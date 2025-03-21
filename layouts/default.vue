@@ -11,5 +11,6 @@
     <main>
       <slot />
     </main>
+    <BaseFooter />
   </div>
 </template>

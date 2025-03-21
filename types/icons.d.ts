@@ -5,7 +5,7 @@
 export {};
 
 declare global {
-  export type SvgName = 'arrow-right' | 'backend' | 'data-visualization' | 'download' | 'frontend' | 'fullstack' | 'integration' | 'linkedin' | 'optimization-refactoring' | 'default'
+  export type SvgName = 'arrow-right' | 'backend' | 'data-visualization' | 'download' | 'frontend' | 'fullstack' | 'github' | 'integration' | 'linkedin-footer' | 'linkedin' | 'optimization-refactoring' | 'telegram' | 'upwork' | 'default'
   interface Window {
     ust: {
       options: { cacheDir?: string, global: boolean, libraryDir?: string, svgDir?: string, useTypes: boolean, isTesting: boolean, isNuxt: boolean, nuxtDir: string, fallback: string, svg: { classDefault?: string[], clearSize: 'all' | 'parent' | 'none', clearClass: 'all' | 'parent' | 'none', clearStyle: 'all' | 'parent' | 'none', currentColor: boolean, inlineStyleDefault?: string[], sizeInherit: boolean, title?: boolean }, warning: boolean }

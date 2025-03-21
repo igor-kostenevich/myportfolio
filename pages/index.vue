@@ -30,7 +30,7 @@ const store = usePortfolioStore()
   </section>
 
   <!-- About me section -->
-  <section class="bg-secondary-dark text-white overflow-hidden py-12 md:py-20">
+  <section id="about" class="bg-secondary-dark text-white overflow-hidden py-12 md:py-20">
     <div class="container">
       <h2 class="main-title text-right max-w-max mb-10 md:mb-16 lg:mb-20">
         <span>Behind the Code.</span>
@@ -98,7 +98,7 @@ const store = usePortfolioStore()
   </section>
 
   <!-- Projects section -->
-  <section class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
+  <section id="projects" class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
     <div class="container">
       <h2 class="secondary-title text-center mb-4">
         REAL PROJECTS, <span class="text-primary-dark font-medium">REAL IMPACT</span>
@@ -126,7 +126,7 @@ const store = usePortfolioStore()
     </div>
   </section>
 
-  <section class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
+  <section id="services" class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
     <div class="container">
       <h2 class="secondary-title text-center mb-4">
         From Pixels <span class="text-primary-dark font-medium">to Production</span>
