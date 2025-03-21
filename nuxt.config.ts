@@ -1,9 +1,10 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'nuxt3-notifications', '@pinia/nuxt', 'shadcn-nuxt'],
-  shadcn: {
-    prefix: '',
-    componentDir: './components/ui'
-  },
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    'nuxt3-notifications', 
+    '@pinia/nuxt',
+    'unplugin-svg-transformer/nuxt'
+  ],
   components: true,
   app: {
     head: {
@@ -25,6 +26,5 @@ export default defineNuxtConfig({
   build: {
     transpile: ['swiper']
   },
-  
   compatibilityDate: '2025-01-30'
 });

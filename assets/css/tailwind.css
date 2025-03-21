@@ -2,16 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+/* html {
   @apply bg-primary-light text-secondary-light;
 }
 html.dark {
   @apply dark:bg-primary-dark dark:text-secondary-dark;
+} */
+
+body {
+  @apply font-poppins overflow-x-hidden text-white min-h-screen;
 }
 
-@layer base {
-  :root {
+.container {
+  @apply md:max-w-[928px] xl:max-w-[83rem] px-4 mx-auto;
+}
 
-    --radius: 0.5rem
-  }
+.main-title {
+  @apply uppercase font-medium text-4xl leading-10 md:text-5xl md:leading-[48px] xl:text-[82px] xl:leading-[82px] text-white tracking-tight
+}
+
+.secondary-title {
+  @apply uppercase text-xl leading-8 md:text-3xl md:leading-10 xl:text-[52px] xl:leading-[52px] text-white tracking-tight
 }

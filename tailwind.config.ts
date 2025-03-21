@@ -1,5 +1,3 @@
-import type { Config } from "tailwindcss";
-
 export default {
   darkMode: ["class", "[data-theme='dark']"],
   content: [
@@ -23,14 +21,27 @@ export default {
   		},
   		colors: {
   			primary: {
-  				light: '#3498db',
-  				dark: '#1e3a8a'
+  				light: '#05E2BF',
+  				dark: '#05E2BF'
   			},
   			secondary: {
-  				light: '#ccc',
-  				dark: '#fafafa'
-  			}
+  				light: '#161616',
+  				dark: '#161616'
+  			},
+				dark: {
+					light: '#1C1C20',
+					dark: '#1C1C20'
+				},
+				gray: {
+					500: '#191919',
+					250: '#54575E',
+					200: '#A0A5A7',
+					150: '#CECECF',
+					100: '#ECEAE5',
+					50: '#EBEBEB',
+				},
+				red: '#FF0000',
   		},
   	}
   },
-} satisfies Config
+}
