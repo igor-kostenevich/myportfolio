@@ -39,5 +39,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            export PATH=$NVM_DIR/versions/node/v16.17.0/bin:$PATH
             cd ${{ secrets.APP_DIR }}
-            /root/.nvm/versions/node/v16.17.0/bin/pm2 restart nuxt-app || /root/.nvm/versions/node/v16.17.0/bin/pm2 start .output/server/index.mjs --name nuxt-app
+            pm2 restart nuxt-app || pm2 start .output/server/index.mjs --name nuxt-app
