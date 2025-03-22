@@ -43,4 +43,4 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             export PATH=$NVM_DIR/versions/node/v16.17.0/bin:$PATH
             cd ${{ secrets.APP_DIR }}
-            pm2 restart nuxt-app || pm2 start .output/server/index.mjs --name nuxt-app
+            pm2 describe nuxt-app > /dev/null && pm2 restart nuxt-app || pm2 start .output/server/index.mjs --name nuxt-app
