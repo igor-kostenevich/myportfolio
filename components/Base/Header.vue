@@ -29,7 +29,7 @@ onUnmounted(() => {
           to="/"
           class="relative z-30"
         >
-        Logo
+        LogoType
           <!-- <BaseLogo
             fill="white"
             class="text-white fill-white h-[36px] md:h-[55px] w-[83px] md:w-[168px]"
