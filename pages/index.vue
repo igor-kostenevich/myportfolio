@@ -4,7 +4,7 @@ const store = usePortfolioStore()
 
 <template>
   <!-- Main screen section -->
-  <section class="flex items-center bg-secondary-dark bg-[url('/images/first-screen-bg.png')] min-h-screen py-32">
+  <section class="flex items-center bg-secondary-dark bg-[url('/images/first-screen-bg.png')] min-h-screen py-48">
     <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px]">
       <div class="flex flex-col gap-4 md:flex-row md:items-center mb-5 w-full">
         <div class="relative inline-flex w-max">
@@ -126,6 +126,7 @@ const store = usePortfolioStore()
     </div>
   </section>
 
+  <!-- Services section -->
   <section id="services" class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
     <div class="container">
       <h2 class="secondary-title text-center mb-4">
@@ -148,6 +149,25 @@ const store = usePortfolioStore()
               <SvgIcon name="arrow-right" class="flex items-center justify-center border border-white/30 rounded-full w-5 h-5 p-0.5 group-hover:-rotate-45 transition"></SvgIcon>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section class="py-12 md:py-20 bg-secondary-dark">
+    <div class="container">
+      <div class="flex flex-col sm:flex-row gap-16 lg:gap-[100px]">
+        <div class="sm:max-w-[360px] lg:max-w-[526px]">
+          <h2 class="secondary-title text-center sm:text-left mb-4 !leading-8 md:!leading-10 xl:!leading-[65px]">
+            Let’s build your project <span class="text-primary-dark font-medium">together</span>
+          </h2>
+          <p class="text-gray-150 text-center sm:text-left">
+            Submit your project details  and I’ll get back to you.
+          </p>
+        </div>
+        <div class="w-full">
+          <PortfolioContactForm />
         </div>
       </div>
     </div>

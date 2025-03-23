@@ -49,8 +49,8 @@ const props = defineProps({
 const uniqueId = computed(() => props.id || uuidv4())
 const classes = computed(() => {
   return {
-    'bg-gray-500 text-white focus:border-white focus-visible:border-white border-gray-200 placeholder:text-gray-250': !props.error && !props.light,
-    'bg-white text-dark focus:border-gray-500 focus-visible:border-gray-500 border-gray-200 placeholder:text-gray-200': !props.error && props.light,
+    'bg-transparent text-white focus:border-white focus-visible:border-white border-gray-150 placeholder:text-gray-150': props.error,
+    'bg-transparent text-dark focus:border-gray-500 focus-visible:border-gray-500 border-gray-1500 placeholder:text-150': !props.error,
     'text-gray-50 cursor-not-allowed': props.disabled,
     'resize-none': !props.resize,
   }
@@ -66,12 +66,11 @@ function onFocus(e: FocusEvent) {
 </script>
 
 <template>
-  <div class="flex flex-col w-full">
+  <div class="flex flex-col w-full relative">
     <label
-      v-if="label"
+      v-if="label && !modelValue"
       :for="uniqueId"
-      class="mb-2 text-sm leading-4 font-medium tracking-sm"
-      :class="[light ? 'text-dark' : 'text-white']"
+      class="text-gray-150 text-sm leading-4 tracking-sm absolute top-[21px] left-2"
     >
       {{ label }}
     </label>
@@ -81,7 +80,7 @@ function onFocus(e: FocusEvent) {
       :value="modelValue"
       :disabled="disabled"
       :placeholder="placeholder"
-      class="ring-current rounded-lg border px-4 py-[15.5px] leading-[26.4px] min-h-48 md:min-h-[168px]"
+      class="ring-current border-b px-2 py-[15px] leading-[26.4px] min-h-[122px]"
       :class="[classes, fieldClass]"
       @blur="onBlur"
       @focus="onFocus"
@@ -97,7 +96,7 @@ function onFocus(e: FocusEvent) {
       v-if="error"
       class="inline-flex mt-1"
     >
-      <span class="text-sm text-red-500">{{ error }}</span>
+      <span class="text-xs text-red-500">{{ error }}</span>
     </div>
   </div>
 </template>

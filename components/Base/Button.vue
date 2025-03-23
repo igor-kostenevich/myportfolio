@@ -31,7 +31,7 @@ const classes = computed(() => {
   const variants: Record<string, string> = {
     outline: 'bg-transparent border border-white text-white text-sm font-medium',
     secondary: 'bg-primary-dark text-secondary-dark uppercase',
-    default: 'bg-white text-secondary-dark text-sm font-medium',
+    default: 'bg-white text-secondary-dark text-sm font-medium text-sm',
   };
 
   const hoverClasses: Record<string, string> = {

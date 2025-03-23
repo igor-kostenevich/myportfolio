@@ -153,4 +153,7 @@ export const usePortfolioStore = defineStore("portfolio", {
   }),
   actions: {
   },
+  getters: {
+    servicesCount: state => state.services.length,
+  }
 });

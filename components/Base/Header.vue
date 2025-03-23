@@ -2,6 +2,7 @@
 const { scrollToElement } = useScrollTo()
 const isMenuOpened = ref(false)
 const isAtTop = ref(false)
+const store = usePortfolioStore()
 
 const handleScroll = () => {
   isAtTop.value = window.scrollY === 0
@@ -44,7 +45,10 @@ onUnmounted(() => {
               <a href="#">Projects</a>
             </li>
             <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('services')">
-              <a href="#">Services</a>
+              <a href="#" class="relative">
+                Services
+                <span class="flex items-center justify-center bg-primary-dark w-4 h-4 rounded-full absolute -right-3.5 -top-3.5 text-xs font-medium text-black">{{ store.servicesCount }}</span>
+              </a>
             </li>
             <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('testimonials')">
               <a href="#">Testimonials</a>

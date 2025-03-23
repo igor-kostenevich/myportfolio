@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { v4 as uuidv4 } from 'uuid'
-import { computed } from 'vue'
 
 const emit = defineEmits(['update:modelValue', 'blur', 'focus'])
 const props = defineProps({
@@ -36,18 +35,13 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  light: {
-    type: Boolean,
-    default: false
-  }
 })
 
 const uniqueId = computed(() => props.id || uuidv4())
 const classes = computed(() => {
   return {
-    'border-red bg-gray-500 text-gray-200 placeholder:text-gray-250': props.error && !props.light,
-    'bg-gray-500 text-white focus:border-white focus-visible:border-white border-gray-200 placeholder:text-gray-250': !props.error && !props.light,
-    'bg-white text-dark focus:border-gray-500 focus-visible:border-gray-500 border-gray-200 placeholder:text-gray-200': !props.error && props.light,
+    'border-red bg-transparent text-white placeholder:text-gray-100': props.error,
+    'bg-transparent text-white focus:border-white focus-visible:border-white border-gray-150 placeholder:text-gray-150': !props.error,
     'text-gray-50 cursor-not-allowed': props.disabled,
   }
 })
@@ -62,12 +56,11 @@ function onFocus(e: FocusEvent) {
 </script>
 
 <template>
-  <div class="flex flex-col w-full">
+  <div class="flex flex-col w-full relative">
     <label
-      v-if="label"
+      v-if="label && !modelValue"
       :for="uniqueId"
-      class="mb-2 text-sm leading-4 font-medium tracking-sm"
-      :class="[light ? 'text-dark' : 'text-white']"
+      class="text-sm text-gray-150 leading-4 tracking-sm absolute top-4 left-2"
     >
       {{ label }}
     </label>
@@ -78,7 +71,7 @@ function onFocus(e: FocusEvent) {
       :disabled="disabled"
       :type="type"
       :placeholder="placeholder"
-      class="ring-current rounded-lg border px-4 py-[15.5px] leading-[26.4px] max-h-[52px]"
+      class="ring-current border-b px-2 py-[15.5px] leading-[26.4px] max-h-[45px]"
       :class="[classes, fieldClass]"
       @blur="onBlur"
       @focus="onFocus"
@@ -88,7 +81,7 @@ function onFocus(e: FocusEvent) {
       v-if="error"
       class="inline-flex mt-1"
     >
-      <span class="text-sm text-red">{{ error }}</span>
+      <span class="text-xs text-red">{{ error }}</span>
     </div>
   </div>
 </template>
