@@ -172,4 +172,14 @@ const store = usePortfolioStore()
       </div>
     </div>
   </section>
+
+  <div id="faq" class="bg-secondary-dark py-12 md:py-20 xl:py-[120px]">
+    <div class="container">
+      <h2 class="secondary-title text-center mb-10 md:mb-16 xl:mb-20">
+        Got Questions? <br><span class="text-primary-dark font-medium">I’ve Got Answers</span>
+      </h2>
+
+      <PortfolioAccordion :faqs="store.faqs"/>
+    </div>
+  </div>
 </template>

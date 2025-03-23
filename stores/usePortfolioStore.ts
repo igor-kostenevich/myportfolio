@@ -21,6 +21,10 @@ interface PortfolioState {
     description: string,
     id: string
   }>
+  faqs: Array<{
+    question: string,
+    answer: string
+  }>
 }
 
 const testimg = 'https://d2zp5xs5cp8zlg.cloudfront.net/image-79322-800.jpg'
@@ -149,6 +153,28 @@ export const usePortfolioStore = defineStore("portfolio", {
         'description': 'I integrate third-party services and APIs to extend your software’s functionality. I also handle deployment, ensuring your application is live and accessible to users.',
         'id': 'integration'
       }
+    ],
+    faqs: [
+      {
+        question: 'Is team pricing available?',
+        answer: `Yes! You can purchase a license that you can share with your entire team. 
+        We offer flexible plans that adapt to your organization's size.`,
+      },
+      {
+        question: 'What does your development process look like?',
+        answer: `I follow an agile-inspired approach with iterative planning, coding, and testing. 
+        We start with your requirements, break them down into tasks, and deliver in short sprints...`,
+      },
+      {
+        question: 'How do you maintain communication during the project?',
+        answer: `Clear, consistent communication is key. I use Slack and Trello to provide regular updates
+        and gather feedback. We schedule periodic meetings to review progress and address questions.`,
+      },
+      {
+        question: 'Can I request changes to project requirements after kickoff?',
+        answer: `Absolutely. We'll discuss the scope of changes, revise timelines if necessary, and ensure 
+        the project remains aligned with your goals. Additional costs may apply depending on complexity.`,
+      },
     ]
   }),
   actions: {

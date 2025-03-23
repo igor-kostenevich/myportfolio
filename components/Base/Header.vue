@@ -56,6 +56,9 @@ onUnmounted(() => {
             <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('contacts')">
               <a href="#">Contact me</a>
             </li>
+            <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('faq')">
+              <a href="#">FAQ</a>
+            </li>
           </ul>
         </nav>
         <div class="flex items-center">
@@ -106,6 +109,9 @@ onUnmounted(() => {
               </li>
               <li class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"  @click.prevent="scrollToElement('contacts')">
                 <a href="#">Contact me</a>
+              </li>
+              <li class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"  @click.prevent="scrollToElement('faq')">
+                <a href="#">FAQ</a>
               </li>
             </ul>
             </nav>
