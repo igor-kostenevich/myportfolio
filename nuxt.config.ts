@@ -3,7 +3,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss', 
     'nuxt3-notifications', 
     '@pinia/nuxt',
-    'unplugin-svg-transformer/nuxt'
+    'unplugin-svg-transformer/nuxt',
+    'v-gsap-nuxt'
   ],
   components: true,
   app: {

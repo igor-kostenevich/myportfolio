@@ -25,7 +25,7 @@ onUnmounted(() => {
 <template>
   <header :class="['fixed left-0 right-0 top-0 z-40 transition-all duration-300', isAtTop ? 'bg-transparent' : 'bg-dark/80 backdrop-blur-lg shadow-md']">
     <div class="container">
-      <div class="flex items-center justify-between relative py-4">
+      <div class="flex items-center justify-between relative py-2">
         <nuxt-link
           to="/"
           class="relative z-30"

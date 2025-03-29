@@ -82,7 +82,7 @@ const store = usePortfolioStore()
   <!-- Skills section -->
   <section class="bg-secondary-dark pt-20 pb-32">
     <div class="container">
-      <h2 class="font-space-mono tracking-widest uppercase text-xl text-white mb-12 md:mb-20">Main stack that i use</h2>
+      <h3 class="font-space-mono tracking-widest uppercase text-xl text-white mb-12 md:mb-20">Main stack that i use</h3>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <div v-for="skill in store.skills" :key="skill.id" class="flex flex-col border border-gray-250 py-8 px-4 rounded-lg">
           <h3 class="flex items-center text-white font-space-mono uppercase mb-12">
@@ -173,7 +173,27 @@ const store = usePortfolioStore()
     </div>
   </section>
 
-  <div id="faq" class="bg-secondary-dark py-12 md:py-20 xl:py-[120px]">
+  <!-- Testimonials section -->
+  <section>
+    <div class="container">
+      <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
+        <h3 class="font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h3>
+        <div class="max-w-[600px] xl:max-w-[856px]">
+          <h2 class="secondary-title text-center sm:text-left mb-6">
+            Words <span class="text-primary-dark font-medium">That Count </span>
+          </h2>
+          <p class="text-gray-150 text-center sm:text-left sm:text-lg">
+            Genuine feedback from clients I’ve partnered with, showcasing the real results and seamless collaboration my approach provides. Discover how we tackle challenges together to achieve exceptional outcomes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <PortfolioTestimonials />
+  </section>
+
+  <!-- FAQ section -->
+  <section id="faq" class="bg-secondary-dark py-12 md:py-20 xl:py-[120px]">
     <div class="container">
       <h2 class="secondary-title text-center mb-10 md:mb-16 xl:mb-20">
         Got Questions? <br><span class="text-primary-dark font-medium">I’ve Got Answers</span>
@@ -181,5 +201,5 @@ const store = usePortfolioStore()
 
       <PortfolioAccordion :faqs="store.faqs"/>
     </div>
-  </div>
+  </section>
 </template>

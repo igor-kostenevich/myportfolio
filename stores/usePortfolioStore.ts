@@ -25,6 +25,12 @@ interface PortfolioState {
     question: string,
     answer: string
   }>
+  testimonials: Array<{
+    name: string,
+    role: string,
+    avatar: string,
+    text: string
+  }>
 }
 
 const testimg = 'https://d2zp5xs5cp8zlg.cloudfront.net/image-79322-800.jpg'
@@ -175,6 +181,44 @@ export const usePortfolioStore = defineStore("portfolio", {
         answer: `Absolutely. We'll discuss the scope of changes, revise timelines if necessary, and ensure 
         the project remains aligned with your goals. Additional costs may apply depending on complexity.`,
       },
+    ],
+    testimonials: [
+      {
+        name: 'Severyn Nalyvayko',
+        role: 'CTO, TMSys Sp. z o.o.',
+        avatar: 'severyn',
+        text: `Ihor did an excellent job on this Vue.js project. His communication was clear, he met deadlines, and his front-end skills were impressive. He was responsive to feedback and proactive in solving challenges. I’d gladly work with him again!`,
+      },
+      {
+        name: 'Slaine Willey',
+        role: 'Product Owner, Edge Opti Tech LTD',
+        avatar: 'slaine',
+        text: `It was a pleasure to work with you! And I believe we could cooperate in future as well!`,
+      },
+      {
+        name: 'Raquel Rodrigues',
+        role: 'Project Manager, Edge Opti Tech LTD',
+        avatar: 'raquel',
+        text: `Ihor played a crucial role in upgrading our Vue.js and Vuetify framework from version 2 to 3. His technical expertise streamlined our UI and significantly enhanced performance. He's highly professional and a great communicator. Highly recommended!`,
+      },
+      {
+        name: 'Dmitri Plugari',
+        role: 'SEO, Mango studio',
+        avatar: 'dima',
+        text: `Great quality of work!`,
+      },
+      {
+        name: 'Yevhen Saienko',
+        role: 'SEO, WebMagic',
+        avatar: 'yevgen',
+        text: `It was a pleasure to work with you! You have ideal soft skills! And I believe we could cooperate in future as well!`,
+      },
+      {
+        name: 'Benjamin Rika',
+        role: 'Tech Lead, Rika NettMarketing GmbH',
+        avatar: 'benjamin',
+        text: `Ihor did a great job helping us revamp our website. Very good knowledge of Vue and always responsive.`,
+      }
     ]
   }),
   actions: {
