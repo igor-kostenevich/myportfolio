@@ -49,7 +49,7 @@ useHead({
   <!-- About me section -->
   <section id="about" class="bg-secondary-dark text-white overflow-hidden py-12 md:py-20">
     <div class="container">
-      <h2 class="main-title text-right max-w-max mb-10 md:mb-16 lg:mb-20">
+      <h2 v-gsap.whenVisible.once.from='{ autoAlpha: 0, x: -50 }' class="main-title text-right max-w-max mb-10 md:mb-16 lg:mb-20">
         <span>Behind the Code.</span>
         <br />
         <span class="text-primary-dark">Who I Am?</span>
@@ -100,13 +100,28 @@ useHead({
   </section>
 
   <!-- Skills section -->
-  <section class="bg-secondary-dark pt-20 pb-32">
+  <section class="stack-section bg-secondary-dark pt-20 pb-10">
     <div class="container">
-      <h3 class="font-space-mono tracking-widest uppercase text-xl text-white mb-12 md:mb-20">Main stack that i use</h3>
+      <h3
+        v-gsap.whenVisible.once.from='{ autoAlpha: 0, x: -50 }'
+        class="font-space-mono tracking-widest uppercase text-xl text-white mb-12 md:mb-20"
+      >Main stack that i use</h3>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-        <div v-for="skill in store.skills" :key="skill.id" class="flex flex-col border border-gray-250 py-8 px-4 rounded-lg">
-          <h3 class="flex items-center text-white font-space-mono uppercase mb-12">
-            <span class="flex w-2.5 h-2.5 border border-white rounded-full mr-3"></span>
+        <div 
+          v-for="skill in store.skills" 
+          :key="skill.id"
+          class="group flex flex-col border border-gray-250 py-8 px-4 rounded-lg"
+          v-gsap.whenVisible.once.from="{
+            autoAlpha: 0,
+            scale: 0.95,
+            rotation: -3,
+            transformOrigin: 'center center',
+            duration: 0.6,
+            ease: 'power2.out'
+          }"
+        >
+          <h3 class="flex items-center text-white font-space-mono uppercase mb-12 transition group-hover:text-primary-dark">
+            <span class="flex w-2.5 h-2.5 border border-white rounded-full mr-3 group-hover:bg-primary-dark group-hover:border-primary-dark transition"></span>
             {{ skill.title }}
           </h3>
           <ul class="flex items-center flex-wrap gap-x-2 gap-y-3">
@@ -117,9 +132,25 @@ useHead({
     </div>
   </section>
 
+  <div class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px]" v-gsap.whenVisible.fromTo="[
+      { autoAlpha: 0, y: 100 },
+      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+    ]" >
   <!-- Projects section -->
-  <section id="projects" class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
+  <section 
+    v-gsap.whenVisible.fromTo="[
+      { autoAlpha: 0, y: 100 },
+      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+    ]" 
+    id="projects" class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
     <div class="container">
+      <div v-gsap.whenVisible.from="{
+        autoAlpha: 0,
+        y: 80,
+        scaleX: 0.8,
+        ease: 'power1.out',
+        duration: 1
+      }">
       <h2 class="secondary-title text-center mb-4">
         REAL PROJECTS, <span class="text-primary-dark font-medium">REAL IMPACT</span>
       </h2>
@@ -127,8 +158,16 @@ useHead({
         From MVPs to fully scaled apps—explore the projects that showcase my expertise
         in creating impactful digital products.
       </p>
+      </div>
+     
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 auto-rows-[minmax(300px,_auto)] mb-10 md:mb-16">
+      <div v-gsap.whenVisible.stagger.children.from="{
+    autoAlpha: 0,
+    y: 50,
+    scale: 0.95,
+    ease: 'power2.out',
+    duration: 0.6
+  }" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 auto-rows-[minmax(300px,_auto)] mb-10 md:mb-16">
         <PortfolioProjectCard 
           v-for="(project, index) in store.projects" 
           :key="project.id" 
@@ -146,17 +185,35 @@ useHead({
     </div>
   </section>
 
+  
   <!-- Services section -->
-  <section id="services" class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
+  <section v-gsap.whenVisible.fromTo="[
+      { autoAlpha: 0, y: 100 },
+      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+    ]" id="services" class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
     <div class="container">
+      <div v-gsap.whenVisible.from="{
+        autoAlpha: 0,
+        y: 80,
+        scaleX: 0.8,
+        ease: 'power1.out',
+        duration: 1
+      }">
       <h2 class="secondary-title text-center mb-4">
         From Pixels <span class="text-primary-dark font-medium">to Production</span>
       </h2>
       <p class="text-gray-100 text-center max-w-2xl mx-auto  mb-10 md:mb-16 lg:mb-24">
         I deliver end-to-end web solutions that let you focus on growing your vision. From intuitive frontends to robust backends, I handle every detail for a seamless digital experience.
       </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
+      <div v-gsap.whenVisible.stagger.children.from="{
+    autoAlpha: 0,
+    y: 50,
+    scale: 0.95,
+    ease: 'power2.out',
+    duration: 0.6
+  }" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
         <div v-for="service in store.services" :key="service.id" class="flex flex-col md:flex-row bg-dark-dark rounded-3xl px-8 py-10 gap-4 md:gap-6 xl:gap-10 group">
           <div class="mx-auto md:mx-initial flex items-center justify-center border border-white/30 w-10 !h-10 lg:w-14 lg:!h-14 rounded-full flex-[0_0_40px] lg:flex-[0_0_56px]">
             <SvgIcon :name="service.icon" class="scale-[80%] lg:scale-100"></SvgIcon>
@@ -173,6 +230,7 @@ useHead({
       </div>
     </div>
   </section>
+  </div>
 
     <!-- Testimonials section -->
   <section id="testimonials">
@@ -197,7 +255,7 @@ useHead({
   <section id="contacts" class="py-12 md:py-20 bg-secondary-dark">
     <div class="container">
       <div class="flex flex-col sm:flex-row gap-16 lg:gap-[100px]">
-        <div class="sm:max-w-[360px] lg:max-w-[526px]">
+        <div v-gsap.whenVisible.once.from='{ autoAlpha: 0, x: -50 }' class="sm:max-w-[360px] lg:max-w-[526px]">
           <h2 class="secondary-title text-center sm:text-left mb-4 !leading-8 md:!leading-10 xl:!leading-[65px]">
             Let’s build your project <span class="text-primary-dark font-medium">together</span>
           </h2>
