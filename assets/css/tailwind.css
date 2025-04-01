@@ -24,3 +24,9 @@ body {
 .secondary-title {
   @apply uppercase text-xl leading-8 md:text-3xl md:leading-10 xl:text-[52px] xl:leading-[52px] text-white tracking-tight
 }
+
+.cont {  
+  @media (min-width: 1280px) {
+    max-width: calc((100vw - min(100vw - 32px, 1280px)) / 2 + min(100vw - 32px, 1280px));
+  }
+}

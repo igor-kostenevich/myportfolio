@@ -1,16 +1,22 @@
 <script lang="ts" setup>
 const store = usePortfolioStore()
+
+useHead({
+  link: [
+    { rel: 'preload', href: '/movie.mp4', as: 'video', type: 'video/mp4' }
+  ]
+})
 </script>
 
 <template>
   <!-- Main screen section -->
-  <section class="flex items-center bg-secondary-dark bg-[url('/images/first-screen-bg.png')] min-h-screen py-48">
-    <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px]">
+  <section class="flex items-center bg-secondary-dark min-h-screen py-48 relative">
+    <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px] relative z-[3]">
       <div class="flex flex-col gap-4 md:flex-row md:items-center mb-5 w-full">
         <div class="relative inline-flex w-max">
           <img src="/images/small-photo.png" alt="avatar">
           <div v-if="store.isAvailableForJob" class="flex items-center justify-center rounded-full h-7 w-7 bg-[#CEF9F3] border-[4px] border-white absolute -right-2 -top-2">
-            <span class="bg-primary-dark h-2.5 w-2.5 rounded-full"></span>
+            <span class="bg-primary-dark h-2.5 w-2.5 rounded-full animate-subtlePing"></span>
           </div>
         </div>
         <div class="md:ml-5">
@@ -23,10 +29,21 @@ const store = usePortfolioStore()
         <span class="main-title md:self-center md:mb-3">Building Scalable,</span>
         <span class="main-title flex md:items-center self-start flex-col md:flex-row w-full">
           Efficient Apps
-          <BaseButton class="mt-8 md:mt-0 inline-flex text-2xl font-normal leading-7 tracking-normal md:ml-12" variant="secondary" to="/contact">Get in Touch</BaseButton>
+          <BaseButton class="group mt-8 md:mt-0 text-2xl font-normal leading-7 tracking-normal md:ml-12" variant="secondary">
+            Get in Touch
+
+            <svg class="group-hover:text-white group-hover:duration-500 transition ml-3 w-6 h-6" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.33497 4.59961L13.335 8.59961L9.33497 12.5996M12.668 8.59961L2.66797 8.59961" stroke="currentColor" stroke-width="1.44" stroke-linecap="square"/>
+            </svg>
+          </BaseButton>
         </span>
       </h1>
     </div>
+    <div class=" bg-dark-dark/50 absolute inset-0 h-full w-full z-[2]">
+    </div>
+    <video class="absolute inset-0 w-full h-full z-[1] object-cover" autoplay loop muted playsinline preload="auto">
+      <source src="/movie.mp4" type="video/mp4">
+    </video>
   </section>
 
   <!-- About me section -->
@@ -38,16 +55,16 @@ const store = usePortfolioStore()
         <span class="text-primary-dark">Who I Am?</span>
       </h2>
     </div>
-    <div class="w-full">
-      <div class="lg:pr-4 max-w-[100%] flex gap-10 lg:gap-16 flex-col w-full lg:flex-row">
-        <div class="">
+    <div class="w-full cont">
+      <div class="lg:pr-4 max-w-[100%] flex gap-10 lg:gap-12 xl:gap-16 flex-col w-full lg:flex-row">
+        <div class="relative w-full lg:w-1/3 xl:w-auto pb-[70%] lg:pb-0">
           <img
             src="/images/photo.png" 
             alt="Igor Kostenevich photo"
-            class="w-full xl:h-auto h-full max-h-[340px] sm:max-h-[520px] lg:max-h-full object-[50%_15%] object-cover"
+            class="xl:h-auto h-full w-full lg:max-h-[800px] xl:max-h-full object-[50%_15%] object-cover absolute xl:static inset-0 lg:rounded-br-2xl lg:rounded-tr-2xl overflow-hidden"
           >
         </div>
-        <div class="flex flex-col px-4 lg:px-0 lg:max-w-[557px] w-full">
+        <div class="flex flex-col px-4 lg:px-0 w-full max-w-[600px] md:max-w-max" >
           <p class="text-gray-100 lg:text-lg">
             I am a <span class="font-medium text-white">Full-Stack Web Developer</span> with extensive experience in
             <span class="font-medium text-white">building scalable, high-performance applications</span>. My expertise covers the
@@ -65,11 +82,14 @@ const store = usePortfolioStore()
             <span class="font-medium text-white">speed, scalability, and maintainability</span>—delivering not just code, but business-driven results. 🚀
           </p>
           <div class="mt-10 lg:mt-16 flex flex-wrap gap-4">
-            <BaseButton href="/cv.pdf" download>
+            <BaseButton class="w-full xs:w-auto" href="/Kostenevich_Igor_FE_CV.pdf" download>
               Download CV 
-              <SvgIcon name="download" class="ml-2 w-4 h-4 text-secondary-dark" />
+              
+              <template #right>
+                <SvgIcon name="download" class="ml-2 w-4 h-4" />
+              </template>
             </BaseButton>
-            <BaseButton href="https://www.linkedin.com/in/igor-kostenevich/" target="_blank" variant="outline" class="hover:text-gray-100">
+            <BaseButton href="https://www.linkedin.com/in/igor-kostenevich/" target="_blank" variant="outline" class="w-full xs:w-auto hover:text-gray-100">
               Let's Connect
               <SvgIcon name="linkedin" class="ml-2 w-4 h-4" />
             </BaseButton>
@@ -114,7 +134,7 @@ const store = usePortfolioStore()
           :key="project.id" 
           :project="project"
           :is-first-project="index === 0"
-          :class="{ 'md:col-span-2 md:!bg-black': index === 0 }"
+          :class="{ 'md:col-span-2 md:!bg-black !pb-20': index === 0 }"
         />
       </div>
 
@@ -154,27 +174,8 @@ const store = usePortfolioStore()
     </div>
   </section>
 
-  <!-- Contact section -->
-  <section class="py-12 md:py-20 bg-secondary-dark">
-    <div class="container">
-      <div class="flex flex-col sm:flex-row gap-16 lg:gap-[100px]">
-        <div class="sm:max-w-[360px] lg:max-w-[526px]">
-          <h2 class="secondary-title text-center sm:text-left mb-4 !leading-8 md:!leading-10 xl:!leading-[65px]">
-            Let’s build your project <span class="text-primary-dark font-medium">together</span>
-          </h2>
-          <p class="text-gray-150 text-center sm:text-left">
-            Submit your project details  and I’ll get back to you.
-          </p>
-        </div>
-        <div class="w-full">
-          <PortfolioContactForm />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials section -->
-  <section>
+    <!-- Testimonials section -->
+  <section id="testimonials">
     <div class="container">
       <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
         <h3 class="font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h3>
@@ -192,6 +193,25 @@ const store = usePortfolioStore()
     <PortfolioTestimonials />
   </section>
 
+  <!-- Contact section -->
+  <section id="contacts" class="py-12 md:py-20 bg-secondary-dark">
+    <div class="container">
+      <div class="flex flex-col sm:flex-row gap-16 lg:gap-[100px]">
+        <div class="sm:max-w-[360px] lg:max-w-[526px]">
+          <h2 class="secondary-title text-center sm:text-left mb-4 !leading-8 md:!leading-10 xl:!leading-[65px]">
+            Let’s build your project <span class="text-primary-dark font-medium">together</span>
+          </h2>
+          <p class="text-gray-150 text-center sm:text-left">
+            Submit your project details  and I’ll get back to you.
+          </p>
+        </div>
+        <div class="w-full">
+          <PortfolioContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ section -->
   <section id="faq" class="bg-secondary-dark py-12 md:py-20 xl:py-[120px]">
     <div class="container">
@@ -203,3 +223,11 @@ const store = usePortfolioStore()
     </div>
   </section>
 </template>
+
+<style>
+video {
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1); 
+  filter: grayscale(100%); 
+}
+</style>

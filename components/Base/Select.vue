@@ -196,7 +196,7 @@ function getOptionValue(option: any): ISelectOptionsObjectValue | string | numbe
           leave-from-class="transform opacity-100"
           leave-to-class="transform translate-y-3 opacity-0"
         >
-          <ListboxOptions class="absolute inset-x-0 top-full z-30 shadow-md bg-dark-dark border border-gray-400/20 rounded-sm border-t-0">
+          <ListboxOptions class="absolute inset-x-0 top-full z-30 shadow-md bg-dark-dark border border-gray-400/20 rounded-bl-xl rounded-br-xl border-t-0">
             <div v-if="searchable" class="px-2 py-2 border-b border-gray-200">
               <base-input
                 v-model="searchQuery"

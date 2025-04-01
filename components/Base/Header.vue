@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { scrollToElement } = useScrollTo()
 const isMenuOpened = ref(false)
-const isAtTop = ref(false)
+const isAtTop = ref(true)
 const store = usePortfolioStore()
 
 const handleScroll = () => {
@@ -23,18 +23,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header :class="['fixed left-0 right-0 top-0 z-40 transition-all duration-300', isAtTop ? 'bg-transparent' : 'bg-dark/80 backdrop-blur-lg shadow-md']">
+  <header :class="['fixed left-0 right-0 top-0 z-40 transition-all duration-300', isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md']">
     <div class="container">
       <div class="flex items-center justify-between relative py-2">
         <nuxt-link
           to="/"
           class="relative z-30"
         >
-        LogoType
-          <!-- <BaseLogo
-            fill="white"
-            class="text-white fill-white h-[36px] md:h-[55px] w-[83px] md:w-[168px]"
-          /> -->
+          <img src="~/assets/svg/logo.svg" alt="">
         </nuxt-link>
         <nav class="hidden lg:flex min-h-[88px]">
           <ul class="flex justify-center items-center gap-y-4 gap-10 font-medium text-sm flex-wrap">
@@ -63,10 +59,16 @@ onUnmounted(() => {
         </nav>
         <div class="flex items-center">
           <base-button
-            class="hidden sm:flex !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
+            class="group hidden sm:flex !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
             href="apwork.com"
             >
               Hire me on Upwork
+
+              <template #right>
+                <svg class="flex items-center justify-center w-5 h-5 ml-2 group-hover:-rotate-45 transition-transform !duration-200" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.33497 4.59961L13.335 8.59961L9.33497 12.5996M12.668 8.59961L2.66797 8.59961" stroke="currentColor" stroke-width="1.44" stroke-linecap="square"/>
+                </svg>
+              </template>
             </base-button
           >
           <button

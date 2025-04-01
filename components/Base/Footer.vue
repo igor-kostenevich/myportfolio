@@ -7,19 +7,19 @@ const { scrollToElement } = useScrollTo()
     <div class="container !max-w-[532px]">
       <nav>
         <ul class="flex justify-center items-center gap-y-4 gap-10 mb-10 font-medium text-sm flex-wrap">
-          <li class="hover:text-gray-150 transition" @click.prevent="scrollToElement('about')">
+          <li class="hover:text-gray-150 transition cursor-pointer" @click.prevent="scrollToElement('about')">
             <a href="#">About</a>
           </li>
-          <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('projects')">
+          <li class="hover:text-gray-150 transition cursor-pointer"  @click.prevent="scrollToElement('projects')">
             <a href="#">Projects</a>
           </li>
-          <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('services')">
+          <li class="hover:text-gray-150 transition cursor-pointer"  @click.prevent="scrollToElement('services')">
             <a href="#">Services</a>
           </li>
-          <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('testimonials')">
+          <li class="hover:text-gray-150 transition cursor-pointer"  @click.prevent="scrollToElement('testimonials')">
             <a href="#">Testimonials</a>
           </li>
-          <li class="hover:text-gray-150 transition"  @click.prevent="scrollToElement('contacts')">
+          <li class="hover:text-gray-150 transition cursor-pointer"  @click.prevent="scrollToElement('contacts')">
             <a href="#">Contact me</a>
           </li>
         </ul>

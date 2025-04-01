@@ -24,7 +24,7 @@ onMounted(async () => {
   await nextTick()
 
   if (topRowRef.value) {
-    const topX = topRowRef.value.scrollWidth - topRowRef.value.offsetWidth + SIDE_PADDING * 8
+    const topX = topRowRef.value.scrollWidth - topRowRef.value.offsetWidth + SIDE_PADDING * 2
     gsap.fromTo(
       topRowRef.value,
       { x: SIDE_PADDING },

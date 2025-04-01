@@ -8,7 +8,37 @@ export default {
     "./app.vue",
   ],
   theme: {
-  	extend: {
+    extend: {
+			screens: {
+				xs: '420px',
+			},
+      keyframes: {
+        subtlePing: {
+          '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+          '50%': { opacity: 0.6, transform: 'scale(1.3)' },
+        },
+				typing: {
+					"0%": {
+						width: "0%",
+						visibility: "hidden"
+					},
+					"100%": {
+						width: "100%"
+					}
+				},
+				blink: {
+					"50%": {
+						borderColor: "transparent"
+					},
+					"100%": {
+						borderColor: "white"
+					}
+				}
+      },
+      animation: {
+        subtlePing: 'subtlePing 2s ease-in-out infinite',
+				typing: "typing 2s steps(20) infinite alternate, blink .7s infinite"
+      },
   		fontFamily: {
   			poppins: [
   				'Poppins',

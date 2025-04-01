@@ -30,15 +30,15 @@ const classes = computed(() => {
   
   const variants: Record<string, string> = {
     outline: 'bg-transparent border border-white text-white text-sm font-medium',
-    secondary: 'bg-primary-dark text-secondary-dark uppercase',
+    secondary: 'bg-primary-dark text-secondary-dark uppercase group inline-block relative overflow-hidden px-5 py-3 rounded-full text-secondary-dark uppercase tracking-wide bg-[#05E2BF] transition-all duration-300 ease-out z-10',
     default: 'bg-white text-secondary-dark text-sm font-medium text-sm',
   };
 
   const hoverClasses: Record<string, string> = {
     outline: 'hover:border-gray-150 hover:text-gray-100',
-    secondary: "hover:text-white hover:bg-dark",
-    default: 'hover:bg-gray-50',
-  };
+    secondary: "hover:text-white",
+    default: 'hover:bg-primary-dark hover:text-white',
+  }
 
   return [
     baseClass,
@@ -86,8 +86,9 @@ const tag = computed(() => (
     </template>
     <template v-else>
       <slot name="left" />
-      <slot />
+      <span class="inline-flex items-center relative z-10"><slot /></span>
       <slot name="right" />
+      <span v-if="variant === 'secondary'" class="absolute inset-0 w-0 bg-[#03b9a0] transition-all duration-300 ease-out group-hover:w-full"></span>
     </template>
   </component>
 </template>
