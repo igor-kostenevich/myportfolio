@@ -30,3 +30,21 @@ body {
     max-width: calc((100vw - min(100vw - 32px, 1280px)) / 2 + min(100vw - 32px, 1280px));
   }
 }
+
+.spoller p,
+.spoller ul,
+.spoller ol {
+  @apply mb-2;
+}
+
+.spoller p {
+  @apply mt-4;
+}
+
+.spoller a {
+  @apply text-primary-dark underline hover:no-underline;
+}
+
+.spoller strong {
+  @apply font-medium;
+}

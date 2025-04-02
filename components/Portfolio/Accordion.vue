@@ -58,10 +58,9 @@ function handleToggle(index: number) {
       >
         <div
           v-if="openIndex === index"
-          class="mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-4 pb-6 tracking-tight max-w-[90%] sm:max-w-[80%]"
-        >
-          {{ item.answer }}
-        </div>
+          v-html="item.answer"
+          class="spoller mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-4 pb-6 tracking-tight max-w-[90%]"
+        ></div>
       </transition>
     </DisclosurePanel>
   </Disclosure>
