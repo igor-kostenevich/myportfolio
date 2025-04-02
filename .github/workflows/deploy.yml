@@ -23,7 +23,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          source: "."
+          source: '.'
           target: ${{ secrets.APP_DIR }}
           overwrite: true
           strip_components: 1

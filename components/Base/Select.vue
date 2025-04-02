@@ -42,7 +42,7 @@ const props = defineProps({
     default: false,
   },
   options: {
-    type: Object as PropType<ISelectOptions>,
+    type: Array as ISelectOptions[],
     default: () => [],
   },
   text: {
@@ -52,7 +52,7 @@ const props = defineProps({
   searchable: {
     type: Boolean,
     default: false,
-  }
+  },
 })
 
 const searchQuery = ref('')
@@ -65,13 +65,12 @@ const filteredOptions = computed(() => {
   if (!searchQuery.value.trim()) {
     return props.options
   }
-  return props.options.filter((option) =>
+  return props.options.filter(option =>
     isOptionObjectValue(option)
       ? option.name.toLowerCase().includes(searchQuery.value.toLowerCase())
-      : String(option).toLowerCase().includes(searchQuery.value.toLowerCase())
+      : String(option).toLowerCase().includes(searchQuery.value.toLowerCase()),
   )
 })
-
 
 const model = computed({
   get() {
@@ -114,7 +113,7 @@ function getOptionValue(option: any): ISelectOptionsObjectValue | string | numbe
 </script>
 
 <template>
- <div class="flex flex-col h-full h-[45px]">
+  <div class="flex flex-col h-full h-[45px]">
     <div
       class="flex relative"
       v-bind="$attrs"
@@ -197,7 +196,10 @@ function getOptionValue(option: any): ISelectOptionsObjectValue | string | numbe
           leave-to-class="transform translate-y-3 opacity-0"
         >
           <ListboxOptions class="absolute inset-x-0 top-full z-30 shadow-md bg-dark-dark border border-gray-400/20 rounded-bl-xl rounded-br-xl border-t-0">
-            <div v-if="searchable" class="px-2 py-2 border-b border-gray-200">
+            <div
+              v-if="searchable"
+              class="px-2 py-2 border-b border-gray-200"
+            >
               <base-input
                 v-model="searchQuery"
                 type="text"
@@ -220,7 +222,7 @@ function getOptionValue(option: any): ISelectOptionsObjectValue | string | numbe
                 class="flex items-center justify-between"
                 :class="{ 'bg-secondary-dark': selected }"
               >
-                <li class="flex items-center px-2 py-2 w-full text-gray-150 text-xs ">
+                <li class="flex items-center px-2 py-2 w-full text-gray-150 text-xs">
                   <template v-if="isOptionObjectValue(option)">
                     <slot
                       name="option"
@@ -243,7 +245,6 @@ function getOptionValue(option: any): ISelectOptionsObjectValue | string | numbe
           </ListboxOptions>
         </transition>
       </Listbox>
-      
     </div>
     <div
       v-if="error"
@@ -257,5 +258,5 @@ function getOptionValue(option: any): ISelectOptionsObjectValue | string | numbe
     >
       {{ text }}
     </p>
- </div>
+  </div>
 </template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// eslint-disable-next-line no-unused-vars
 import { NuxtLink } from '#components'
 
 const props = defineProps({
@@ -20,23 +21,24 @@ const props = defineProps({
   },
   isLoading: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const classes = computed(() => {
-  const baseClass = 'group/button flex items-center justify-center px-7 py-4 rounded-full transition-colors duration-200';
-  const disabledClass = props.disabled ? 'opacity-90 !cursor-not-allowed pointer-events-none' : '';
-  
+  const baseClass = 'group/button flex items-center justify-center px-7 py-4 rounded-full transition-colors duration-200'
+  const disabledClass = props.disabled ? 'opacity-90 !cursor-not-allowed pointer-events-none' : ''
+
   const variants: Record<string, string> = {
     outline: 'bg-transparent border border-white text-white text-sm font-medium',
-    secondary: 'bg-primary-dark text-secondary-dark uppercase group inline-block relative overflow-hidden px-5 py-3 rounded-full text-secondary-dark uppercase tracking-wide bg-[#05E2BF] transition-all duration-300 ease-out z-10',
+    secondary:
+      'bg-primary-dark text-secondary-dark uppercase group inline-block relative overflow-hidden px-5 py-3 rounded-full text-secondary-dark uppercase tracking-wide bg-[#05E2BF] transition-all duration-300 ease-out z-10',
     default: 'bg-white text-secondary-dark text-sm font-medium text-sm',
-  };
+  }
 
   const hoverClasses: Record<string, string> = {
     outline: 'hover:border-gray-150 hover:text-gray-100',
-    secondary: "hover:text-white",
+    secondary: 'hover:text-white',
     default: 'hover:bg-primary-dark hover:text-white',
   }
 
@@ -44,13 +46,10 @@ const classes = computed(() => {
     baseClass,
     disabledClass || variants[props.variant] || variants.default,
     !props.disabled ? hoverClasses[props.variant] || hoverClasses.default : '',
-  ].join(' ');
-});
+  ].join(' ')
+})
 
-
-const tag = computed(() => (
-  props.to ? resolveComponent('NuxtLink') :
-    props.href ? 'a' : 'button'))
+const tag = computed(() => (props.to ? resolveComponent('NuxtLink') : props.href ? 'a' : 'button'))
 </script>
 
 <template>
@@ -62,7 +61,7 @@ const tag = computed(() => (
     :class="classes"
     v-bind="$attrs"
   >
-  <template v-if="isLoading">
+    <template v-if="isLoading">
       <svg
         class="animate-spin -ml-1 mr-3 h-6 w-6 text-current"
         xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +87,10 @@ const tag = computed(() => (
       <slot name="left" />
       <span class="inline-flex items-center relative z-10"><slot /></span>
       <slot name="right" />
-      <span v-if="variant === 'secondary'" class="absolute inset-0 w-0 bg-[#03b9a0] transition-all duration-300 ease-out group-hover:w-full"></span>
+      <span
+        v-if="variant === 'secondary'"
+        class="absolute inset-0 w-0 bg-[#03b9a0] transition-all duration-300 ease-out group-hover:w-full"
+      />
     </template>
   </component>
 </template>

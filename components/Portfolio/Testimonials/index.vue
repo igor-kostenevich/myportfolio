@@ -16,7 +16,6 @@ const bottomTestimonials = computed(() => {
   return store.testimonials.slice(Math.ceil(store.testimonials.length / 2))
 })
 
-
 const topRowRef = ref<HTMLElement | null>(null)
 const bottomRowRef = ref<HTMLElement | null>(null)
 
@@ -37,7 +36,7 @@ onMounted(async () => {
           end: 'bottom 50%',
           scrub: 1,
         },
-      }
+      },
     )
   }
 
@@ -55,7 +54,7 @@ onMounted(async () => {
           end: 'bottom 50%',
           scrub: 1,
         },
-      }
+      },
     )
   }
 })
@@ -64,7 +63,10 @@ onMounted(async () => {
 <template>
   <div class="bg-dark text-white">
     <div class="relative overflow-hidden">
-      <div ref="topRowRef" class="flex gap-4 sm:gap-6 will-change-transform">
+      <div
+        ref="topRowRef"
+        class="flex gap-4 sm:gap-6 will-change-transform"
+      >
         <TestimonialCard
           v-for="(item, i) in topTestimonials"
           :key="'top-' + i"
@@ -74,7 +76,10 @@ onMounted(async () => {
     </div>
 
     <div class="mt-3 relative overflow-hidden">
-      <div ref="bottomRowRef" class="flex gap-4 sm:gap-6 will-change-transform">
+      <div
+        ref="bottomRowRef"
+        class="flex gap-4 sm:gap-6 will-change-transform"
+      >
         <TestimonialCard
           v-for="(item, i) in bottomTestimonials"
           :key="'bottom-' + i"
@@ -84,4 +89,3 @@ onMounted(async () => {
     </div>
   </div>
 </template>
-

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 interface Testimonial {
-  name: string;
-  role: string;
-  avatar?: string;
-  companyLogo?: string;
-  text: string;
+  name: string
+  role: string
+  avatar?: string
+  companyLogo?: string
+  text: string
 }
 
-const props = defineProps<{
+defineProps<{
   data: Testimonial
 }>()
 </script>

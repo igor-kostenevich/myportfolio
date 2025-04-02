@@ -1,11 +1,7 @@
 import type { Validation } from '@vuelidate/core'
 
-export function useValidationErrors<T extends Record<string, any>>(
-  validationOrRef: Validation<T> | Ref<Validation<T>>
-) {
-  const validation = isRef(validationOrRef)
-    ? computed(() => validationOrRef.value)
-    : computed(() => validationOrRef)
+export function useValidationErrors<T extends Record<string, any>>(validationOrRef: Validation<T> | Ref<Validation<T>>) {
+  const validation = isRef(validationOrRef) ? computed(() => validationOrRef.value) : computed(() => validationOrRef)
 
   const errors: { [K in keyof T]: ComputedRef<string> } = {} as any
 

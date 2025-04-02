@@ -16,7 +16,23 @@ module.exports = {
     useRuntimeConfig: 'readonly',
     useNotification: 'readonly',
     resolveComponent: 'readonly',
+    ref: 'readonly',
+    computed: 'readonly',
+    reactive: 'readonly',
+    watch: 'readonly',
+    watchEffect: 'readonly',
+    onMounted: 'readonly',
+    onUnmounted: 'readonly',
+    nextTick: 'readonly',
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
     $fetch: 'readonly',
+    useScrollTo: 'readonly',
+
+    // Pinia stores
+    usePortfolioStore: 'readonly',
   },
   extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'prettier'],
   parserOptions: {

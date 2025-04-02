@@ -43,7 +43,7 @@ const props = defineProps({
   light: {
     type: Boolean,
     default: false,
-  }
+  },
 })
 
 const uniqueId = computed(() => props.id || uuidv4())

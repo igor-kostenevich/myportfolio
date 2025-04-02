@@ -39,7 +39,7 @@ const rules = {
   aboutProject: {},
 }
 
-const activeService = computed(() => servicesOptions.find((option) => option.value === form.serviceType))
+const activeService = computed(() => servicesOptions.find(option => option.value === form.serviceType))
 
 const v$ = useVuelidate(rules, form as any)
 
@@ -132,7 +132,10 @@ async function onSubmit() {
 
 <template>
   <h3 class="text-lg font-medium mb-4 sm:mb-8">Fill the Form</h3>
-  <form class="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-10" @submit.prevent="onSubmit">
+  <form
+    class="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-10"
+    @submit.prevent="onSubmit"
+  >
     <BaseInput
       v-model="form.name"
       :error="errors.name.value"
@@ -158,9 +161,15 @@ async function onSubmit() {
       label="About Project"
       class="xl:col-span-2"
     />
-    <BaseButton type="submit" class="md:col-span-1 w-max mx-auto sm:mx-0">
+    <BaseButton
+      type="submit"
+      class="md:col-span-1 w-max mx-auto sm:mx-0"
+    >
       Get in Touch
-      <SvgIcon name="arrow-right" class="ml-2 text-secondary-dark"></SvgIcon>
+      <SvgIcon
+        name="arrow-right"
+        class="ml-2 text-secondary-dark"
+      ></SvgIcon>
     </BaseButton>
   </form>
 </template>
