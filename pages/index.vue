@@ -100,7 +100,7 @@ useHead({
   </section>
 
   <!-- Skills section -->
-  <section class="stack-section bg-secondary-dark pt-20 pb-10">
+  <section class="stack-section bg-secondary-dark pt-16 pb-20">
     <div class="container">
       <h3
         v-gsap.whenVisible.once.from='{ autoAlpha: 0, x: -50 }'
@@ -132,17 +132,19 @@ useHead({
     </div>
   </section>
 
+  <!-- Experience section -->
   <div class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px]" v-gsap.whenVisible.fromTo="[
       { autoAlpha: 0, y: 100 },
       { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }
     ]" >
+
   <!-- Projects section -->
   <section 
     v-gsap.whenVisible.fromTo="[
       { autoAlpha: 0, y: 100 },
       { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }
     ]" 
-    id="projects" class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20">
+    id="projects" class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20 xl:pb-28">
     <div class="container">
       <div v-gsap.whenVisible.from="{
         autoAlpha: 0,
@@ -273,11 +275,24 @@ useHead({
   <!-- FAQ section -->
   <section id="faq" class="bg-secondary-dark py-12 md:py-20 xl:py-[120px]">
     <div class="container">
-      <h2 class="secondary-title text-center mb-10 md:mb-16 xl:mb-20">
+      <h2 v-gsap.whenVisible.from="{
+        autoAlpha: 0,
+        y: 40,
+        ease: 'power2.out',
+        duration: 0.8
+      }" class="secondary-title text-center mb-10 md:mb-16 xl:mb-20">
         Got Questions? <br><span class="text-primary-dark font-medium">I’ve Got Answers</span>
       </h2>
 
+      <div v-gsap.whenVisible.stagger.children.from="{
+        autoAlpha: 0,
+        y: 50,
+        scale: 0.95,
+        ease: 'power3.out',
+        duration: 0.5
+      }">
       <PortfolioAccordion :faqs="store.faqs"/>
+      </div>
     </div>
   </section>
 </template>
