@@ -2,7 +2,31 @@
 const store = usePortfolioStore()
 
 useHead({
-  link: [{ rel: 'preload', href: '/movie.mp4', as: 'video', type: 'video/mp4' }],
+  title: 'Full-Stack Web Developer | Igor Kostenevych',
+  htmlAttrs: {
+    lang: 'en'
+  },
+  meta: [
+    {
+      name: 'keywords',
+      content: 'full-stack developer, vue developer, nuxt developer, nestjs backend, freelance developer, vue.js portfolio, custom CRM, firebase, mongodb, web developer ukraine'
+    },
+    { name: 'description', content: 'Scalable and efficient full-stack web development using Vue, Nuxt, NestJS, MongoDB, Firebase.' },
+    { property: 'og:title', content: 'Full-Stack Developer — Igor Kostenevych' },
+    { property: 'og:description', content: 'Custom web apps and CRM systems with modern tech. See portfolio and get in touch!' },
+    { property: 'og:image', content: '/images/preview-screen.png' },
+    { property: 'og:url', content: 'https://family-love-haven.com/' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { name: 'theme-color', content: '#161616' },
+    { name: 'author', content: 'Igor Kostenevych' },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'copyright', content: '© 2025 Igor Kostenevych' },
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://family-love-haven.com/' },
+    { rel: 'preload', href: '/movie.mp4', as: 'video', type: 'video/mp4' }
+  ]
 })
 </script>
 
@@ -281,7 +305,7 @@ useHead({
             ease: 'power2.out',
             duration: 0.6,
           }"
-          class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8"
+          class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 sm:gap-y-8"
         >
           <div
             v-for="service in store.services"
@@ -317,10 +341,10 @@ useHead({
   </div>
 
   <!-- Testimonials section -->
-  <section id="testimonials">
+  <section class="py-12 md:py-20 xl:py-[100px]" id="testimonials">
     <div class="container">
       <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
-        <h3 class="font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h3>
+        <h3 class="text-center md:text-left font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h3>
         <div class="max-w-[600px] xl:max-w-[856px]">
           <h2 class="secondary-title text-center sm:text-left mb-6">Words <span class="text-primary-dark font-medium">That Count </span></h2>
           <p class="text-gray-150 text-center sm:text-left sm:text-lg">

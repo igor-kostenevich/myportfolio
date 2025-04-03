@@ -35,7 +35,7 @@ defineProps({
         View Case
         <SvgIcon
           name="arrow-right"
-          class="transition group-hover/button:-rotate-45 ml-2 w-4 h-4"
+          class="transition-transform group-hover/button:-rotate-45 ml-2 w-4 h-4"
         />
       </BaseButton>
     </div>

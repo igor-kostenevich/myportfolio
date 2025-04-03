@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', 'nuxt3-notifications', '@pinia/nuxt', 'unplugin-svg-transformer/nuxt', 'v-gsap-nuxt'],
   components: true,
+  ssr: true,
   app: {
     head: {
       link: [

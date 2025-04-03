@@ -37,7 +37,7 @@ const classes = computed(() => {
   }
 
   const hoverClasses: Record<string, string> = {
-    outline: 'hover:border-gray-150 hover:text-gray-100',
+    outline: 'hover:bg-white hover:text-black',
     secondary: 'hover:text-white',
     default: 'hover:bg-primary-dark hover:text-white',
   }
