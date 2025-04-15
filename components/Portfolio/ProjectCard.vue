@@ -17,7 +17,7 @@ defineProps({
       <img
         :src="project.image"
         alt="Project Image"
-        class="w-full h-full object-cover absolute inset-0 group-hover:scale-100 scale-105 transition"
+        class="w-full h-full object-cover object-bottom absolute inset-0 transition rounded-b-[40px]"
       />
     </div>
     <div
@@ -26,7 +26,7 @@ defineProps({
     >
       <div class="xl:w-2/3">
         <h3 class="text-xl md:text-2xl group-hover:text-primary-dark tracking-tight font-medium mb-2.5 transition">{{ project.title }}</h3>
-        <p class="text-gray-100 text-sm md:text-base">{{ project.description }}</p>
+        <p class="text-gray-100 text-sm md:text-base">{{ project.shortDescription }}</p>
       </div>
       <BaseButton
         variant="outline"

@@ -4,12 +4,13 @@ const store = usePortfolioStore()
 useHead({
   title: 'Full-Stack Web Developer | Igor Kostenevych',
   htmlAttrs: {
-    lang: 'en'
+    lang: 'en',
   },
   meta: [
     {
       name: 'keywords',
-      content: 'full-stack developer, vue developer, nuxt developer, nestjs backend, freelance developer, vue.js portfolio, custom CRM, firebase, mongodb, web developer ukraine'
+      content:
+        'full-stack developer, vue developer, nuxt developer, nestjs backend, freelance developer, vue.js portfolio, custom CRM, firebase, mongodb, web developer ukraine',
     },
     { name: 'description', content: 'Scalable and efficient full-stack web development using Vue, Nuxt, NestJS, MongoDB, Firebase.' },
     { property: 'og:title', content: 'Full-Stack Developer — Igor Kostenevych' },
@@ -25,8 +26,8 @@ useHead({
   ],
   link: [
     { rel: 'canonical', href: 'https://family-love-haven.com/' },
-    { rel: 'preload', href: '/movie.mp4', as: 'video', type: 'video/mp4' }
-  ]
+    { rel: 'preload', href: '/movie.mp4', as: 'video', type: 'video/mp4' },
+  ],
 })
 </script>
 
@@ -341,7 +342,10 @@ useHead({
   </div>
 
   <!-- Testimonials section -->
-  <section class="py-12 md:py-20 xl:py-[100px]" id="testimonials">
+  <section
+    id="testimonials"
+    class="py-12 md:py-20 xl:py-[100px]"
+  >
     <div class="container">
       <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
         <h3 class="text-center md:text-left font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h3>

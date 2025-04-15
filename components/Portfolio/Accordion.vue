@@ -58,9 +58,9 @@ function handleToggle(index: number) {
       >
         <div
           v-if="openIndex === index"
-          v-html="item.answer"
           class="spoller mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-4 pb-6 tracking-tight max-w-[90%]"
-        ></div>
+          v-html="item.answer"
+        />
       </transition>
     </DisclosurePanel>
   </Disclosure>

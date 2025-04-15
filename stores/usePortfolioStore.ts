@@ -10,10 +10,18 @@ interface PortfolioState {
   projects: Array<{
     id: number
     title: string
-    description: string
-    tags?: string[]
-    url: string
+    shortDescription: string
+    longDescription: string
     image: string
+    videos: string[]
+    images: string[]
+    myRole: string
+    industries: string[]
+    techStack: string[]
+    links: {
+      github: string
+      live?: string | string[]
+    }
   }>
   services: Array<{
     icon: string
@@ -32,8 +40,6 @@ interface PortfolioState {
     text: string
   }>
 }
-
-const testimg = 'https://d2zp5xs5cp8zlg.cloudfront.net/image-79322-800.jpg'
 
 export const usePortfolioStore = defineStore('portfolio', {
   state: (): PortfolioState => ({
@@ -104,52 +110,385 @@ export const usePortfolioStore = defineStore('portfolio', {
     ],
     projects: [
       {
-        id: 1,
-        title: 'Nuxt.js Portfolio',
-        description: 'My personal portfolio website built with Nuxt.js and Tailwind CSS',
-        tags: ['nuxt', 'tailwind', 'vite', 'pinia'],
-        url: '',
-        image: testimg,
+        id: 14,
+        title: 'Acceptic – Corporate Website with Server-Side Form Handling and SSR Deployment',
+        shortDescription: 'Modern Nuxt 3 corporate website with integrated form endpoints, deployed to DigitalOcean with Nginx and PM2.',
+        longDescription: `
+          Acceptic is a modern, clean, and fast-loading corporate website built with Nuxt 3. The project was designed to showcase the company's services, expertise, and culture through a responsive, interactive user experience powered by server-side rendering.
+      
+          I was fully responsible for the frontend and server setup, including:
+          
+          - Development of all pages using Nuxt 3, TailwindCSS, Swiper, and Vue 3 Composition API
+          - Implementation of server-side logic using Nuxt’s built-in endpoints for contact forms with Nodemailer
+          - Validation, notification system, and form UX optimized for conversion
+          - Full SSR deployment on a cloud VPS (DigitalOcean), configured from scratch
+          - Setup of **Nginx reverse proxy** and **PM2** for process management and production monitoring
+          - CI-ready build scripts for seamless deployment and environment control
+      
+          The result is a highly performant, SEO-optimized, scalable corporate site with minimal backend overhead, fully tailored to business needs and ready for future content expansion.
+        `.trim(),
+        image: '/images/projects/acceptic/screen.jpg',
+        images: [
+          '/images/projects/acceptic/screen2.jpg',
+          '/images/projects/acceptic/screen3.jpg',
+          '/images/projects/acceptic/screen4.jpg',
+          '/images/projects/acceptic/screen5.jpg',
+          '/images/projects/acceptic/screen6.jpg',
+        ],
+        videos: [],
+        myRole: 'Full-Stack Developer (Nuxt 3, SSR, DevOps)',
+        industries: ['Corporate Websites', 'Web Development', 'Cloud Deployment'],
+        techStack: ['Nuxt 3', 'TailwindCSS', 'TypeScript', 'Nodemailer', 'DigitalOcean', 'Nginx', 'PM2', 'Swiper'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/acceptic',
+          live: 'https://acceptic.com/',
+        },
       },
       {
-        id: 2,
-        title: 'Vue.js Portfolio',
-        description: 'My personal portfolio website built with Vue.js and Tailwind CSS',
-        tags: ['vue', 'tailwind', 'vite', 'pinia'],
-        url: '',
-        image: testimg,
+        id: 12,
+        title: 'PV Designer – Application for Designing Photovoltaic Installations',
+        shortDescription: 'Advanced tool for planning and visualizing PV installations with automated layout, calculations, and offer generation.',
+        longDescription: `
+          PV Designer is a professional web application for designing photovoltaic (solar) installations. It allows users to quickly create precise solar panel layouts on rooftops, ground surfaces, or object images using real-world coordinates via Google Maps.
+      
+          Key features include:
+          - Address-based or map-click location selection
+          - Designing directly on uploaded photos or custom roof shapes
+          - Automatic and optimal panel placement in selected areas
+          - Ability to group panels into custom strings with inverter matching
+          - Real-world energy yield simulation based on shading, terrain, and losses
+          - Generation of multi-option commercial offers with full data calculations
+          - Technical documentation builder with electrical diagrams
+          - ROI and payback time calculation including subsidies or custom parameters
+          - Dynamic component library with real-time updates
+          - Auto-generated bill of materials with cable lengths
+          - 3D visualizations of the installation
+      
+          I was the main frontend developer of the project, implementing core functionality including the visual design tools, panel placement logic, map integration, and full offer generation flow.
+        `.trim(),
+        image: '/images/projects/pv/screen.jpg',
+        images: [
+          '/images/projects/pv/screen2.jpg',
+          '/images/projects/pv/screen3.jpg',
+          '/images/projects/pv/screen4.jpg',
+          '/images/projects/pv/screen5.jpg',
+          '/images/projects/pv/screen6.jpg',
+          '/images/projects/pv/screen7.jpg',
+          '/images/projects/pv/screen8.jpg',
+          '/images/projects/pv/screen9.jpg',
+        ],
+        videos: [],
+        myRole: 'Lead Frontend Developer – UI/UX logic, map tools, panel placement, offer builder',
+        industries: ['Renewable Energy', 'SaaS', 'PV Design', 'Engineering Tools'],
+        techStack: ['Vue 3', 'Vite', 'TailwindCSS', 'Vue Google Maps', 'Chart.js', 'Vue I18n'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/pv',
+          live: 'https://pv.soul-was-here.com/dashboard',
+        },
+      },
+      {
+        id: 11,
+        title: 'Brick CRM – Project & Workflow Management for Architects and Builders',
+        shortDescription: 'A modern CRM platform with calendar, kanban board, workload tracking, file system, ticketing, and drawing layouts.',
+        longDescription: `
+          Brick CRM is a full-featured project management system tailored for architects, construction teams, and engineering firms. It offers powerful tools for task coordination, resource planning, and document handling within a single streamlined interface.
+      
+          I was the sole front-end developer on this project for over a year and implemented more than 70% of the platform’s functionality. Key features I developed include:
+          
+          - A custom fullcalendar-based scheduling system
+          - Interactive kanban board with drag-and-drop support
+          - Workload tracking and task distribution modules
+          - A complete internal file system with lightbox previews
+          - A ticketing/helpdesk module for support management
+          - Scalable layout tools for architectural drawings
+          - Migration from Vue 2 to Vue 3 and Vite
+      
+          The application is built with Vue 3, Inertia.js, TailwindCSS, FullCalendar, Tiptap editor, Chart.js, and a variety of modular UI libraries. Localization, notifications, tooltips, and offline-friendly features are all deeply integrated into the user experience.
+        `.trim(),
+        image: '/images/projects/brick/screen.jpg',
+        images: [
+          '/images/projects/brick/screen2.jpg',
+          '/images/projects/brick/screen3.jpg',
+          '/images/projects/brick/screen4.jpg',
+          '/images/projects/brick/screen5.jpg',
+          '/images/projects/brick/screen6.jpg',
+          '/images/projects/brick/screen7.jpg',
+          '/images/projects/brick/screen8.jpg',
+        ],
+        videos: [],
+        myRole: 'Sole Frontend Developer – Vue 3 migration, core UI, and system architecture',
+        industries: ['Construction', 'Architecture', 'CRM', 'Project Management'],
+        techStack: [
+          'Vue 3',
+          'Vite',
+          'Inertia.js',
+          'TailwindCSS',
+          'FullCalendar',
+          'Tiptap Editor',
+          'Vue Chart.js',
+          'Frappe Gantt',
+          'Vue Final Modal',
+          'Vue I18n',
+          'Leaflet',
+          'Moment.js',
+        ],
+        links: {
+          github: 'https://github.com/igor-kostenevich/brick',
+          live: 'https://dev.brick-crm.soul-was-here.com/',
+        },
+      },
+      {
+        id: 13,
+        title: 'Custom CMS Platform – Scalable Website System for Automotive and Service Brands',
+        shortDescription: 'A Nuxt.js-based CMS platform used to build branded websites dealerships, service booking, and recipe content, etc',
+        longDescription: `
+          This project is a powerful, multi-site CMS platform built with Nuxt.js, designed to support a range of websites for automotive brands, rental services, and eco-initiatives.
+
+          I worked as one of the lead frontend developers and was responsible for developing the UI and architecture across several websites built on this system. Each site had its own design, content structure, and features, yet shared a common core — allowing for rapid scaling, modular customization, and centralized updates.
+
+          Key contributions and features I developed:
+          - Modular component system using Nuxt Composition API
+          - Media galleries, sliders, product/vehicle configurators
+          - Custom integrations with Google Maps, reCAPTCHA, analytics, and third-party APIs
+          - Full SEO integration: sitemaps, JSON-LD, multilingual (nuxt-i18n)
+          - Animations with GSAP, Swiper carousels, BugSnag error tracking
+          - Multi-language and region-ready layout system
+          - Seamless integration with custom CMS backend
+
+          The platform now powers multiple high-traffic websites, adapted to fit different industries with consistent performance and maintainability.
+        `.trim(),
+        image: '/images/projects/ford/screen.jpg',
+        images: [
+          '/images/projects/ford/screen2.jpg',
+          '/images/projects/ford/screen3.jpg',
+          '/images/projects/ford/screen4.jpg',
+          '/images/projects/ford/screen5.jpg',
+          '/images/projects/ford/screen6.jpg',
+          '/images/projects/ford/screen7.jpg',
+          '/images/projects/ford/screen8.jpg',
+        ],
+        videos: [],
+        myRole: 'Lead Frontend Developer – Multi-site architecture, UI/UX system, CMS integration',
+        industries: ['Automotive', 'Utility Services', 'Food & Lifestyle', 'CMS Development'],
+        techStack: [
+          'Nuxt 2',
+          'TailwindCSS',
+          'GSAP',
+          'Swiper',
+          'BugSnag',
+          'LightGallery.js',
+          'Vue-i18n',
+          'Vee-Validate',
+          'Google Maps',
+          'reCAPTCHA',
+          'Custom CMS',
+        ],
+        links: {
+          github: 'https://github.com/igor-kostenevich/ford',
+          live: ['https://ford.is/', 'https://gamafelagid.is/', 'https://www.mazda.is/', 'https://gottogeinfalt-live.mango.is/', 'https://www.askja.is/'],
+        },
       },
       {
         id: 3,
-        title: 'Nest.js Blog',
-        description: 'My personal blog website built with Nest.js and Tailwind CSS',
-        tags: ['nest', 'tailwind', 'vite', 'pinia'],
-        url: '',
-        image: testimg,
-      },
-      {
-        id: 4,
-        title: 'Vue.js Blog',
-        description: 'My personal blog website built with Vue.js and Tailwind CSS',
-        tags: ['vue', 'tailwind', 'vite', 'pinia'],
-        url: '',
-        image: testimg,
-      },
-      {
-        id: 5,
-        title: 'Nuxt.js E-commerce',
-        description: 'My personal e-commerce website built with Nuxt.js and Tailwind CSS',
-        tags: ['nuxt', 'tailwind', 'vite', 'pinia'],
-        url: '',
-        image: testimg,
+        title: 'Polyx Crypto Exchange',
+        shortDescription: 'Secure and user-friendly cryptocurrency exchange platform for spot trading and digital asset management.',
+        longDescription: `
+          Polyx is a cryptocurrency exchange designed for both novice and experienced traders. The platform provides spot trading with a clear and intuitive interface, real-time charts, and detailed market analytics.
+      
+          Built with a focus on security, performance, and user experience, Polyx supports various trading pairs and offers features like cold wallet storage, two-factor authentication (2FA), and anti-phishing protection.
+      
+          The exchange also includes modules for account management, transaction history, deposit and withdrawal flows, KYC/AML compliance, and responsive support. Its scalable architecture allows easy expansion for new features and trading instruments.
+        `.trim(),
+        image: '/images/projects/polyx/screen.jpg',
+        images: [
+          '/images/projects/polyx/screen2.jpg',
+          '/images/projects/polyx/screen3.jpg',
+          '/images/projects/polyx/screen4.jpg',
+          '/images/projects/polyx/screen5.jpg',
+          '/images/projects/polyx/screen6.jpg',
+        ],
+        videos: [],
+        myRole: 'Frontend',
+        industries: ['Crypto', 'Fintech', 'Trading'],
+        techStack: ['Vue 2', 'Vuex', 'TypeScript', 'SCSS', 'Webpack 3', 'Highcharts', 'jQuery'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/polyx',
+          live: 'https://polyx.net/en',
+        },
       },
       {
         id: 6,
-        title: 'Vue.js E-commerce',
-        description: 'My personal e-commerce website built with Vue.js and Tailwind CSS',
-        tags: ['vue', 'tailwind', 'vite', 'pinia'],
-        url: '',
-        image: testimg,
+        title: 'Planner Online',
+        shortDescription: 'Interactive web planner for kitchen and bathroom design with 3D visualization and project saving.',
+        longDescription: `
+          Planner Online is a Vue 3 + Inertia.js-based interactive web application developed for Castorama customers in Poland. It allows users to plan, customize, and visualize their kitchen or bathroom designs directly in the browser, with a smooth and responsive interface.
+      
+          The application integrates a 3D planner engine (via iframe or external script) and supports multi-step wizards, layout configuration, and persistent project saving through user accounts or cookies.
+      
+          Built using Vite, TailwindCSS, and Headless UI, the frontend offers a clean, modern design with accessible components. The system also uses UUIDs for identifying user sessions and integrates various utilities for cookie handling, form inputs, and dynamic script loading.
+        `.trim(),
+        image: '/images/projects/planner/screen.jpg',
+        images: [
+          '/images/projects/planner/screen2.jpg',
+          '/images/projects/planner/screen3.jpg',
+          '/images/projects/planner/screen4.jpg',
+          '/images/projects/planner/screen5.jpg',
+        ],
+        videos: [],
+        myRole: 'Frontend',
+        industries: ['Retail', '3D Tools', 'Product Customization'],
+        techStack: ['Vue 3', 'Inertia.js', 'Vite', 'TailwindCSS', 'Headless UI', 'Universal Cookie', 'PostCSS'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/mw-planneronline',
+          live: 'https://planeronline.castorama.pl/',
+        },
+      },
+      {
+        id: 4,
+        title: 'Bathroom Inspirations (Castorama)',
+        shortDescription: 'Interactive in-store web app for bathroom design inspiration and customer engagement.',
+        longDescription: `
+          Łazienkowe Inspiracje is an interactive Vue 3 application developed for Castorama stores in Poland. It provides customers with a modern touchscreen interface to explore bathroom designs, collections, and product inspirations directly in physical retail locations.
+      
+          The application includes features like category-based browsing, fullscreen image galleries, and QR code generation for mobile access. A virtual keyboard and idle screen functionality ensure optimal UX on public touchscreen kiosks.
+      
+          Developed with performance and simplicity in mind, the app works offline, auto-restarts on inactivity, and supports multiple screens and content updates via CMS.
+        `.trim(),
+        image: '/images/projects/bathroom/screen.jpg',
+        images: ['/images/projects/bathroom/screen2.jpg', '/images/projects/bathroom/screen3.jpg', '/images/projects/bathroom/screen4.jpg'],
+        videos: [],
+        myRole: 'Frontend',
+        industries: ['Retail', 'UX/UI', 'Kiosk Apps'],
+        techStack: ['Vue 3', 'Vuex', 'Vuetify 3', 'Swiper', 'Sass'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/bathroom',
+          live: 'https://lazienkoweinspiracje.castorama.pl/',
+        },
+      },
+      {
+        id: 5,
+        title: 'Kitchen Inspirations (Castorama)',
+        shortDescription: 'Interactive in-store web app for kitchen design inspiration and customer engagement.',
+        longDescription: `
+          Kitchen Inspirations is an interactive Vue 3 application developed for Castorama stores in Poland. It allows customers to browse modern kitchen arrangements, product lines, and design inspirations through a touchscreen interface installed in retail locations.
+      
+          Just like its bathroom counterpart, the app features category navigation, fullscreen galleries, and the ability to generate QR codes for seamless mobile continuation. Virtual keyboard support and automatic idle screen make it perfect for kiosk usage.
+      
+          Built with scalability in mind, the application supports multiple screen types, auto-updates content via CMS, and ensures smooth performance in offline mode with a fallback mechanism and auto-restart on user inactivity.
+        `.trim(),
+        image: '/images/projects/kitchen/screen.jpg',
+        images: [
+          '/images/projects/kitchen/screen2.jpg',
+          '/images/projects/kitchen/screen3.jpg',
+          '/images/projects/kitchen/screen4.jpg',
+          '/images/projects/kitchen/screen5.jpg',
+        ],
+        videos: [],
+        myRole: 'Frontend',
+        industries: ['Retail', 'UX/UI', 'Kiosk Apps'],
+        techStack: ['Vue 2', 'Vuex', 'Vuetify 2', 'Bootstrap 4', 'Vuelidate', 'Sass', 'VForm'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/kitchen',
+          live: 'https://kuchenneinspiracje.castorama.pl/',
+        },
+      },
+      {
+        id: 1,
+        title: 'Yolo Education Platform',
+        shortDescription: 'Web platform for managing educational workflows: tasks, events, staff, and more.',
+        longDescription: `
+          Yolo is a modern educational management platform built for learning centers. The system includes a dynamic event calendar, task and homework tables, user and employee management, progress dashboards, and internal messaging.
+          
+          The platform was designed to simplify day-to-day operations and communication within educational institutions. Its modular structure allows scaling to fit the needs of small tutoring centers and large multi-branch academies.
+          
+          Additional features included: real-time notifications, role-based access (admin, teacher, student), file sharing, and user activity tracking.
+        `.trim(),
+        image: '/images/projects/yolo/screen.jpeg',
+        images: ['/images/projects/yolo/screen2.jpeg'],
+        videos: [],
+        myRole: 'Frontend',
+        industries: ['EdTech', 'E-learning', 'Internal Tools'],
+        techStack: ['Vue 3', 'Pinia', 'TypeScript', 'Element Plus', 'Bootstrap', 'SCSS'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/yolo',
+          live: '',
+        },
+      },
+      {
+        id: 2,
+        title: 'Trackk – Staff Observation & Coaching Platform',
+        shortDescription: 'A platform for observing, evaluating, and coaching staff in childcare and educational organizations.',
+        longDescription: `
+          Trackk is a platform designed to monitor and enhance the performance of staff working in kindergartens and educational institutions. It enables structured individual and group observations, provides questionnaires for feedback, supports coaching sessions, and tracks development goals.
+          
+          The system includes role-based access, location and group management, activity and policy categorization, and a rich set of predefined observation questions based on pedagogical standards. Administrators can create detailed assessments across various categories such as interaction skills, language development, and social-emotional development. Built for flexibility and insight, Trackk helps organizations build a strong, supportive working environment.
+        `.trim(),
+        image: '',
+        images: [],
+        videos: [],
+        myRole: 'Frontend Developer – implemented all core UI screens, page logic, localization, and CMS integration.',
+        industries: ['EdTech', 'HR Tech', 'Internal Tools'],
+        techStack: ['Vue 3', 'Vuex', 'Vuetify', 'Vue Router', 'Vite', 'Sass'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/trackk',
+          live: 'https://trackk.com',
+        },
+      },
+      {
+        id: 7,
+        title: 'Camdog.ai – Video Surveillance Platform',
+        shortDescription: 'Cloud-based video surveillance system with AI analytics, camera management, billing, and real-time alerts.',
+        longDescription: `
+          Camdog.ai is a modern cloud video surveillance platform designed for real-time monitoring, smart alerts, and multi-camera management. The system allows users to connect IP cameras, view live and recorded streams, configure alerts, manage locations, and monitor activity across physical spaces via a web interface.
+      
+          Built with Vue 3, TailwindCSS, and Vite, the frontend integrates with a powerful REST API to provide seamless camera onboarding, geolocation tagging, AI-based motion detection zones (polygon drawing), and smart notifications. Users can manage subscription plans through integrated Stripe billing and view detailed camera session reports.
+      
+          My work on the project included developing the camera management interface (adding/editing/removing cameras, reordering, snapshots), integrating live video playback via HLS and Video.js, implementing polygon editing tools for AI motion detection zones, and building interactive video walls with drag-and-drop support.
+      
+          I also worked on:
+          - Stripe billing integration for subscription plans
+          - Dynamic timeline visualization using vis-timeline
+          - Notifications and alert settings per camera
+          - Interactive location tagging on Google Maps
+          - Session history and billing reports UI
+        `.trim(),
+        image: '/images/projects/camdog/screen.jpg',
+        images: [],
+        videos: ['https://www.youtube.com/watch?v=VPxfLD5lWX8'],
+        myRole: 'Frontend Developer – UI/UX implementation, video stream integration, camera management features',
+        industries: ['AI', 'Security', 'SaaS', 'Video Surveillance'],
+        techStack: ['Vue 3', 'Vite', 'TailwindCSS', 'Stripe JS', 'Firebase', 'Video.js', 'Playcore HLS', 'VeeValidate', 'Yup', 'Google Maps', 'Vis Timeline'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/camdog',
+          live: 'https://camdog.ai',
+        },
+      },
+      {
+        id: 8,
+        title: 'Handmaid Cleaning – Online Booking & Client Management Platform',
+        shortDescription: 'A modern web app for managing cleaning service bookings, client accounts, and real-time scheduling.',
+        longDescription: `
+          This project is a web-based client management and booking platform for a professional cleaning company. It allows users to quickly book services, manage upcoming appointments, receive status updates, and interact with customer support.
+
+          The application was built using Nuxt.js with TypeScript and TailwindCSS. It includes multilingual support via nuxt-i18n, form validation with Vuelidate, persistent user sessions with Firebase, and interactive notifications via Vue Toast and VTooltip.
+
+          The dashboard provides:
+          - Fast service booking and rescheduling flow
+          - Cleaning history, payment tracking, and reviews
+          - Multistep forms, input masking, and tooltips
+          - Firebase-based login and session refresh
+          - Scalable layout using Tailwind UI components
+        `.trim(),
+        image: '/images/projects/portal/screen.jpg',
+        images: ['/images/projects/portal/screen2.jpg'],
+        videos: [],
+        myRole: 'Frontend Developer',
+        industries: ['Cleaning Services', 'Customer Portals', 'Service Apps'],
+        techStack: ['Nuxt.js', 'Vue.js', 'Tailwind CSS', 'Vuelidate', 'Firebase', 'nuxt-i18n', 'Axios', 'Sass'],
+        links: {
+          github: 'https://github.com/igor-kostenevich/customer-portal',
+          live: 'https://www.handmaidcleaning.com/',
+        },
       },
     ],
     services: [
@@ -198,7 +537,7 @@ export const usePortfolioStore = defineStore('portfolio', {
     ],
     faqs: [
       {
-        question: "How long does it take to build a web app?",
+        question: 'How long does it take to build a web app?',
         answer: `
           <p>It depends on the project. Thanks to my experience and tools, I work fast and efficiently.</p>
           <p><strong>Examples:</strong></p>
@@ -208,10 +547,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- CRM or admin panel with roles and authorization — from 10 working days</li>
           </ul>
           <p>Timeframes are discussed in advance and always met.</p>
-        `
+        `,
       },
       {
-        question: "What does the development process look like?",
+        question: 'What does the development process look like?',
         answer: `
           <p><strong>The process is transparent and consists of several stages:</strong></p>
           <ol class="list-decimal list-inside mt-2">
@@ -229,10 +568,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- via a CRM with roles, filters, export, and change history</li>
             <li>- via an editable JSON file — a budget-friendly solution</li>
           </ul>
-        `
+        `,
       },
       {
-        question: "Can you help with design too?",
+        question: 'Can you help with design too?',
         answer: `
           <p>Yes. If you don’t have a design yet — I collaborate with a skilled UI/UX designer with 7 years of experience.</p>
           <p>We can create a clean, modern, and user-friendly interface tailored to your audience and business goals.</p>
@@ -240,18 +579,18 @@ export const usePortfolioStore = defineStore('portfolio', {
           <p class="mt-2">You can check out his portfolio here: 
             <a href="https://oleksandr-malik.webflow.io/" target="_blank">See profile</a>
           </p>
-        `
+        `,
       },
       {
-        question: "What if I need changes later?",
+        question: 'What if I need changes later?',
         answer: `
           <p>Minor edits (like design tweaks or text updates) after project delivery are free.</p>
           <p>More advanced or long-term improvements can be agreed upon separately.</p>
           <p>I’m always open to cooperation at any stage.</p>
-        `
+        `,
       },
       {
-        question: "How do you ensure website security?",
+        question: 'How do you ensure website security?',
         answer: `
           <ul class="list-disc list-inside">
             <li>- Secure HTTPS connection by default</li>
@@ -261,10 +600,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- Reliable VPS hosting (DigitalOcean, Hetzner, etc.)</li>
             <li>- Following OWASP recommendations and regular dependency updates</li>
           </ul>
-        `
+        `,
       },
       {
-        question: "How is your approach different from an agency?",
+        question: 'How is your approach different from an agency?',
         answer: `
           <ul class="list-disc list-inside">
             <li>- You work directly with me — no managers or miscommunication</li>
@@ -274,10 +613,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- Transparent process — no hidden fees</li>
           </ul>
           <p>You get a reliable, well-thought-out solution, without the overhead.</p>
-        `
+        `,
       },
       {
-        question: "Do you provide support after the project is finished?",
+        question: 'Do you provide support after the project is finished?',
         answer: `
           <p>Yes, I offer support after the project:</p>
           <ul class="list-disc list-inside">
@@ -287,10 +626,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- Monitoring, notifications, and auto-deploy setup if needed</li>
             <li>- Optional hourly or subscription-based support</li>
           </ul>
-        `
+        `,
       },
       {
-        question: "Do you work under a contract or platform?",
+        question: 'Do you work under a contract or platform?',
         answer: `
           <p>I work the way that’s most convenient for you:</p>
           <ul class="list-disc list-inside">
@@ -301,10 +640,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>Official contract with NDA if required</li>
           </ul>
           <p>If you prefer another option — we’ll discuss it.</p>
-        `
+        `,
       },
       {
-        question: "Why should I choose you?",
+        question: 'Why should I choose you?',
         answer: `
           <ul class="list-disc list-inside">
             <li>- I’m always in touch</li>
@@ -314,10 +653,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- I work as a partner, not just a coder</li>
           </ul>
           <p>Your satisfaction matters to me — and I want you to come back again.</p>
-        `
+        `,
       },
       {
-        question: "How are you different from other freelancers?",
+        question: 'How are you different from other freelancers?',
         answer: `
           <ul class="list-disc list-inside">
             <li>- I don’t disappear or delay deadlines</li>
@@ -325,10 +664,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- I offer flexible development: start small and scale later</li>
             <li>- I value long-term cooperation over one-time gigs</li>
           </ul>
-        `
+        `,
       },
       {
-        question: "How reliable is your tech stack?",
+        question: 'How reliable is your tech stack?',
         answer: `
           <p>I use a modern and reliable tech stack:</p>
           <ul class="list-disc list-inside">
@@ -336,10 +675,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li><strong>Backend:</strong> NestJS, Express, Firebase, MongoDB/PostgreSQL</li>
           </ul>
           <p>Great for landing pages, admin panels, CRMs, marketplaces, and custom apps.</p>
-        `
+        `,
       },
       {
-        question: "How do you ensure the website loads fast?",
+        question: 'How do you ensure the website loads fast?',
         answer: `
           <ul class="list-disc list-inside">
             <li>-Optimized images and fonts</li>
@@ -348,10 +687,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- CDN and server-level optimization</li>
             <li>- Lighthouse optimization — 90+ scores guaranteed</li>
           </ul>
-        `
+        `,
       },
       {
-        question: "What is your approach to SEO and performance?",
+        question: 'What is your approach to SEO and performance?',
         answer: `
           <ul class="list-disc list-inside">
             <li>- Semantic HTML structure</li>
@@ -360,10 +699,10 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- SSR/SSG for proper indexing</li>
             <li>- Integration with Google Search Console and analytics</li>
           </ul>
-        `
+        `,
       },
       {
-        question: "What types of websites do you develop?",
+        question: 'What types of websites do you develop?',
         answer: `
           <p>I create custom solutions for various needs:</p>
           <ul class="list-disc list-inside">
@@ -375,9 +714,9 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- Portfolio and business card websites</li>
           </ul>
           <p>All sites are responsive, reliable, and easy to maintain or scale.</p>
-        `
-      }
-    ],    
+        `,
+      },
+    ],
     testimonials: [
       {
         name: 'Severyn Nalyvayko',
