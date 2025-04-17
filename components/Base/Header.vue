@@ -15,6 +15,7 @@ function toggleMobileMenu() {
 }
 
 onMounted(() => {
+  handleScroll()
   window.addEventListener('scroll', handleScroll)
 })
 onUnmounted(() => {
@@ -24,10 +25,10 @@ onUnmounted(() => {
 
 <template>
   <header
-    :class="['fixed left-0 right-0 top-0 z-40 transition-all duration-300', isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md']"
+    :class="['fixed left-0 right-0 top-0 z-40 transition-all duration-300 gap-y-4', isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md']"
   >
     <div class="container">
-      <div class="flex items-center justify-between relative py-2">
+      <div class="flex items-center justify-between relative h-full">
         <nuxt-link
           to="/"
           class="relative z-30"
@@ -37,59 +38,42 @@ onUnmounted(() => {
             alt=""
           />
         </nuxt-link>
-        <nav class="hidden lg:flex min-h-[88px]">
-          <ul class="flex justify-center items-center gap-y-4 gap-10 font-medium text-sm flex-wrap">
-            <li
-              class="hover:text-gray-150 transition"
-              @click.prevent="scrollToElement('about')"
-            >
-              <a href="#">About</a>
-            </li>
-            <li
-              class="hover:text-gray-150 transition"
-              @click.prevent="scrollToElement('projects')"
-            >
-              <a href="#">Projects</a>
-            </li>
-            <li
-              class="hover:text-gray-150 transition"
-              @click.prevent="scrollToElement('services')"
+        <nav class="hidden lg:flex items-center h-[70px]">
+          <ul class="flex justify-center gap-y-4 gap-10 font-medium text-sm flex-wrap">
+            <li v-for="item in [
+                  { id: 'about', label: 'About' },
+                  { id: 'projects', label: 'Projects' },
+                  { id: 'services', label: 'Services' },
+                  { id: 'testimonials', label: 'Testimonials' },
+                  { id: 'contacts', label: 'Contact me' },
+                  { id: 'faq', label: 'FAQ' }
+                ]"
+                :key="item.id"
+                @click.prevent="scrollToElement(item.id)"
+                class="transition"
             >
               <a
                 href="#"
-                class="relative"
+                class="block hover:text-primary-dark transition pointer-events-auto relative"
               >
-                Services
-                <span
-                  class="flex items-center justify-center bg-primary-dark w-4 h-4 rounded-full absolute -right-3.5 -top-3.5 text-xs font-medium text-black"
-                  >{{ store.servicesCount }}</span
-                >
+                {{ item.label }}
+
+                <template v-if="item.id === 'services' && store.servicesCount">
+                  <span
+                    class="flex items-center justify-center bg-primary-dark w-4 h-4 rounded-full absolute -right-3.5 -top-3.5 text-xs font-medium text-black"
+                  >
+                    {{ store.servicesCount }}
+                  </span>
+                </template>
               </a>
-            </li>
-            <li
-              class="hover:text-gray-150 transition"
-              @click.prevent="scrollToElement('testimonials')"
-            >
-              <a href="#">Testimonials</a>
-            </li>
-            <li
-              class="hover:text-gray-150 transition"
-              @click.prevent="scrollToElement('contacts')"
-            >
-              <a href="#">Contact me</a>
-            </li>
-            <li
-              class="hover:text-gray-150 transition"
-              @click.prevent="scrollToElement('faq')"
-            >
-              <a href="#">FAQ</a>
             </li>
           </ul>
         </nav>
         <div class="flex items-center">
           <base-button
             class="group hidden sm:flex !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
-            href="apwork.com"
+            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
+            target="_blank"
           >
             Hire me on Upwork
 
@@ -126,7 +110,8 @@ onUnmounted(() => {
         >
           <base-button
             class="sm:hidden"
-            href="apwork.com"
+            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
+            target="_blank"
           >
             Hire me on Upwork
             <SvgIcon

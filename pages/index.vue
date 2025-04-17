@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 const store = usePortfolioStore()
+const { scrollToElement } = useScrollTo()
+
+const serviceType = ref('')
+const visibleProjectsCount = ref(5)
 
 useHead({
   title: 'Full-Stack Web Developer | Igor Kostenevych',
@@ -29,6 +33,15 @@ useHead({
     { rel: 'preload', href: '/movie.mp4', as: 'video', type: 'video/mp4' },
   ],
 })
+
+const handleServiceClick = (value: string) => {
+  serviceType.value = value
+  scrollToElement('contacts')
+}
+
+const loadMoreProjects = () => {
+  visibleProjectsCount.value += 2
+}
 </script>
 
 <template>
@@ -61,6 +74,8 @@ useHead({
           <BaseButton
             class="group mt-8 md:mt-0 text-2xl font-normal leading-7 tracking-normal md:ml-12"
             variant="secondary"
+            href="https://www.linkedin.com/in/igor-kostenevich/"
+            target="_blank"
           >
             Get in Touch
 
@@ -159,7 +174,7 @@ useHead({
               href="https://www.linkedin.com/in/igor-kostenevich/"
               target="_blank"
               variant="outline"
-              class="w-full xs:w-auto hover:text-gray-100"
+              class="w-full xs:w-auto hover:bg-primary-dark"
             >
               Let's Connect
               <SvgIcon
@@ -258,7 +273,7 @@ useHead({
           class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 auto-rows-[minmax(300px,_auto)] mb-10 md:mb-16"
         >
           <PortfolioProjectCard
-            v-for="(project, index) in store.projects"
+            v-for="(project, index) in store.projects.slice(0, visibleProjectsCount)"
             :key="project.id"
             :project="project"
             :is-first-project="index === 0"
@@ -267,7 +282,7 @@ useHead({
         </div>
 
         <div class="flex justify-center">
-          <BaseButton> VIEW MORE CASE STUDIES </BaseButton>
+          <BaseButton @click="loadMoreProjects"> VIEW MORE CASE STUDIES </BaseButton>
         </div>
       </div>
     </section>
@@ -324,7 +339,7 @@ useHead({
             <div class="">
               <h3 class="font-medium text-lg md:text-2xl tracking-tight mb-4 mt-3 text-center md:text-left">{{ service.title }}</h3>
               <p class="tracking-tight text-gray-150 mb-4 text-center md:text-left">{{ service.description }}</p>
-              <button class="flex items-center justify-center w-full md:w-auto">
+              <button class="flex items-center justify-center w-full md:w-auto" @click="handleServiceClick(service.id)">
                 <span
                   class="text-primary-dark uppercase font-space-mono md:max-w-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-w-[160px] whitespace-nowrap group-hover:mr-3 mr-3 md:mr-0"
                   >Contact me</span
@@ -379,7 +394,7 @@ useHead({
           <p class="text-gray-150 text-center sm:text-left">Submit your project details and I’ll get back to you.</p>
         </div>
         <div class="w-full">
-          <PortfolioContactForm />
+          <PortfolioContactForm :service-type="serviceType" />
         </div>
       </div>
     </div>

@@ -15,6 +15,30 @@ const openIndex = ref<number | null>(null)
 function handleToggle(index: number) {
   openIndex.value = openIndex.value === index ? null : index
 }
+
+function beforeEnter(el: Element) {
+  const elH = el as HTMLElement
+  elH.style.maxHeight = '0'
+  elH.style.overflow = 'hidden'
+}
+
+function enter(el: Element) {
+  const elH = el as HTMLElement
+  elH.style.transition = 'max-height 0.3s ease'
+  elH.style.maxHeight = elH.scrollHeight + 'px'
+}
+
+function leave(el: Element) {
+  const elH = el as HTMLElement
+  elH.style.transition = 'max-height 0.3s'
+  elH.style.maxHeight = '0'
+  // elH.style.maxHeight = elH.scrollHeight + 'px'// 🧠 начнем с текущей высоты
+
+  // 👉 в следующем кадре (reflow) обнуляем
+  requestAnimationFrame(() => {
+    elH.style.maxHeight = '0'
+  })
+}
 </script>
 
 <template>
@@ -34,7 +58,7 @@ function handleToggle(index: number) {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 min-w-5 w-5 ml-6 text-gray-400 transition-transform"
-        :class="open ? 'rotate-180 text-primary-dark' : 'rotate-0'"
+        :class="openIndex === index ? 'rotate-180 text-primary-dark' : 'rotate-0'"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -49,18 +73,16 @@ function handleToggle(index: number) {
     </DisclosureButton>
     <DisclosurePanel static>
       <transition
-        enter-active-class="transition duration-300 ease-out"
-        enter-from-class="transform scale-95 opacity-0"
-        enter-to-class="transform scale-100 opacity-100"
-        leave-active-class="transition duration-50 ease-in"
-        leave-from-class="transform scale-100 opacity-100"
-        leave-to-class="transform scale-95 opacity-0"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
       >
         <div
-          v-if="openIndex === index"
-          class="spoller mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-4 pb-6 tracking-tight max-w-[90%]"
-          v-html="item.answer"
-        />
+          v-show="openIndex === index"
+          class="spoller overflow-hidden mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-4 tracking-tight max-w-[90%]"
+        >
+          <div v-html="item.answer" class="pb-6"></div>
+        </div>
       </transition>
     </DisclosurePanel>
   </Disclosure>

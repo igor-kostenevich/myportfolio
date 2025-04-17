@@ -547,6 +547,7 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- CRM or admin panel with roles and authorization — from 10 working days</li>
           </ul>
           <p>Timeframes are discussed in advance and always met.</p>
+          <p>*The timeline may vary depending on the features and integrations you need.</p>
         `,
       },
       {
@@ -568,6 +569,8 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>- via a CRM with roles, filters, export, and change history</li>
             <li>- via an editable JSON file — a budget-friendly solution</li>
           </ul>
+          
+          <p>You stay updated throughout the process — from planning to launch.</p>
         `,
       },
       {
@@ -629,17 +632,17 @@ export const usePortfolioStore = defineStore('portfolio', {
         `,
       },
       {
-        question: 'Do you work under a contract or platform?',
+        question: 'How can I pay you — through a platform or directly?',
         answer: `
-          <p>I work the way that’s most convenient for you:</p>
-          <ul class="list-disc list-inside">
-            <li>Upwork</li>
-            <li>Wise</li>
-            <li>IBAN</li>
-            <li>Sole Proprietor (for Ukraine)</li>
-            <li>Official contract with NDA if required</li>
+          <p>I offer flexible payment and collaboration options:</p>
+          <ul class="">
+            <li>- Upwork</li>
+            <li>- Wise</li>
+            <li>- IBAN transfer</li>
+            <li>- Sole Proprietor (for Ukraine)</li>
+            <li>- Official contract with NDA, if needed</li>
           </ul>
-          <p>If you prefer another option — we’ll discuss it.</p>
+          <p>If you have a different preference — I’m happy to accommodate.</p>
         `,
       },
       {
@@ -732,7 +735,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         name: 'Raquel Rodrigues',
-        role: 'Project Manager, Edge Opti Tech LTD',
+        role: 'CTO, Eucalyptus Labs Inc',
         avatar: 'raquel',
         text: `Ihor played a crucial role in upgrading our Vue.js and Vuetify framework from version 2 to 3. His technical expertise streamlined our UI and significantly enhanced performance. He's highly professional and a great communicator. Highly recommended!`,
       },

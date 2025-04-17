@@ -5,6 +5,10 @@ import type { IContactForm, ISelectOptions } from '~/types'
 import { useValidationErrors } from '~/composables/useValidationErrors'
 const { notify } = useNotification()
 
+const props = defineProps<{
+  serviceType: string
+}>()
+
 const isLoading = ref(false)
 
 const initialFormState: IContactForm = {
@@ -120,14 +124,27 @@ async function onSubmit() {
       type: 'success',
     })
     Object.assign(form, initialFormState)
+    v$.value.$reset()
   } catch (error) {
     notify({
       title: 'Error',
       text: 'An error occurred while sending your email',
       type: 'error',
     })
+    v$.value.$reset()
   }
 }
+
+watch(
+  () => props.serviceType,
+  (newValue) => {
+    if (newValue) {
+      form.serviceType = newValue  // 👈 вот это добавь
+      v$.value.serviceType.$touch()
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -163,13 +180,26 @@ async function onSubmit() {
     />
     <BaseButton
       type="submit"
-      class="md:col-span-1 w-max mx-auto sm:mx-0"
+      class="group md:col-span-1 w-max mx-auto sm:mx-0"
     >
       Get in Touch
-      <SvgIcon
-        name="arrow-right"
-        class="ml-2 text-secondary-dark"
-      ></SvgIcon>
+      <template #right>
+        <svg
+          class="flex items-center justify-center w-5 h-5 ml-2 group-hover:-rotate-45 transition-transform !duration-200"
+          width="16"
+          height="17"
+          viewBox="0 0 16 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.33497 4.59961L13.335 8.59961L9.33497 12.5996M12.668 8.59961L2.66797 8.59961"
+            stroke="currentColor"
+            stroke-width="1.44"
+            stroke-linecap="square"
+          />
+        </svg>
+      </template>
     </BaseButton>
   </form>
 </template>

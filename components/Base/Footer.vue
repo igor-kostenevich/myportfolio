@@ -8,31 +8,31 @@ const { scrollToElement } = useScrollTo()
       <nav>
         <ul class="flex justify-center items-center gap-y-4 gap-10 mb-10 font-medium text-sm flex-wrap">
           <li
-            class="hover:text-gray-150 transition cursor-pointer"
+            class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('about')"
           >
             <a href="#">About</a>
           </li>
           <li
-            class="hover:text-gray-150 transition cursor-pointer"
+            class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('projects')"
           >
             <a href="#">Projects</a>
           </li>
           <li
-            class="hover:text-gray-150 transition cursor-pointer"
+            class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('services')"
           >
             <a href="#">Services</a>
           </li>
           <li
-            class="hover:text-gray-150 transition cursor-pointer"
+            class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('testimonials')"
           >
             <a href="#">Testimonials</a>
           </li>
           <li
-            class="hover:text-gray-150 transition cursor-pointer"
+            class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('contacts')"
           >
             <a href="#">Contact me</a>
@@ -44,7 +44,6 @@ const { scrollToElement } = useScrollTo()
           <a
             href="https://www.linkedin.com/in/igor-kostenevich/"
             target="_blank"
-            class=""
           >
             <SvgIcon name="upwork" />
           </a>
