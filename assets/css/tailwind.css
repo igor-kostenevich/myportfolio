@@ -13,6 +13,19 @@ body {
   @apply font-poppins overflow-x-hidden text-white min-h-screen;
 }
 
+body.sidebar-open {
+  @apply overflow-hidden;
+}
+
+body.sidebar-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
 .container {
   @apply md:max-w-[928px] xl:max-w-[83rem] px-4 mx-auto;
 }
@@ -39,6 +52,10 @@ body {
 
 .spoller p {
   @apply mt-4;
+}
+
+.spoller p:first-of-type {
+  @apply mt-0;
 }
 
 .spoller a {
