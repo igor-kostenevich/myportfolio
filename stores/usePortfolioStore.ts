@@ -118,16 +118,18 @@ export const usePortfolioStore = defineStore('portfolio', {
       
           I was fully responsible for the frontend and server setup, including:
           
-          - Development of all pages using Nuxt 3, TailwindCSS, Swiper, and Vue 3 Composition API
-          - Implementation of server-side logic using Nuxt’s built-in endpoints for contact forms with Nodemailer
-          - Validation, notification system, and form UX optimized for conversion
-          - Full SSR deployment on a cloud VPS (DigitalOcean), configured from scratch
-          - Setup of **Nginx reverse proxy** and **PM2** for process management and production monitoring
-          - CI-ready build scripts for seamless deployment and environment control
+          <ul>
+            <li>Development of all pages using Nuxt 3, TailwindCSS, Swiper, and Vue 3 Composition API</li>
+            <li>Implementation of server-side logic using Nuxt’s built-in endpoints for contact forms with Nodemailer</li>
+            <li>Validation, notification system, and form UX optimized for conversion</li>
+            <li>Full SSR deployment on a cloud VPS (DigitalOcean), configured from scratch</li>
+            <li>Setup of **Nginx reverse proxy** and **PM2** for process management and production monitoring</li>
+            <li>CI-ready build scripts for seamless deployment and environment control</li>
+          </ul>
       
           The result is a highly performant, SEO-optimized, scalable corporate site with minimal backend overhead, fully tailored to business needs and ready for future content expansion.
         `.trim(),
-        image: '/images/projects/acceptic/screen.jpg',
+        image: '/images/projects/acceptic/screen.png',
         images: [
           '/images/projects/acceptic/screen2.jpg',
           '/images/projects/acceptic/screen3.jpg',
@@ -152,21 +154,23 @@ export const usePortfolioStore = defineStore('portfolio', {
           PV Designer is a professional web application for designing photovoltaic (solar) installations. It allows users to quickly create precise solar panel layouts on rooftops, ground surfaces, or object images using real-world coordinates via Google Maps.
       
           Key features include:
-          - Address-based or map-click location selection
-          - Designing directly on uploaded photos or custom roof shapes
-          - Automatic and optimal panel placement in selected areas
-          - Ability to group panels into custom strings with inverter matching
-          - Real-world energy yield simulation based on shading, terrain, and losses
-          - Generation of multi-option commercial offers with full data calculations
-          - Technical documentation builder with electrical diagrams
-          - ROI and payback time calculation including subsidies or custom parameters
-          - Dynamic component library with real-time updates
-          - Auto-generated bill of materials with cable lengths
-          - 3D visualizations of the installation
+          <ul>
+            <li>Address-based or map-click location selection</li>
+            <li>Designing directly on uploaded photos or custom roof shapes</li>
+            <li>Automatic and optimal panel placement in selected areas</li>
+            <li>Ability to group panels into custom strings with inverter matching</li>
+            <li>Real-world energy yield simulation based on shading, terrain, and losses</li>
+            <li>Generation of multi-option commercial offers with full data calculations</li>
+            <li>Technical documentation builder with electrical diagrams</li>
+            <li>ROI and payback time calculation including subsidies or custom parameters</li>
+            <li>Dynamic component library with real-time updates</li>
+            <li>Auto-generated bill of materials with cable lengths</li>
+            <li>3D visualizations of the installation</li>
+          </ul>
       
           I was the main frontend developer of the project, implementing core functionality including the visual design tools, panel placement logic, map integration, and full offer generation flow.
         `.trim(),
-        image: '/images/projects/pv/screen.jpg',
+        image: '/images/projects/pv/screen.png',
         images: [
           '/images/projects/pv/screen2.jpg',
           '/images/projects/pv/screen3.jpg',
@@ -195,17 +199,19 @@ export const usePortfolioStore = defineStore('portfolio', {
       
           I was the sole front-end developer on this project for over a year and implemented more than 70% of the platform’s functionality. Key features I developed include:
           
-          - A custom fullcalendar-based scheduling system
-          - Interactive kanban board with drag-and-drop support
-          - Workload tracking and task distribution modules
-          - A complete internal file system with lightbox previews
-          - A ticketing/helpdesk module for support management
-          - Scalable layout tools for architectural drawings
-          - Migration from Vue 2 to Vue 3 and Vite
+          <ul>
+            <li>A custom fullcalendar-based scheduling system</li>
+            <li>Interactive kanban board with drag-and-drop support</li>
+            <li>Workload tracking and task distribution modules</li>
+            <li>A complete internal file system with lightbox previews</li>
+            <li>A ticketing/helpdesk module for support management</li>
+            <li>Scalable layout tools for architectural drawings</li>
+            <li>Migration from Vue 2 to Vue 3 and Vite</li>
+          </ul>
       
           The application is built with Vue 3, Inertia.js, TailwindCSS, FullCalendar, Tiptap editor, Chart.js, and a variety of modular UI libraries. Localization, notifications, tooltips, and offline-friendly features are all deeply integrated into the user experience.
         `.trim(),
-        image: '/images/projects/brick/screen.jpg',
+        image: '/images/projects/brick/screen.png',
         images: [
           '/images/projects/brick/screen2.jpg',
           '/images/projects/brick/screen3.jpg',
@@ -247,13 +253,15 @@ export const usePortfolioStore = defineStore('portfolio', {
           I worked as one of the lead frontend developers and was responsible for developing the UI and architecture across several websites built on this system. Each site had its own design, content structure, and features, yet shared a common core — allowing for rapid scaling, modular customization, and centralized updates.
 
           Key contributions and features I developed:
-          - Modular component system using Nuxt Composition API
-          - Media galleries, sliders, product/vehicle configurators
-          - Custom integrations with Google Maps, reCAPTCHA, analytics, and third-party APIs
-          - Full SEO integration: sitemaps, JSON-LD, multilingual (nuxt-i18n)
-          - Animations with GSAP, Swiper carousels, BugSnag error tracking
-          - Multi-language and region-ready layout system
-          - Seamless integration with custom CMS backend
+          <ul>
+            <li>Modular component system using Nuxt Composition API</li>
+            <li>Media galleries, sliders, product/vehicle configurators</li>
+            <li>Custom integrations with Google Maps, reCAPTCHA, analytics, and third-party APIs</li>
+            <li>Full SEO integration: sitemaps, JSON-LD, multilingual (nuxt-i18n)</li>
+            <li>Animations with GSAP, Swiper carousels, BugSnag error tracking</li>
+            <li>Multi-language and region-ready layout system</li>
+            <li>Seamless integration with custom CMS backend</li>
+          </ul>
 
           The platform now powers multiple high-traffic websites, adapted to fit different industries with consistent performance and maintainability.
         `.trim(),
@@ -299,7 +307,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       
           The exchange also includes modules for account management, transaction history, deposit and withdrawal flows, KYC/AML compliance, and responsive support. Its scalable architecture allows easy expansion for new features and trading instruments.
         `.trim(),
-        image: '/images/projects/polyx/screen.jpg',
+        image: '/images/projects/polyx/screen.png',
         images: [
           '/images/projects/polyx/screen2.jpg',
           '/images/projects/polyx/screen3.jpg',
@@ -327,7 +335,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       
           Built using Vite, TailwindCSS, and Headless UI, the frontend offers a clean, modern design with accessible components. The system also uses UUIDs for identifying user sessions and integrates various utilities for cookie handling, form inputs, and dynamic script loading.
         `.trim(),
-        image: '/images/projects/planner/screen.jpg',
+        image: '/images/projects/planner/screen.png',
         images: [
           '/images/projects/planner/screen2.jpg',
           '/images/projects/planner/screen3.jpg',
@@ -354,7 +362,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       
           Developed with performance and simplicity in mind, the app works offline, auto-restarts on inactivity, and supports multiple screens and content updates via CMS.
         `.trim(),
-        image: '/images/projects/bathroom/screen.jpg',
+        image: '/images/projects/bathroom/screen.png',
         images: ['/images/projects/bathroom/screen2.jpg', '/images/projects/bathroom/screen3.jpg', '/images/projects/bathroom/screen4.jpg'],
         videos: [],
         myRole: 'Frontend',
@@ -376,7 +384,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       
           Built with scalability in mind, the application supports multiple screen types, auto-updates content via CMS, and ensures smooth performance in offline mode with a fallback mechanism and auto-restart on user inactivity.
         `.trim(),
-        image: '/images/projects/kitchen/screen.jpg',
+        image: '/images/projects/kitchen/screen.png',
         images: [
           '/images/projects/kitchen/screen2.jpg',
           '/images/projects/kitchen/screen3.jpg',
@@ -446,11 +454,13 @@ export const usePortfolioStore = defineStore('portfolio', {
           My work on the project included developing the camera management interface (adding/editing/removing cameras, reordering, snapshots), integrating live video playback via HLS and Video.js, implementing polygon editing tools for AI motion detection zones, and building interactive video walls with drag-and-drop support.
       
           I also worked on:
-          - Stripe billing integration for subscription plans
-          - Dynamic timeline visualization using vis-timeline
-          - Notifications and alert settings per camera
-          - Interactive location tagging on Google Maps
-          - Session history and billing reports UI
+          <ul>
+            <li>Stripe billing integration for subscription plans</li>
+            <li>Dynamic timeline visualization using vis-timeline</li>
+            <li>Notifications and alert settings per camera</li>
+            <li>Interactive location tagging on Google Maps</li>
+            <li>Session history and billing reports UI</li>
+          </ul>
         `.trim(),
         image: '/images/projects/camdog/screen.jpg',
         images: [],
@@ -473,11 +483,13 @@ export const usePortfolioStore = defineStore('portfolio', {
           The application was built using Nuxt.js with TypeScript and TailwindCSS. It includes multilingual support via nuxt-i18n, form validation with Vuelidate, persistent user sessions with Firebase, and interactive notifications via Vue Toast and VTooltip.
 
           The dashboard provides:
-          - Fast service booking and rescheduling flow
-          - Cleaning history, payment tracking, and reviews
-          - Multistep forms, input masking, and tooltips
-          - Firebase-based login and session refresh
-          - Scalable layout using Tailwind UI components
+          <ul>
+            <li>Fast service booking and rescheduling flow</li>
+            <li>Cleaning history, payment tracking, and reviews</li>
+            <li>Multistep forms, input masking, and tooltips</li>
+            <li>Firebase-based login and session refresh</li>
+            <li>Scalable layout using Tailwind UI components</li>
+          </ul>
         `.trim(),
         image: '/images/projects/portal/screen.jpg',
         images: ['/images/projects/portal/screen2.jpg'],

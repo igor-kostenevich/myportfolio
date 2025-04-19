@@ -65,3 +65,7 @@ body.sidebar-open::before {
 .spoller strong {
   @apply font-medium;
 }
+
+.project-description ul {
+  @apply list-disc pl-5 my-3;
+}

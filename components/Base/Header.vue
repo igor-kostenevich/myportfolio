@@ -25,7 +25,7 @@ onUnmounted(() => {
 
 <template>
   <header
-    :class="['fixed left-0 right-0 top-0 z-40 transition-all duration-300 gap-y-4', isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md']"
+    :class="['flex items-center fixed left-0 right-0 top-0 z-40 transition-all duration-300 gap-y-4 h-[80px] lg:h-[110px]', isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md']"
   >
     <div class="container">
       <div class="flex items-center justify-between relative h-full">
@@ -38,8 +38,8 @@ onUnmounted(() => {
             alt=""
           />
         </nuxt-link>
-        <nav class="hidden lg:flex items-center h-[70px]">
-          <ul class="flex justify-center gap-y-4 gap-10 font-medium text-sm flex-wrap">
+        <nav class="hidden lg:flex items-center">
+          <ul class="flex justify-center gap-y-4 gap-6 xl:gap-10 font-medium text-sm flex-wrap">
             <li v-for="item in [
                   { id: 'about', label: 'About' },
                   { id: 'projects', label: 'Projects' },
@@ -54,13 +54,13 @@ onUnmounted(() => {
             >
               <a
                 href="#"
-                class="block hover:text-primary-dark transition pointer-events-auto relative"
+                class="group block hover:text-primary-dark transition pointer-events-auto relative"
               >
                 {{ item.label }}
 
                 <template v-if="item.id === 'services' && store.servicesCount">
                   <span
-                    class="flex items-center justify-center bg-primary-dark w-4 h-4 rounded-full absolute -right-3.5 -top-3.5 text-xs font-medium text-black"
+                    class="flex group-hover:bg-white transition items-center justify-center bg-primary-dark w-4 h-4 rounded-full absolute -right-3.5 -top-3.5 text-xs font-medium text-black"
                   >
                     {{ store.servicesCount }}
                   </span>
@@ -71,7 +71,7 @@ onUnmounted(() => {
         </nav>
         <div class="flex items-center">
           <base-button
-            class="group hidden sm:flex !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
+            class="group flex z-[999] !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
             href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
             target="_blank"
           >
@@ -108,20 +108,10 @@ onUnmounted(() => {
           class="flex flex-col justify-between h-full w-full fixed inset-0 pt-20 bg-dark-dark z-20 lg:hidden px-4 transform transition-all duration-300 overflow-hidden min-h-screen"
           :class="[isMenuOpened ? 'translate-x-0' : 'translate-x-full']"
         >
-          <base-button
-            class="sm:hidden"
-            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
-            target="_blank"
-          >
-            Hire me on Upwork
-            <SvgIcon
-              name="arrow-right"
-              class="ml-2"
-            />
-          </base-button>
+          
           <div class="flex flex-col justify-between h-full overflow-y-auto w-full pb-20 mt-6">
             <nav
-              class="flex flex-col mb-12"
+              class="flex flex-col mb-8"
               @click="toggleMobileMenu"
             >
               <ul class="">
@@ -164,6 +154,17 @@ onUnmounted(() => {
               </ul>
             </nav>
           </div>
+          <!-- <base-button
+            class="sm:hidden"
+            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
+            target="_blank"
+          >
+            Hire me on Upwork
+            <SvgIcon
+              name="arrow-right"
+              class="ml-2"
+            />
+          </base-button> -->
         </div>
       </div>
     </div>

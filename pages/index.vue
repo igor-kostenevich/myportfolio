@@ -3,7 +3,7 @@ const store = usePortfolioStore()
 const { scrollToElement } = useScrollTo()
 
 const serviceType = ref('')
-const visibleProjectsCount = ref(5)
+const visibleProjectsCount = ref(12)
 
 useHead({
   title: 'Full-Stack Web Developer | Igor Kostenevych',
@@ -117,7 +117,7 @@ const loadMoreProjects = () => {
   <!-- About me section -->
   <section
     id="about"
-    class="bg-secondary-dark text-white overflow-hidden py-12 md:py-20"
+    class="bg-secondary-dark text-white overflow-hidden py-20"
   >
     <div class="container">
       <h2
@@ -158,7 +158,7 @@ const loadMoreProjects = () => {
           <div class="mt-10 lg:mt-16 flex flex-wrap gap-4">
             <BaseButton
               class="w-full xs:w-auto"
-              href="/Kostenevich_Igor_FE_CV.pdf"
+              href="/Igor_Kostenevich_FE_CV.pdf"
               download
             >
               Download CV
@@ -189,7 +189,7 @@ const loadMoreProjects = () => {
   </section>
 
   <!-- Skills section -->
-  <section class="stack-section bg-secondary-dark pt-16 pb-20">
+  <section class="stack-section bg-secondary-dark py-20">
     <div class="container">
       <h3
         v-gsap.whenVisible.once.from="{ autoAlpha: 0, x: -50 }"
@@ -281,9 +281,9 @@ const loadMoreProjects = () => {
           />
         </div>
 
-        <div class="flex justify-center">
+        <!-- <div class="flex justify-center">
           <BaseButton @click="loadMoreProjects"> VIEW MORE CASE STUDIES </BaseButton>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -294,7 +294,7 @@ const loadMoreProjects = () => {
         { autoAlpha: 0, y: 100 },
         { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
       ]"
-      class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20"
+      class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] py-20 xl:pt-32"
     >
       <div class="container">
         <div
@@ -359,7 +359,7 @@ const loadMoreProjects = () => {
   <!-- Testimonials section -->
   <section
     id="testimonials"
-    class="py-12 md:py-20 xl:py-[100px]"
+    class="py-20 xl:py-[120px] pb-12 md:pb-20 xl:pb-32"
   >
     <div class="container">
       <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
@@ -380,7 +380,7 @@ const loadMoreProjects = () => {
   <!-- Contact section -->
   <section
     id="contacts"
-    class="py-12 md:py-20 bg-secondary-dark"
+    class="py-16 md:py-20 xl:py-32 bg-secondary-dark"
   >
     <div class="container">
       <div class="flex flex-col sm:flex-row gap-16 lg:gap-[100px]">
@@ -403,7 +403,7 @@ const loadMoreProjects = () => {
   <!-- FAQ section -->
   <section
     id="faq"
-    class="bg-secondary-dark py-12 md:py-20 xl:py-[120px]"
+    class="bg-secondary-dark py-16 md:py-20 xl:py-[120px]"
   >
     <div class="container">
       <h2

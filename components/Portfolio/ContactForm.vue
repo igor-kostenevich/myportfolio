@@ -180,7 +180,7 @@ watch(
     />
     <BaseButton
       type="submit"
-      class="group md:col-span-1 w-max mx-auto sm:mx-0"
+      class="group mt-6 md:mt-0 w-full md:col-span-1 md:w-max mx-auto sm:mx-0"
     >
       Get in Touch
       <template #right>
