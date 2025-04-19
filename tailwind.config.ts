@@ -49,6 +49,7 @@ export default {
         dark: {
           light: '#1C1C20',
           dark: '#1C1C20',
+          additional: '#212121',
         },
         gray: {
           500: '#191919',
