@@ -137,13 +137,13 @@ async function onSubmit() {
 
 watch(
   () => props.serviceType,
-  (newValue) => {
+  newValue => {
     if (newValue) {
-      form.serviceType = newValue  // 👈 вот это добавь
+      form.serviceType = newValue // 👈 вот это добавь
       v$.value.serviceType.$touch()
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 </script>
 

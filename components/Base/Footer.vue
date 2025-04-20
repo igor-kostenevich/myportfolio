@@ -42,7 +42,7 @@ const { scrollToElement } = useScrollTo()
       <ul class="flex justify-center items-center gap-7 mb-10">
         <li>
           <a
-            href="https://www.linkedin.com/in/igor-kostenevich/"
+            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
             target="_blank"
           >
             <SvgIcon name="upwork" />
@@ -50,7 +50,7 @@ const { scrollToElement } = useScrollTo()
         </li>
         <li>
           <a
-            href="https://www.linkedin.com/in/igor-kostenevich/"
+            href="https://github.com/igor-kostenevich"
             target="_blank"
             class=""
           >
@@ -68,7 +68,7 @@ const { scrollToElement } = useScrollTo()
         </li>
         <li>
           <a
-            href="https://www.linkedin.com/in/igor-kostenevich/"
+            href="https://t.me/I_kostenevich"
             target="_blank"
             class=""
           >

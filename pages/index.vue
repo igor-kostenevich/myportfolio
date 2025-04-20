@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 const store = usePortfolioStore()
 const { scrollToElement } = useScrollTo()
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const serviceType = ref('')
-const visibleProjectsCount = ref(12)
+const visibleProjectsCount = ref(5)
 
 useHead({
   title: 'Full-Stack Web Developer | Igor Kostenevych',
@@ -39,8 +40,10 @@ const handleServiceClick = (value: string) => {
   scrollToElement('contacts')
 }
 
-const loadMoreProjects = () => {
+const loadMoreProjects = async () => {
   visibleProjectsCount.value += 2
+  await nextTick()
+  ScrollTrigger.refresh()
 }
 </script>
 
@@ -71,7 +74,37 @@ const loadMoreProjects = () => {
         <span class="main-title md:self-center md:mb-3">Building Scalable,</span>
         <span class="main-title flex md:items-center self-start flex-col md:flex-row w-full">
           Efficient Apps
-          <BaseButton
+
+          <div class="group flex items-center relative cursor-pointer">
+            <a
+              href="https://www.linkedin.com/in/igor-kostenevich/"
+              target="_blank"
+              class="mt-8 md:mt-0 text-2xl font-normal leading-7 tracking-normal md:ml-12 text-secondary-dark group-hover:text-white uppercase inline-block relative overflow-hidden px-5 py-3 rounded-full transition-all duration-300 ease-out z-10"
+            >
+              Get in Touch
+            </a>
+            <span
+              class="flex items-center justify-end bg-primary-dark h-full absolute right-[-52px] w-full group-hover:w-[52px] transition-all ease-in duration-200 rounded-full shadow-md shadow-inner shadow-primary-dark"
+            >
+              <svg
+                class="text-secondary-dark group-hover:duration-500 transition mr-[13px] w-6 h-6"
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.33497 4.59961L13.335 8.59961L9.33497 12.5996M12.668 8.59961L2.66797 8.59961"
+                  stroke="currentColor"
+                  stroke-width="1.44"
+                  stroke-linecap="square"
+                />
+              </svg>
+            </span>
+          </div>
+
+          <!-- <BaseButton
             class="group mt-8 md:mt-0 text-2xl font-normal leading-7 tracking-normal md:ml-12"
             variant="secondary"
             href="https://www.linkedin.com/in/igor-kostenevich/"
@@ -94,7 +127,7 @@ const loadMoreProjects = () => {
                 stroke-linecap="square"
               />
             </svg>
-          </BaseButton>
+          </BaseButton> -->
         </span>
       </h1>
     </div>
@@ -230,125 +263,137 @@ const loadMoreProjects = () => {
   </section>
 
   <!-- Experience section -->
-  <div
-    v-gsap.whenVisible.fromTo="[
-      { autoAlpha: 0, y: 100 },
-      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    ]"
-    class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px]"
-  >
+  <div>
     <!-- Projects section -->
-    <section
-      id="projects"
-      v-gsap.whenVisible.fromTo="[
-        { autoAlpha: 0, y: 100 },
-        { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-      ]"
-      class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20 xl:pb-28"
-    >
-      <div class="container">
+    <section id="projects">
+      <div
+        v-gsap.whenVisible.fromTo="[
+          { autoAlpha: 0, y: 100 },
+          { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+        ]"
+        class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px]"
+      >
         <div
-          v-gsap.whenVisible.from="{
-            autoAlpha: 0,
-            y: 80,
-            scaleX: 0.8,
-            ease: 'power1.out',
-            duration: 1,
-          }"
+          v-gsap.whenVisible.fromTo="[
+            { autoAlpha: 0, y: 100 },
+            { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+          ]"
+          class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20 xl:pb-28"
         >
-          <h2 class="secondary-title text-center mb-4">REAL PROJECTS, <span class="text-primary-dark font-medium">REAL IMPACT</span></h2>
-          <p class="text-gray-100 text-center max-w-2xl mx-auto mb-10 md:mb-16 lg:mb-24">
-            From MVPs to fully scaled apps—explore the projects that showcase my expertise in creating impactful digital products.
-          </p>
-        </div>
+          <div class="container">
+            <div
+              v-gsap.whenVisible.from="{
+                autoAlpha: 0,
+                y: 50,
+                scaleX: 0.8,
+                ease: 'power1.out',
+                duration: 1,
+              }"
+            >
+              <h2 class="secondary-title text-center mb-4">REAL PROJECTS, <span class="text-primary-dark font-medium">REAL IMPACT</span></h2>
+              <p class="text-gray-100 text-center max-w-2xl mx-auto mb-10 md:mb-16 lg:mb-24">
+                From MVPs to fully scaled apps—explore the projects that showcase my expertise in creating impactful digital products.
+              </p>
+            </div>
 
-        <div
-          v-gsap.whenVisible.stagger.children.from="{
-            autoAlpha: 0,
-            y: 50,
-            scale: 0.95,
-            ease: 'power2.out',
-            duration: 0.6,
-          }"
-          class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 auto-rows-[minmax(300px,_auto)] mb-10 md:mb-16"
-        >
-          <PortfolioProjectCard
-            v-for="(project, index) in store.projects.slice(0, visibleProjectsCount)"
-            :key="project.id"
-            :project="project"
-            :is-first-project="index === 0"
-            :class="{ 'md:col-span-2 md:!bg-black !pb-20': index === 0 }"
-          />
+            <div
+              v-gsap.whenVisible.stagger.children.from="{
+                autoAlpha: 0,
+                y: 50,
+                scale: 0.95,
+                ease: 'power2.out',
+                duration: 0.6,
+              }"
+              class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 auto-rows-[minmax(300px,_auto)] mb-10 md:mb-16"
+            >
+              <PortfolioProjectCard
+                v-for="(project, index) in store.projects.slice(0, visibleProjectsCount)"
+                :key="project.id"
+                :project="project"
+                :is-first-project="index === 0"
+                :class="{ 'md:col-span-2 md:!bg-black !pb-20': index === 0 }"
+              />
+            </div>
+            <div
+              v-if="visibleProjectsCount <= store.projects.length"
+              class="flex justify-center"
+            >
+              <BaseButton @click="loadMoreProjects"> VIEW MORE CASE STUDIES </BaseButton>
+            </div>
+          </div>
         </div>
-
-        <!-- <div class="flex justify-center">
-          <BaseButton @click="loadMoreProjects"> VIEW MORE CASE STUDIES </BaseButton>
-        </div> -->
       </div>
     </section>
 
     <!-- Services section -->
     <section
       id="services"
-      v-gsap.whenVisible.fromTo="[
-        { autoAlpha: 0, y: 100 },
-        { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-      ]"
-      class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] py-20 xl:pt-32"
+      class="bg-black"
     >
-      <div class="container">
-        <div
-          v-gsap.whenVisible.from="{
-            autoAlpha: 0,
-            y: 80,
-            scaleX: 0.8,
-            ease: 'power1.out',
-            duration: 1,
-          }"
-        >
-          <h2 class="secondary-title text-center mb-4">From Pixels <span class="text-primary-dark font-medium">to Production</span></h2>
-          <p class="text-gray-100 text-center max-w-2xl mx-auto mb-10 md:mb-16 lg:mb-24">
-            I deliver end-to-end web solutions that let you focus on growing your vision. From intuitive frontends to robust backends, I handle every detail for
-            a seamless digital experience.
-          </p>
-        </div>
-
-        <div
-          v-gsap.whenVisible.stagger.children.from="{
-            autoAlpha: 0,
-            y: 50,
-            scale: 0.95,
-            ease: 'power2.out',
-            duration: 0.6,
-          }"
-          class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 sm:gap-y-8"
-        >
+      <div
+        v-gsap.whenVisible.fromTo="[
+          { autoAlpha: 0, y: 100 },
+          { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+        ]"
+        class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] py-20 xl:pt-32 relative"
+      >
+        <div class="container">
           <div
-            v-for="service in store.services"
-            :key="service.id"
-            class="flex flex-col md:flex-row bg-dark-dark rounded-3xl px-8 py-10 gap-4 md:gap-6 xl:gap-10 group"
+            v-gsap.whenVisible.from="{
+              autoAlpha: 0,
+              y: 0,
+              scaleX: 0.8,
+              ease: 'power1.out',
+              duration: 1,
+            }"
+          >
+            <h2 class="secondary-title text-center mb-4">From Pixels <span class="text-primary-dark font-medium">to Production</span></h2>
+            <p class="text-gray-100 text-center max-w-2xl mx-auto mb-10 md:mb-16 lg:mb-24">
+              I deliver end-to-end web solutions that let you focus on growing your vision. From intuitive frontends to robust backends, I handle every detail
+              for a seamless digital experience.
+            </p>
+          </div>
+
+          <div
+            v-gsap.whenVisible.stagger.children.from="{
+              autoAlpha: 0,
+              y: 50,
+              scale: 0.95,
+              ease: 'power2.out',
+              duration: 0.6,
+            }"
+            class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 sm:gap-y-8"
           >
             <div
-              class="mx-auto md:mx-initial flex items-center justify-center border border-white/30 w-10 !h-10 lg:w-14 lg:!h-14 rounded-full flex-[0_0_40px] lg:flex-[0_0_56px]"
+              v-for="service in store.services"
+              :key="service.id"
+              class="flex flex-col md:flex-row bg-dark-dark rounded-3xl px-8 py-10 gap-4 md:gap-6 xl:gap-10 group"
             >
-              <SvgIcon
-                :name="service.icon"
-                class="scale-[80%] lg:scale-100"
-              ></SvgIcon>
-            </div>
-            <div class="">
-              <h3 class="font-medium text-lg md:text-2xl tracking-tight mb-4 mt-3 text-center md:text-left">{{ service.title }}</h3>
-              <p class="tracking-tight text-gray-150 mb-4 text-center md:text-left">{{ service.description }}</p>
-              <button class="flex items-center justify-center w-full md:w-auto" @click="handleServiceClick(service.id)">
-                <span
-                  class="text-primary-dark uppercase font-space-mono md:max-w-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-w-[160px] whitespace-nowrap group-hover:mr-3 mr-3 md:mr-0"
-                  >Contact me</span
-                >
+              <div
+                class="mx-auto md:mx-initial flex items-center justify-center border border-white/30 w-10 !h-10 lg:w-14 lg:!h-14 rounded-full flex-[0_0_40px] lg:flex-[0_0_56px]"
+              >
                 <SvgIcon
-                  name="arrow-right"
-                  class="flex items-center justify-center border border-white/30 rounded-full w-5 h-5 p-0.5 group-hover:-rotate-45 transition"
+                  :name="service.icon"
+                  class="scale-[80%] lg:scale-100"
                 ></SvgIcon>
-              </button>
+              </div>
+              <div class="">
+                <h3 class="font-medium text-lg md:text-2xl tracking-tight mb-4 mt-3 text-center md:text-left">{{ service.title }}</h3>
+                <p class="tracking-tight text-gray-150 mb-4 text-center md:text-left">{{ service.description }}</p>
+                <button
+                  class="flex items-center justify-center w-full md:w-auto"
+                  @click="handleServiceClick(service.id)"
+                >
+                  <span
+                    class="text-primary-dark uppercase font-space-mono md:max-w-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-w-[160px] whitespace-nowrap group-hover:mr-3 mr-3 md:mr-0"
+                    >Contact me</span
+                  >
+                  <SvgIcon
+                    name="arrow-right"
+                    class="flex items-center justify-center border border-white/30 rounded-full w-5 h-5 p-0.5 group-hover:-rotate-45 transition"
+                  ></SvgIcon>
+                </button>
+              </div>
             </div>
           </div>
         </div>

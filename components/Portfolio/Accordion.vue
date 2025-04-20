@@ -45,7 +45,6 @@ function leave(el: Element) {
   <Disclosure
     v-for="(item, index) in faqs"
     :key="index"
-    v-slot="{ open }"
     class="border border-gray-250/40 bg-dark-dark rounded max-w-[856px] mx-auto mb-2 last:mb-0"
     as="div"
   >
@@ -73,15 +72,18 @@ function leave(el: Element) {
     </DisclosureButton>
     <DisclosurePanel static>
       <transition
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @leave="leave"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @leave="leave"
       >
         <div
           v-show="openIndex === index"
           class="spoller overflow-hidden mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-6 sm:px-8 tracking-tight max-w-[90%]"
         >
-          <div v-html="item.answer" class="pb-6"></div>
+          <div
+            class="pb-6"
+            v-html="item.answer"
+          />
         </div>
       </transition>
     </DisclosurePanel>

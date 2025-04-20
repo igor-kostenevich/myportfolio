@@ -13,7 +13,7 @@ defineProps({
 const isSidebarOpen = ref(false)
 const selectedProject = ref(null)
 
-const openProject = (project) => {
+const openProject = project => {
   selectedProject.value = project
   isSidebarOpen.value = true
 }
@@ -40,10 +40,16 @@ const closeSidebar = () => {
       />
     </div>
     <ul class="flex flex-wrap gap-2 px-6 mb-6">
-      <li v-for="stack in project.techStack" :key="stack" class="border border-white/40 rounded-full text-xs py-1 px-2">{{ stack }}</li>
+      <li
+        v-for="stack in project.techStack"
+        :key="stack"
+        class="border border-white/40 rounded-full text-xs py-1 px-2"
+      >
+        {{ stack }}
+      </li>
     </ul>
     <div
-      class="flex flex-col  px-6 gap-5 md:gap-10 h-full"
+      class="flex flex-col px-6 gap-5 md:gap-10 h-full"
       :class="{ 'mt-10 xl:flex-row xl:items-center justify-between': isFirstProject }"
     >
       <div :class="[isFirstProject ? 'xl:w-2/4' : 'flex flex-col h-full']">
@@ -65,7 +71,7 @@ const closeSidebar = () => {
 
     <PortfolioProjectSidebar
       :project="selectedProject"
-      :isOpen="isSidebarOpen"
+      :is-open="isSidebarOpen"
       @close="closeSidebar"
     />
   </div>

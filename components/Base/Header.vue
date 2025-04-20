@@ -25,7 +25,10 @@ onUnmounted(() => {
 
 <template>
   <header
-    :class="['flex items-center fixed left-0 right-0 top-0 z-40 transition-all duration-300 gap-y-4 h-[80px] lg:h-[110px]', isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md']"
+    :class="[
+      'flex items-center fixed left-0 right-0 top-0 z-40 transition-all duration-300 gap-y-4 h-[80px] lg:h-[110px]',
+      isAtTop ? 'bg-transparent' : 'bg-secondary-dark/80 backdrop-blur-lg shadow-md',
+    ]"
   >
     <div class="container">
       <div class="flex items-center justify-between relative h-full">
@@ -40,17 +43,18 @@ onUnmounted(() => {
         </nuxt-link>
         <nav class="hidden lg:flex items-center">
           <ul class="flex justify-center gap-y-4 gap-6 xl:gap-10 font-medium text-sm flex-wrap">
-            <li v-for="item in [
-                  { id: 'about', label: 'About' },
-                  { id: 'projects', label: 'Projects' },
-                  { id: 'services', label: 'Services' },
-                  { id: 'testimonials', label: 'Testimonials' },
-                  { id: 'contacts', label: 'Contact me' },
-                  { id: 'faq', label: 'FAQ' }
-                ]"
-                :key="item.id"
-                @click.prevent="scrollToElement(item.id)"
-                class="transition"
+            <li
+              v-for="item in [
+                { id: 'about', label: 'About' },
+                { id: 'projects', label: 'Projects' },
+                { id: 'services', label: 'Services' },
+                { id: 'testimonials', label: 'Testimonials' },
+                { id: 'contacts', label: 'Contact me' },
+                { id: 'faq', label: 'FAQ' },
+              ]"
+              :key="item.id"
+              class="transition"
+              @click.prevent="scrollToElement(item.id)"
             >
               <a
                 href="#"
@@ -108,7 +112,6 @@ onUnmounted(() => {
           class="flex flex-col justify-between h-full w-full fixed inset-0 pt-20 bg-dark-dark z-20 lg:hidden px-4 transform transition-all duration-300 overflow-hidden min-h-screen"
           :class="[isMenuOpened ? 'translate-x-0' : 'translate-x-full']"
         >
-          
           <div class="flex flex-col justify-between h-full overflow-y-auto w-full pb-20 mt-6">
             <nav
               class="flex flex-col mb-8"
