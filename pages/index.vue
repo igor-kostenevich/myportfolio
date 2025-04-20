@@ -84,7 +84,7 @@ const loadMoreProjects = async () => {
               Get in Touch
             </a>
             <span
-              class="flex items-center justify-end bg-primary-dark h-full absolute md:right-[-56px] w-full group-hover:md:w-[56px] transition-all ease-in duration-200 rounded-full shadow-md shadow-primary-dark"
+              class="flex items-center justify-end bg-primary-dark h-full absolute md:right-[-56px] w-full group-hover:md:w-[56px] transition-all ease-in duration-200 rounded-full"
             >
               <svg
                 class="text-secondary-dark group-hover:duration-500 transition mr-[15px] w-6 h-6"

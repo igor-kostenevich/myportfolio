@@ -265,7 +265,7 @@ export const usePortfolioStore = defineStore('portfolio', {
 
           The platform now powers multiple high-traffic websites, adapted to fit different industries with consistent performance and maintainability.
         `.trim(),
-        image: '/images/projects/ford/screen.jpg',
+        image: '/images/projects/ford/screen.png',
         images: [
           '/images/projects/ford/screen2.jpg',
           '/images/projects/ford/screen3.jpg',
@@ -411,7 +411,7 @@ export const usePortfolioStore = defineStore('portfolio', {
           
           Additional features included: real-time notifications, role-based access (admin, teacher, student), file sharing, and user activity tracking.
         `.trim(),
-        image: '/images/projects/yolo/screen.jpeg',
+        image: '/images/projects/yolo/screen.png',
         images: ['/images/projects/yolo/screen2.jpeg'],
         videos: [],
         myRole: 'Frontend',

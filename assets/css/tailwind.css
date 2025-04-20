@@ -27,7 +27,7 @@ body.sidebar-open::before {
 }
 
 .container {
-  @apply md:max-w-[928px] xl:max-w-[83rem] px-4 mx-auto;
+  @apply max-w-full md:max-w-[928px] xl:max-w-[83rem] px-4 mx-auto;
 }
 
 .main-title {
