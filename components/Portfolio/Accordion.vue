@@ -49,7 +49,7 @@ function leave(el: Element) {
     as="div"
   >
     <DisclosureButton
-      class="flex w-full justify-between items-center text-left text-white font-medium focus:outline-none text-sm sm:text-lg h-full px-4 sm:py-4 sm:px-8 py-6 cursor-pointer"
+      class="flex w-full justify-between items-center text-left text-white font-medium focus:outline-none text-base sm:text-lg h-full px-4 sm:py-4 sm:px-8 py-6 cursor-pointer"
       as="div"
       @click="handleToggle(index)"
     >
@@ -78,7 +78,7 @@ function leave(el: Element) {
       >
         <div
           v-show="openIndex === index"
-          class="spoller overflow-hidden mt-2 text-xs sm:text-base text-gray-100 leading-relaxed px-6 sm:px-8 tracking-tight max-w-[90%]"
+          class="spoller overflow-hidden mt-2 text-sm sm:text-base text-gray-100 leading-relaxed px-6 sm:px-8 tracking-tight max-w-[90%]"
         >
           <div
             class="pb-6"

@@ -36,7 +36,7 @@ watch(
         class="fixed inset-0 bg-opacity-50 z-[999]"
         @click.self="closeSidebar"
       >
-        <div class="fixed top-0 right-0 h-full bg-gray-50 w-full md:max-w-[80vw] overflow-y-auto px-8 py-10 transition-transform duration-300 z-50">
+        <div class="fixed top-0 right-0 h-full bg-gray-50 w-full md:max-w-[80vw] overflow-y-auto px-6 md:px-8 py-10 transition-transform duration-300 z-50">
           <div class="mb-8 lg:mb-16">
             <h2 class="text-dark-additional text-2xl md:text-3xl lg:text-5xl uppercase font-medium tracking-tight pr-12 lg:pr-20">{{ project.title }}</h2>
             <button @click="closeSidebar">

@@ -246,14 +246,14 @@ const loadMoreProjects = async () => {
           { autoAlpha: 0, y: 100 },
           { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
         ]"
-        class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px]"
+        class="bg-black rounded-ss-[70px] md:rounded-ss-[200px] rounded-se-[70px] md:rounded-se-[200px]"
       >
         <div
           v-gsap.whenVisible.fromTo="[
             { autoAlpha: 0, y: 100 },
             { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
           ]"
-          class="bg-black rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20 xl:pb-28"
+          class="bg-black rounded-ss-[70px] md:rounded-ss-[200px] rounded-se-[70px] md:rounded-se-[200px] pt-12 md:pt-20 xl:pt-32 pb-10 md:pb-20 xl:pb-28"
         >
           <div class="container">
             <div
@@ -310,7 +310,7 @@ const loadMoreProjects = async () => {
           { autoAlpha: 0, y: 100 },
           { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
         ]"
-        class="bg-secondary-dark rounded-ss-[100px] md:rounded-ss-[200px] rounded-se-[100px] md:rounded-se-[200px] py-20 xl:pt-32 relative"
+        class="bg-secondary-dark rounded-ss-[70px] md:rounded-ss-[200px] rounded-se-[70px] md:rounded-se-[200px] py-20 xl:pt-32 relative"
       >
         <div class="container">
           <div

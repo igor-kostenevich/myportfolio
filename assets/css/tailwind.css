@@ -35,7 +35,7 @@ body.sidebar-open::before {
 }
 
 .secondary-title {
-  @apply uppercase text-2xl leading-8 md:text-3xl md:leading-10 xl:text-[52px] xl:leading-[52px] text-white tracking-tight;
+  @apply uppercase leading-8 text-3xl md:leading-10 xl:text-[52px] xl:leading-[52px] text-white tracking-tight;
 }
 
 .cont {
