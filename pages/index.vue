@@ -75,19 +75,19 @@ const loadMoreProjects = async () => {
         <span class="main-title flex md:items-center self-start flex-col md:flex-row w-full">
           Efficient Apps
 
-          <div class="group flex items-center relative cursor-pointer">
+          <div class="group flex items-center relative cursor-pointer mt-6 md:mt-0 w-[200px] md:w-auto">
             <a
               href="https://www.linkedin.com/in/igor-kostenevich/"
               target="_blank"
-              class="mt-8 md:mt-0 text-2xl font-normal leading-7 tracking-normal md:ml-12 text-secondary-dark group-hover:text-white uppercase inline-block relative overflow-hidden px-5 py-3 rounded-full transition-all duration-300 ease-out z-10"
+              class="md:mt-0 text-lg xl:text-2xl font-normal leading-7 tracking-normal md:ml-12 text-secondary-dark group-hover:text-white uppercase inline-block relative overflow-hidden px-5 py-1.5 xl:py-3 rounded-full transition-all duration-300 ease-out z-10"
             >
               Get in Touch
             </a>
             <span
-              class="flex items-center justify-end bg-primary-dark h-full absolute right-[-52px] w-full group-hover:w-[52px] transition-all ease-in duration-200 rounded-full shadow-md shadow-inner shadow-primary-dark"
+              class="flex items-center justify-end bg-primary-dark h-full absolute md:right-[-56px] w-full group-hover:md:w-[56px] transition-all ease-in duration-200 rounded-full shadow-md shadow-primary-dark"
             >
               <svg
-                class="text-secondary-dark group-hover:duration-500 transition mr-[13px] w-6 h-6"
+                class="text-secondary-dark group-hover:duration-500 transition mr-[15px] w-6 h-6"
                 width="16"
                 height="17"
                 viewBox="0 0 16 17"
@@ -103,31 +103,6 @@ const loadMoreProjects = async () => {
               </svg>
             </span>
           </div>
-
-          <!-- <BaseButton
-            class="group mt-8 md:mt-0 text-2xl font-normal leading-7 tracking-normal md:ml-12"
-            variant="secondary"
-            href="https://www.linkedin.com/in/igor-kostenevich/"
-            target="_blank"
-          >
-            Get in Touch
-
-            <svg
-              class="group-hover:text-white group-hover:duration-500 transition ml-3 w-6 h-6"
-              width="16"
-              height="17"
-              viewBox="0 0 16 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.33497 4.59961L13.335 8.59961L9.33497 12.5996M12.668 8.59961L2.66797 8.59961"
-                stroke="currentColor"
-                stroke-width="1.44"
-                stroke-linecap="square"
-              />
-            </svg>
-          </BaseButton> -->
         </span>
       </h1>
     </div>
