@@ -7,7 +7,7 @@ const serviceType = ref('')
 const visibleProjectsCount = ref(5)
 
 useHead({
-  title: 'Full-Stack Web Developer | Igor Kostenevych',
+  title: 'Full-Stack Web Developer | Igor Kostenevich',
   htmlAttrs: {
     lang: 'en',
   },
@@ -18,16 +18,16 @@ useHead({
         'full-stack developer, vue developer, nuxt developer, nestjs backend, freelance developer, vue.js portfolio, custom CRM, firebase, mongodb, web developer ukraine',
     },
     { name: 'description', content: 'Scalable and efficient full-stack web development using Vue, Nuxt, NestJS, MongoDB, Firebase.' },
-    { property: 'og:title', content: 'Full-Stack Developer — Igor Kostenevych' },
+    { property: 'og:title', content: 'Full-Stack Developer — Igor Kostenevich' },
     { property: 'og:description', content: 'Custom web apps and CRM systems with modern tech. See portfolio and get in touch!' },
     { property: 'og:image', content: '/images/preview-screen.png' },
     { property: 'og:url', content: 'https://family-love-haven.com/' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
     { name: 'theme-color', content: '#161616' },
-    { name: 'author', content: 'Igor Kostenevych' },
+    { name: 'author', content: 'Igor Kostenevich' },
     { name: 'robots', content: 'index, follow' },
-    { name: 'copyright', content: '© 2025 Igor Kostenevych' },
+    { name: 'copyright', content: '© 2025 Igor Kostenevich' },
   ],
   link: [
     { rel: 'canonical', href: 'https://family-love-haven.com/' },

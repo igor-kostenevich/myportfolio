@@ -139,7 +139,7 @@ watch(
   () => props.serviceType,
   newValue => {
     if (newValue) {
-      form.serviceType = newValue // 👈 вот это добавь
+      form.serviceType = newValue
       v$.value.serviceType.$touch()
     }
   },

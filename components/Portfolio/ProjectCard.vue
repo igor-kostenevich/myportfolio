@@ -44,13 +44,14 @@ const closeSidebar = () => {
         v-for="stack in project.techStack"
         :key="stack"
         class="border border-white/40 rounded-full text-xs py-1 px-2"
+        :class="{ 'xl:mt-5': isFirstProject }"
       >
         {{ stack }}
       </li>
     </ul>
     <div
       class="flex flex-col px-6 gap-5 md:gap-10 h-full"
-      :class="{ 'mt-10 xl:flex-row xl:items-center justify-between': isFirstProject }"
+      :class="{ 'xl:flex-row xl:items-center justify-between': isFirstProject }"
     >
       <div :class="[isFirstProject ? 'xl:w-2/4' : 'flex flex-col h-full']">
         <h3 class="text-xl md:text-2xl tracking-tight font-medium mb-2.5 transition">{{ project.title }}</h3>

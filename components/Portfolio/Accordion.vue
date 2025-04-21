@@ -32,9 +32,7 @@ function leave(el: Element) {
   const elH = el as HTMLElement
   elH.style.transition = 'max-height 0.3s'
   elH.style.maxHeight = '0'
-  // elH.style.maxHeight = elH.scrollHeight + 'px'// 🧠 начнем с текущей высоты
 
-  // 👉 в следующем кадре (reflow) обнуляем
   requestAnimationFrame(() => {
     elH.style.maxHeight = '0'
   })

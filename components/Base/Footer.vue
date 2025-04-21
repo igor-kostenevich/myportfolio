@@ -6,7 +6,7 @@ const { scrollToElement } = useScrollTo()
   <footer class="py-10 md:py-12 xl:py-16 md:pt-16 xl:pt-24 bg-black">
     <div class="container !max-w-[532px]">
       <nav>
-        <ul class="flex justify-center items-center gap-y-4 gap-10 mb-10 font-medium text-sm flex-wrap">
+        <ul class="flex justify-center items-center gap-y-4 gap-10 mb-10 font-medium text-sm flex-wrap max-w-[70%] sm:max-w-full mx-auto">
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('about')"
@@ -77,7 +77,7 @@ const { scrollToElement } = useScrollTo()
         </li>
       </ul>
 
-      <p class="text-xs text-center pt-6 md:pt-10 border-t border-gray-250">© 2025 Ihor Kostenevych. All rights reserved.</p>
+      <p class="text-xs text-center pt-6 md:pt-10 border-t border-gray-250">© 2025 Ihor Kostenevich. All rights reserved.</p>
     </div>
   </footer>
 </template>

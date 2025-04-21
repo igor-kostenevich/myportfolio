@@ -462,7 +462,7 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>Session history and billing reports UI</li>
           </ul>
         `.trim(),
-        image: '/images/projects/camdog/screen.jpg',
+        image: '/images/projects/camdog/screen.png',
         images: [],
         videos: ['https://www.youtube.com/watch?v=VPxfLD5lWX8'],
         myRole: 'Frontend Developer – UI/UX implementation, video stream integration, camera management features',
@@ -491,7 +491,7 @@ export const usePortfolioStore = defineStore('portfolio', {
             <li>Scalable layout using Tailwind UI components</li>
           </ul>
         `.trim(),
-        image: '/images/projects/portal/screen.jpg',
+        image: '/images/projects/portal/screen.png',
         images: ['/images/projects/portal/screen2.jpg'],
         videos: [],
         myRole: 'Frontend Developer',
