@@ -46,12 +46,12 @@ watch(
               />
             </button>
           </div>
-          <div class="lg:flex gap-32 mb-20 w-full">
+          <div class="lg:flex gap-24 xl:gap-32 mb-20 w-full">
             <div
               class="project-description mb-8 lg:mb-0 lg:max-w-[608px] text-gray-500 tracking-tight"
               v-html="project.longDescription"
             />
-            <div class="w-full">
+            <div class="w-full min-w-[40%]">
               <div class="flex pt-4 pb-8 border-b border-gray-150">
                 <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-40">My Role</h4>
                 <p class="text-gray-500 tracking-tight text-sm">{{ project.myRole }}</p>

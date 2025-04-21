@@ -147,6 +147,60 @@ export const usePortfolioStore = defineStore('portfolio', {
         },
       },
       {
+        id: 13,
+        title: 'Poweria – Energy Analytics and Monitoring Platform',
+        shortDescription: 'Web application for energy data visualization, real-time monitoring, user roles and dynamic dashboards.',
+        longDescription: `
+          Poweria is a modern analytics platform for monitoring energy production, consumption, and performance across various user types. I was the sole frontend developer on the project, responsible for building the UI architecture from scratch and implementing a wide range of features.
+      
+          Key functionality included:
+          <ul>
+            <li>Modular dashboard layout with role-based access for System Admins, Installers, Customer Admins, and Customers</li>
+            <li>Real-time data updates every 10 seconds without page reloads</li>
+            <li>Custom charts and graphs with amCharts and Chart.js</li>
+            <li>Complex table views with sorting, filtering, and virtual scrolling for performance</li>
+            <li>Authentication system with session handling and JWT</li>
+            <li>Role and permission-based views and interactions</li>
+            <li>Multilingual support with Vue I18n</li>
+            <li>Notifications, date pickers, and other reusable UI components</li>
+            <li>Custom endpoints created in Node.js for backend integration</li>
+          </ul>
+      
+          I also worked on the deployment pipeline, ESLint + Prettier config, and overall code structure using Vite, Pinia, and Vue 3 Composition API.
+        `.trim(),
+        image: '/images/projects/poweria/screen.png',
+        images: [
+          '/images/projects/poweria/screen2.jpg',
+          '/images/projects/poweria/screen3.jpg',
+          '/images/projects/poweria/screen4.jpg',
+          '/images/projects/poweria/screen5.jpg',
+          '/images/projects/poweria/screen6.jpg',
+          '/images/projects/poweria/screen7.jpg',
+          '/images/projects/poweria/screen8.jpg',
+          '/images/projects/poweria/screen9.jpg',
+        ],
+        videos: [],
+        myRole: 'Fullstack (Lead FE & Partial BE) – dashboards, access control, real-time sync, custom charts, API with Express',
+        industries: ['Energy Monitoring', 'Analytics', 'SaaS'],
+        techStack: [
+          'Vue 3',
+          'Vite',
+          'TailwindCSS',
+          'Pinia',
+          'Headless UI',
+          'Heroicons',
+          'Vue I18n',
+          'Chart.js',
+          'amCharts 5',
+          'js-cookie',
+          'Express.js',
+        ],
+        links: {
+          github: 'https://github.com/igor-kostenevich/poweria',
+          live: 'https://portal.poweria.pl/',
+        }
+      },      
+      {
         id: 12,
         title: 'PV Designer – Application for Designing Photovoltaic Installations',
         shortDescription: 'Advanced tool for planning and visualizing PV installations with automated layout, calculations, and offer generation.',
@@ -229,6 +283,7 @@ export const usePortfolioStore = defineStore('portfolio', {
           'Vite',
           'Inertia.js',
           'TailwindCSS',
+          'Cypress',
           'FullCalendar',
           'Tiptap Editor',
           'Vue Chart.js',
@@ -276,7 +331,7 @@ export const usePortfolioStore = defineStore('portfolio', {
           '/images/projects/ford/screen8.jpg',
         ],
         videos: [],
-        myRole: 'Lead Frontend Developer – Multi-site architecture, UI/UX system, CMS integration',
+        myRole: 'Frontend Developer – Multi-site architecture, UI/UX system, CMS integration',
         industries: ['Automotive', 'Utility Services', 'Food & Lifestyle', 'CMS Development'],
         techStack: [
           'Nuxt 2',
@@ -316,7 +371,7 @@ export const usePortfolioStore = defineStore('portfolio', {
           '/images/projects/polyx/screen6.jpg',
         ],
         videos: [],
-        myRole: 'Frontend',
+        myRole: 'Frontend Developer',
         industries: ['Crypto', 'Fintech', 'Trading'],
         techStack: ['Vue 2', 'Vuex', 'TypeScript', 'SCSS', 'Webpack 3', 'Highcharts', 'jQuery'],
         links: {
