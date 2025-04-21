@@ -41,8 +41,22 @@ jobs:
             nvm alias default 18
             nvm use 18
             cd ${{ secrets.APP_DIR }}
+
             git pull origin main
             npm install
             npm run build
+
+            echo "Waiting for .output/server/index.mjs..."
+            timeout=30
+            count=0
+            while [ ! -f .output/server/index.mjs ]; do
+              sleep 1
+              count=$((count + 1))
+              if [ $count -ge $timeout ]; then
+                echo "❌ Timeout waiting for .output/server/index.mjs"
+                exit 1
+              fi
+            done
+
             pm2 delete portfolio || true
             pm2 start .output/server/index.mjs --name portfolio
