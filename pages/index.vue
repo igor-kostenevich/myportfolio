@@ -290,7 +290,7 @@ const loadMoreProjects = async () => {
               />
             </div>
             <div
-              v-if="visibleProjectsCount <= store.projects.length"
+              v-if="visibleProjectsCount < store.projects.length"
               class="flex justify-center"
             >
               <BaseButton @click="loadMoreProjects"> VIEW MORE CASE STUDIES </BaseButton>

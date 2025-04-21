@@ -118,18 +118,7 @@ watch(
               </div>
             </div>
           </div>
-          <ul v-if="project.images.length">
-            <li
-              v-for="(image, index) in project.images"
-              :key="index"
-              class="mb-5"
-            >
-              <img
-                :src="image"
-                alt="project image"
-              />
-            </li>
-          </ul>
+          <PortfolioGallery v-if="project.images.length" :images="project.images" />
           <div v-if="project.videos.length">
             <div
               v-for="(video, index) in project.videos"
