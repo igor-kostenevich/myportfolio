@@ -67,8 +67,7 @@ jobs:
               fi
             done
 
-            echo "🚀 Restarting app with PM2"
             pm2 delete portfolio || true
-            pm2 start .output/server/index.mjs --name portfolio
-
-            echo "✅ Deployment completed!"
+            pm2 start .output/server/index.mjs --name portfolio --no-autorestart
+            echo "✅ PM2 started successfully"
+            exit 0
