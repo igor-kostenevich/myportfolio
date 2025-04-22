@@ -28,6 +28,9 @@ jobs:
           overwrite: true
           strip_components: 1
 
+      - name: Wait a bit to let file system settle (avoids race condition)
+        run: sleep 5
+
       - name: Deploy on server
         uses: appleboy/ssh-action@master
         with:
@@ -40,13 +43,19 @@ jobs:
             nvm install 18
             nvm alias default 18
             nvm use 18
+
             cd ${{ secrets.APP_DIR }}
 
-            git pull origin main
+            echo "🧹 Cleaning up old .output"
+            rm -rf .output
+
+            echo "📦 Installing dependencies"
             npm install
+
+            echo "🔨 Building project"
             npm run build
 
-            echo "Waiting for .output/server/index.mjs..."
+            echo "⏳ Waiting for .output/server/index.mjs to appear..."
             timeout=30
             count=0
             while [ ! -f .output/server/index.mjs ]; do
@@ -58,5 +67,8 @@ jobs:
               fi
             done
 
+            echo "🚀 Restarting app with PM2"
             pm2 delete portfolio || true
             pm2 start .output/server/index.mjs --name portfolio
+
+            echo "✅ Deployment completed!"
