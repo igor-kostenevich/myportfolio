@@ -16,10 +16,13 @@ const modalImage = ref<string | null>(null)
 const currentIndex = ref<number | null>(null)
 const swiperRef = ref<any>(null)
 const transitionDirection = ref<'left' | 'right'>('right')
-
+const activeIndex = ref(0)
 
 const setMainSwiper = (swiper) => {
   swiperRef.value = swiper
+  swiper.on('slideChange', () => {
+    activeIndex.value = swiper.activeIndex
+  })
 }
 
 const syncMainSwiper = (index: number) => {
@@ -68,13 +71,13 @@ const nextImage = () => {
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full relative">
     <Swiper
       :modules="[Thumbs, Navigation]"
       :thumbs="{ swiper: thumbsSwiper }"
       :spaceBetween="10"
-      :navigation="true"
-      class="mb-4"
+      :navigation="false"
+      class="mb-4 max-w-[93%]"
       :autoHeight="true"
       @swiper="setMainSwiper"
     >
@@ -90,7 +93,6 @@ const nextImage = () => {
         />
       </SwiperSlide>
     </Swiper>
-
     <Swiper
       :spaceBetween="10"
       :modules="[Thumbs]"
@@ -116,6 +118,25 @@ const nextImage = () => {
         />
       </SwiperSlide>
     </Swiper>
+
+    <button
+      class="group absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 rounded-full p-2"
+      :class="activeIndex === 0 ? 'opacity-30 cursor-not-allowed pointer-events-none' : ''"
+      @click="swiperRef?.slidePrev()"
+    >
+      <svg class="w-10 h-10 transition text-primary-light group-hover:text-primary-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button
+      class="group absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 rounded-full p-2"
+      :class="activeIndex === props.images.length - 1 ? 'opacity-30 cursor-not-allowed pointer-events-none' : ''"
+      @click="swiperRef?.slideNext()"
+    >
+      <svg class="w-10 h-10 transition text-primary-light group-hover:text-primary-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
 
     <Teleport to="body">
       <transition mode="fade">

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { cleanUrl } = useHelpers()
+
 const props = defineProps({
   project: {
     type: Object,
@@ -89,8 +91,8 @@ watch(
                 <a
                   :href="project.links.github"
                   target="_blank"
-                  class="text-gray-500 tracking-tight text-sm hover:underline"
-                  >{{ project.links.github }}</a
+                  class="text-primary-light tracking-tight text-sm hover:underline"
+                  >{{ cleanUrl(project.links.github) }}</a
                 >
               </div>
               <div class="flex pt-4 pb-8 border-b border-gray-150">
@@ -103,8 +105,8 @@ watch(
                     <a
                       :href="link"
                       target="_blank"
-                      class="text-gray-500 tracking-tight text-sm hover:underline"
-                      >{{ link }}</a
+                      class="text-primary-light tracking-tight text-sm hover:underline"
+                      >{{ cleanUrl(link) }}</a
                     >
                   </li>
                 </ul>
@@ -112,8 +114,8 @@ watch(
                   v-else
                   :href="project.links.live"
                   target="_blank"
-                  class="text-gray-500 tracking-tight text-sm hover:underline"
-                  >{{ project.links.live }}</a
+                  class="text-primary-light tracking-tight text-sm hover:underline"
+                  >{{ cleanUrl(project.links.live) }}</a
                 >
               </div>
             </div>

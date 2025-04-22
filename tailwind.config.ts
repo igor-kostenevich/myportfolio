@@ -39,7 +39,7 @@ export default {
       },
       colors: {
         primary: {
-          light: '#05E2BF',
+          light: '#03A68B',
           dark: '#05E2BF',
         },
         secondary: {
