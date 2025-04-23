@@ -125,6 +125,10 @@ async function onSubmit() {
     })
     Object.assign(form, initialFormState)
     v$.value.$reset()
+
+    if (window.plausible) {
+      window.plausible('submitted_contact_form')
+    }
   } catch (error) {
     notify({
       title: 'Error',

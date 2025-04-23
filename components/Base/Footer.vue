@@ -1,5 +1,11 @@
 <script lang="ts" setup>
 const { scrollToElement } = useScrollTo()
+
+function handleAnalitycsEvent(event: string) {
+  if (typeof window !== 'undefined' && window.plausible) {
+    window.plausible('clicked' + event)
+  }
+}
 </script>
 
 <template>
@@ -40,7 +46,7 @@ const { scrollToElement } = useScrollTo()
         </ul>
       </nav>
       <ul class="flex justify-center items-center gap-7 mb-10">
-        <li>
+        <li @click="handleAnalitycsEvent('upwork')">
           <a
             href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
             target="_blank"
@@ -48,7 +54,7 @@ const { scrollToElement } = useScrollTo()
             <SvgIcon name="upwork" />
           </a>
         </li>
-        <li>
+        <li @click="handleAnalitycsEvent('github')">
           <a
             href="https://github.com/igor-kostenevich"
             target="_blank"
@@ -57,7 +63,7 @@ const { scrollToElement } = useScrollTo()
             <SvgIcon name="github" />
           </a>
         </li>
-        <li>
+        <li @click="handleAnalitycsEvent('linkedin')">
           <a
             href="https://www.linkedin.com/in/igor-kostenevich/"
             target="_blank"
@@ -66,7 +72,7 @@ const { scrollToElement } = useScrollTo()
             <SvgIcon name="linkedin-footer" />
           </a>
         </li>
-        <li>
+        <li @click="handleAnalitycsEvent('telegram')">
           <a
             href="https://t.me/I_kostenevich"
             target="_blank"

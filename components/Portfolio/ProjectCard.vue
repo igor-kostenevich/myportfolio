@@ -16,6 +16,22 @@ const selectedProject = ref(null)
 const openProject = project => {
   selectedProject.value = project
   isSidebarOpen.value = true
+
+  if (window.plausible) {
+    window.plausible('viewed_project', {
+      props: {
+        project: project.title || project.name || project.id
+      }
+    })
+
+    setTimeout(() => {
+      if (isSidebarOpen.value && selectedProject.value?.title === projectName) {
+        window.plausible('engaged_with_project', {
+          props: { project: projectName }
+        })
+      }
+    }, 10000)
+  }
 }
 
 const closeSidebar = () => {
