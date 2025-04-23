@@ -10,33 +10,9 @@ defineProps({
   },
 })
 
-const isSidebarOpen = ref(false)
-const selectedProject = ref(null)
 
-const openProject = project => {
-  selectedProject.value = project
-  isSidebarOpen.value = true
+const emit = defineEmits(['open'])
 
-  if (window.plausible) {
-    window.plausible('viewed_project', {
-      props: {
-        project: project.title
-      }
-    })
-
-    setTimeout(() => {
-      if (isSidebarOpen.value && selectedProject.value?.title === project.title) {
-        window.plausible('engaged_with_project', {
-          props: { project: project.title }
-        })
-      }
-    }, 10000)
-  }
-}
-
-const closeSidebar = () => {
-  isSidebarOpen.value = false
-}
 </script>
 
 <template>
@@ -76,7 +52,7 @@ const closeSidebar = () => {
       <BaseButton
         variant="outline"
         class="group/button min-w-max w-full xl:w-auto"
-        @click="openProject(project)"
+        @click="emit('open', project)"
       >
         View Case
         <SvgIcon
@@ -85,11 +61,5 @@ const closeSidebar = () => {
         />
       </BaseButton>
     </div>
-
-    <PortfolioProjectSidebar
-      :project="selectedProject"
-      :is-open="isSidebarOpen"
-      @close="closeSidebar"
-    />
   </div>
 </template>

@@ -28,6 +28,12 @@ watch(
     document.body.classList.toggle('sidebar-open', open)
   },
 )
+
+onMounted(() => {
+  if (props.isOpen) {
+    document.body.classList.add('sidebar-open')
+  }
+})
 </script>
 
 <template>

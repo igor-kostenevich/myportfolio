@@ -18,6 +18,7 @@ interface PortfolioState {
     myRole: string
     industries: string[]
     techStack: string[]
+    slug: string
     links: {
       github: string
       live?: string | string[]
@@ -111,6 +112,7 @@ export const usePortfolioStore = defineStore('portfolio', {
     projects: [
       {
         id: 14,
+        slug: 'acceptic',
         title: 'Acceptic – Corporate Website with Server-Side Form Handling and SSR Deployment',
         shortDescription: 'Modern Nuxt 3 corporate website with integrated form endpoints, deployed to DigitalOcean with Nginx and PM2.',
         longDescription: `
@@ -148,6 +150,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 13,
+        slug: 'poweria',
         title: 'Poweria – Energy Analytics and Monitoring Platform',
         shortDescription: 'Web application for energy data visualization, real-time monitoring, user roles and dynamic dashboards.',
         longDescription: `
@@ -203,6 +206,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },      
       {
         id: 12,
+        slug: 'pv-designer',
         title: 'PV Designer – Application for Designing Photovoltaic Installations',
         shortDescription: 'Advanced tool for planning and visualizing PV installations with automated layout, calculations, and offer generation.',
         longDescription: `
@@ -247,6 +251,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 11,
+        slug: 'brick-crm',
         title: 'Brick CRM – Project & Workflow Management for Architects and Builders',
         shortDescription: 'A modern CRM platform with calendar, kanban board, workload tracking, file system, ticketing, and drawing layouts.',
         longDescription: `
@@ -301,6 +306,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 13,
+        slug: 'custom-cms',
         title: 'Custom CMS Platform – Scalable Website System for Automotive and Service Brands',
         shortDescription: 'A Nuxt.js-based CMS platform used to build branded websites dealerships, service booking, and recipe content, etc',
         longDescription: `
@@ -354,6 +360,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 3,
+        slug: 'polyx',
         title: 'Polyx Crypto Exchange',
         shortDescription: 'Secure and user-friendly cryptocurrency exchange platform for spot trading and digital asset management.',
         longDescription: `
@@ -382,6 +389,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 6,
+        slug: 'planner-online',
         title: 'Planner Online',
         shortDescription: 'Interactive web planner for kitchen and bathroom design with 3D visualization and project saving.',
         longDescription: `
@@ -409,6 +417,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 4,
+        slug: 'bathroom',
         title: 'Bathroom Inspirations (Castorama)',
         shortDescription: 'Interactive in-store web app for bathroom design inspiration and customer engagement.',
         longDescription: `
@@ -431,6 +440,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 5,
+        slug: 'kitchen',
         title: 'Kitchen Inspirations (Castorama)',
         shortDescription: 'Interactive in-store web app for kitchen design inspiration and customer engagement.',
         longDescription: `
@@ -458,6 +468,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 1,
+        slug: 'yolo',
         title: 'Yolo Education Platform',
         shortDescription: 'Web platform for managing educational workflows: tasks, events, staff, and more.',
         longDescription: `
@@ -480,6 +491,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 2,
+        slug: 'trackk',
         title: 'Trackk – Staff Observation & Coaching Platform',
         shortDescription: 'A platform for observing, evaluating, and coaching staff in childcare and educational organizations.',
         longDescription: `
@@ -500,6 +512,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 7,
+        slug: 'camdog',
         title: 'Camdog.ai – Video Surveillance Platform',
         shortDescription: 'Cloud-based video surveillance system with AI analytics, camera management, billing, and real-time alerts.',
         longDescription: `
@@ -531,6 +544,7 @@ export const usePortfolioStore = defineStore('portfolio', {
       },
       {
         id: 8,
+        slug: 'handmaid',
         title: 'Handmaid Cleaning – Online Booking & Client Management Platform',
         shortDescription: 'A modern web app for managing cleaning service bookings, client accounts, and real-time scheduling.',
         longDescription: `

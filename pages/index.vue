@@ -3,6 +3,10 @@ const store = usePortfolioStore()
 const { scrollToElement } = useScrollTo()
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+const route = useRoute()
+const router = useRouter()
+const selectedProject = ref(null)
+const isSidebarOpen = ref(false)
 const serviceType = ref('')
 const visibleProjectsCount = ref(5)
 
@@ -45,6 +49,43 @@ const loadMoreProjects = async () => {
   await nextTick()
   ScrollTrigger.refresh()
 }
+
+const openProject = (project) => {
+  selectedProject.value = project
+  isSidebarOpen.value = true
+
+  router.replace({
+    query: {
+      ...route.query,
+      project: project.slug,
+    },
+  })
+
+  if (window.plausible) {
+    window.plausible('viewed_project', { props: { project: project.slug } })
+    setTimeout(() => {
+      if (selectedProject.value?.slug === project.slug && isSidebarOpen.value) {
+        window.plausible('engaged_with_project', { props: { project: project.slug } })
+      }
+    }, 10000)
+  }
+}
+
+const closeSidebar = () => {
+  isSidebarOpen.value = false
+  router.replace({ query: { ...route.query, project: undefined } })
+}
+
+onMounted(() => {
+  const slug = route.query.project
+  if (typeof slug === 'string') {
+    const found = store.projects.find(p => p.slug === slug)
+    if (found) {
+      openProject(found)
+      scrollToElement('projects')
+    }
+  }
+})
 </script>
 
 <template>
@@ -287,6 +328,13 @@ const loadMoreProjects = async () => {
                 :project="project"
                 :is-first-project="index === 0"
                 :class="{ 'md:col-span-2 md:!bg-black !pb-20': index === 0 }"
+                @open="openProject"
+              />
+              <PortfolioProjectSidebar
+                v-if="selectedProject"
+                :project="selectedProject"
+                :is-open="isSidebarOpen"
+                @close="closeSidebar"
               />
             </div>
             <div
