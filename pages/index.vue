@@ -81,8 +81,8 @@ onMounted(() => {
   if (typeof slug === 'string') {
     const found = store.projects.find(p => p.slug === slug)
     if (found) {
-      openProject(found)
       scrollToElement('projects')
+      openProject(found)
     }
   }
 })
