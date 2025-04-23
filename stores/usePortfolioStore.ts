@@ -186,6 +186,7 @@ export const usePortfolioStore = defineStore('portfolio', {
           'Vue 3',
           'Vite',
           'TailwindCSS',
+          'TypeScript',
           'Pinia',
           'Headless UI',
           'Heroicons',
