@@ -20,14 +20,14 @@ const openProject = project => {
   if (window.plausible) {
     window.plausible('viewed_project', {
       props: {
-        project: project.title || project.name || project.id
+        project: project.title
       }
     })
 
     setTimeout(() => {
-      if (isSidebarOpen.value && selectedProject.value?.title === projectName) {
+      if (isSidebarOpen.value && selectedProject.value?.title === project.title) {
         window.plausible('engaged_with_project', {
-          props: { project: projectName }
+          props: { project: project.title }
         })
       }
     }, 10000)
