@@ -1,5 +1,7 @@
 export function useScrollTo() {
-  const scrollToElement = (elementId: string, offset = 0) => {
+  const scrollToElement = async (elementId: string, offset = 0) => {
+    await nextTick()
+
     const targetElement = document.getElementById(elementId)
     const header = document.querySelector('header')
 
