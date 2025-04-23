@@ -1,5 +1,5 @@
 export function useScrollTo() {
-  const scrollToElement = async (elementId: string, offset = 0) => {
+  const scrollToElement = async (elementId: string, offset = 0, instant = false) => {
     await nextTick()
 
     const targetElement = document.getElementById(elementId)
@@ -12,7 +12,7 @@ export function useScrollTo() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: instant ? 'auto' : 'smooth',
       })
     }
   }
