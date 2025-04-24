@@ -35,6 +35,7 @@ onUnmounted(() => {
         <nuxt-link
           to="/"
           class="relative z-30"
+          @click="scrollToElement('main-screen')"
         >
           <img
             src="~/assets/svg/logo.svg"

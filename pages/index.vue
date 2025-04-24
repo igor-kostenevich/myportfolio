@@ -90,7 +90,7 @@ onMounted(() => {
 
 <template>
   <!-- Main screen section -->
-  <section class="flex items-center bg-secondary-dark min-h-screen py-48 relative">
+  <section id="main-screen" class="flex items-center bg-secondary-dark min-h-screen py-48 relative">
     <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px] relative z-[3]">
       <div class="flex flex-col gap-4 md:flex-row md:items-center mb-5 w-full">
         <div class="relative inline-flex w-max">
@@ -207,8 +207,8 @@ onMounted(() => {
           <div class="mt-10 lg:mt-16 flex flex-wrap gap-4">
             <BaseButton
               class="w-full xs:w-auto"
-              href="/Igor_Kostenevich_FE_CV.pdf"
-              download
+              href="/Igor_Kostenevich_FE_CV.cv"
+              download="Igor_Kostenevich_CV.pdf"
             >
               Download CV
 

@@ -120,7 +120,7 @@ const nextImage = () => {
     </Swiper>
 
     <button
-      class="group absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 rounded-full p-2"
+      class="group absolute top-[38%] lg:top-[42%] -left-8 xl:-left-4 transform -translate-y-1/2 z-10 rounded-full p-2"
       :class="activeIndex === 0 ? 'opacity-30 cursor-not-allowed pointer-events-none' : ''"
       @click="swiperRef?.slidePrev()"
     >
@@ -129,7 +129,7 @@ const nextImage = () => {
       </svg>
     </button>
     <button
-      class="group absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 rounded-full p-2"
+      class="group absolute top-[38%] lg:top-[42%] -right-8 xl:-right-4 transform -translate-y-1/2 z-10 rounded-full p-2"
       :class="activeIndex === props.images.length - 1 ? 'opacity-30 cursor-not-allowed pointer-events-none' : ''"
       @click="swiperRef?.slideNext()"
     >
