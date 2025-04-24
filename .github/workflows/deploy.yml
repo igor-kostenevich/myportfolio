@@ -68,6 +68,6 @@ jobs:
             done
 
             pm2 delete portfolio || true
-            pm2 start ecosystem.config.js --only portfolio --no-autorestart
+            pm2 start ecosystem.config.cjs --only portfolio --no-autorestart
             echo "✅ PM2 started successfully"
             exit 0
