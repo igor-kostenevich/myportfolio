@@ -17,12 +17,16 @@ export default defineEventHandler(async (event) => {
         ],
         from: {
           email: 'noreply@em6741.family-love-haven.com',
-          name: 'My Portfolio Site',
+          name: 'Igor Kostenevich | Portfolio',
+        },
+        reply_to: {
+          email: body.email || 'noreply@em6741.family-love-haven.com',
+          name: body.name || 'Anonymous',
         },
         content: [
           {
             type: 'text/plain',
-            value: body.text || 'No message provided',
+            value: `New contact from ${body.name || 'Anonymous'} (${body.email || 'No email'}) — ${body.subject || 'No subject'}`,
           },
           { 
             type: 'text/html', 
