@@ -109,7 +109,7 @@ async function onSubmit() {
 
     const payload = {
       subject: `New Contact from ${form.name}`,
-      text: textMessage,
+      message: textMessage,
       html: htmlMessage,
     }
 
@@ -136,6 +136,8 @@ async function onSubmit() {
       type: 'error',
     })
     v$.value.$reset()
+  } finally {
+    isLoading.value = false
   }
 }
 
