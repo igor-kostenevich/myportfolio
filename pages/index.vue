@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const store = usePortfolioStore()
 const { scrollToElement } = useScrollTo()
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const route = useRoute()
 const router = useRouter()
@@ -44,6 +43,8 @@ const handleServiceClick = (value: string) => {
 const loadMoreProjects = async () => {
   visibleProjectsCount.value += 2
   await nextTick()
+
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
   ScrollTrigger.refresh()
 }
 

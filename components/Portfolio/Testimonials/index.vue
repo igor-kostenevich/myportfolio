@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import TestimonialCard from './Card.vue'
 const store = usePortfolioStore()
-
-gsap.registerPlugin(ScrollTrigger)
 
 const SIDE_PADDING = 32
 
@@ -22,53 +18,57 @@ const bottomRowRef = ref<HTMLElement | null>(null)
 onMounted(async () => {
   await nextTick()
 
+  const startAnimations = async () => {
+    const { gsap } = await import('gsap')
+    const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    if (topRowRef.value) {
+      const topX = topRowRef.value.scrollWidth - topRowRef.value.offsetWidth + SIDE_PADDING * 2
+      gsap.fromTo(
+        topRowRef.value,
+        { x: SIDE_PADDING },
+        {
+          x: -topX + SIDE_PADDING,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: topRowRef.value,
+            start: '150% bottom',
+            end: 'bottom 50%',
+            scrub: 1,
+          },
+        },
+      )
+    }
+
+    if (bottomRowRef.value) {
+      const bottomX = bottomRowRef.value.scrollWidth - bottomRowRef.value.offsetWidth + SIDE_PADDING * 8
+      gsap.fromTo(
+        bottomRowRef.value,
+        { x: -bottomX + SIDE_PADDING },
+        {
+          x: SIDE_PADDING,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: bottomRowRef.value,
+            start: '100% bottom',
+            end: 'bottom 50%',
+            scrub: 1,
+          },
+        },
+      )
+    }
+  }
+
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-      initAnimations()
-    }, { timeout: 500 })
+    requestIdleCallback(() => startAnimations(), { timeout: 500 })
   } else {
-    setTimeout(initAnimations, 300)
+    setTimeout(() => startAnimations(), 300)
   }
 })
-
-function initAnimations() {
-  if (topRowRef.value) {
-    const topX = topRowRef.value.scrollWidth - topRowRef.value.offsetWidth + SIDE_PADDING * 2
-    gsap.fromTo(
-      topRowRef.value,
-      { x: SIDE_PADDING },
-      {
-        x: -topX + SIDE_PADDING,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: topRowRef.value,
-          start: '150% bottom',
-          end: 'bottom 50%',
-          scrub: 1,
-        },
-      },
-    )
-  }
-
-  if (bottomRowRef.value) {
-    const bottomX = bottomRowRef.value.scrollWidth - bottomRowRef.value.offsetWidth + SIDE_PADDING * 8
-    gsap.fromTo(
-      bottomRowRef.value,
-      { x: -bottomX + SIDE_PADDING },
-      {
-        x: SIDE_PADDING,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: bottomRowRef.value,
-          start: '100% bottom',
-          end: 'bottom 50%',
-          scrub: 1,
-        },
-      },
-    )
-  }
-}
 </script>
+
 
 <template>
   <div class="bg-dark text-white">
