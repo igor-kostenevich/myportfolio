@@ -7,5 +7,10 @@ export function useHelpers() {
       .replace(/^github\.com\/.*?\//, '')
   }
 
-  return { cleanUrl }
+  function toWebp (imgPath: string) {
+    if (!imgPath) return ''
+    return imgPath.replace(/\.(png|jpg|jpeg)$/i, '.webp')
+  }
+
+  return { cleanUrl, toWebp }
 }

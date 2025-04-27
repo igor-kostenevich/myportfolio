@@ -95,13 +95,16 @@ onMounted(() => {
     <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px] relative z-[3]">
       <div class="flex flex-col gap-4 md:flex-row md:items-center mb-5 w-full">
         <div class="relative inline-flex w-[84px] h-[56px]">
-          <img
-            src="/images/photo.png"
-            alt="avatar"
-            height="718"
-            width="660"
-            class="rounded-full w-full h-full object-cover object-top"
-          />
+          <picture>
+            <source srcset="/images/photo.webp" type="image/webp" />
+            <img
+              src="/images/photo.png"
+              alt="avatar"
+              height="718"
+              width="660"
+              class="rounded-full w-full h-full object-cover object-top"
+            />
+          </picture>
           <div
             v-if="store.isAvailableForJob"
             class="flex items-center justify-center rounded-full h-7 w-7 bg-[#CEF9F3] border-[4px] border-white absolute -right-2 -top-2"
@@ -185,13 +188,16 @@ onMounted(() => {
     <div class="w-full cont">
       <div class="lg:pr-4 max-w-[100%] flex gap-10 lg:gap-12 xl:gap-16 flex-col w-full lg:flex-row">
         <div class="relative w-full lg:w-1/3 xl:w-auto pb-[70%] lg:pb-0">
-          <img
-            src="/images/photo.png"
-            alt="Igor Kostenevich photo"
-            height="718"
-            width="660"
-            class="xl:h-auto h-full w-full lg:max-h-[800px] xl:max-h-full object-[50%_15%] object-cover absolute xl:static inset-0 lg:rounded-br-2xl lg:rounded-tr-2xl overflow-hidden"
-          />
+          <picture>
+            <source srcset="/images/photo.webp" type="image/webp" />
+            <img
+              src="/images/photo.png"
+              alt="Igor Kostenevich photo"
+              height="718"
+              width="660"
+              class="xl:h-auto h-full w-full lg:max-h-[800px] xl:max-h-full object-[50%_15%] object-cover absolute xl:static inset-0 lg:rounded-br-2xl lg:rounded-tr-2xl overflow-hidden"
+            />
+          </picture>
         </div>
         <div class="flex flex-col px-4 lg:px-0 w-full max-w-[600px] md:max-w-max">
           <p class="text-gray-100 lg:text-lg">

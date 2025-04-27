@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Thumbs } from 'swiper/modules'
-import { ref } from 'vue'
+const { toWebp } = useHelpers()
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -85,11 +85,14 @@ const nextImage = () => {
         :key="index"
         class="max-h-[745px]"
       >
+      <picture @click="openModal(image)">
+        <source :srcset="toWebp(image)" type="image/webp" />
         <img
           :src="image"
           class="w-full h-full object-contain rounded-xl cursor-zoom-in"
-          @click="openModal(image)"
+          alt=""
         />
+      </picture>
       </SwiperSlide>
     </Swiper>
     <Swiper
@@ -111,10 +114,14 @@ const nextImage = () => {
         v-for="(image, index) in images"
         :key="index"
       >
+      <picture>
+        <source :srcset="toWebp(image)" type="image/webp" />
         <img
           :src="image"
           class="w-full h-20 object-cover rounded-lg border cursor-pointer"
+          alt=""
         />
+      </picture>
       </SwiperSlide>
     </Swiper>
 
@@ -186,11 +193,15 @@ const nextImage = () => {
             :name="transitionDirection === 'left' ? 'slide-left' : 'slide-right'"
             mode="out-in"
           >
-            <img
-              :key="modalImage"
-              :src="modalImage"
-              class="max-h-[90vh] rounded-xl shadow-lg max-w-[80vw]"
-            />
+            <picture>
+              <source :srcset="toWebp(modalImage)" type="image/webp" />
+              <img
+                :key="modalImage"
+                :src="modalImage"
+                class="max-h-[90vh] rounded-xl shadow-lg max-w-[80vw]"
+                alt=""
+              />
+            </picture>
           </transition>
 
           <button

@@ -35,6 +35,7 @@ onUnmounted(() => {
         <nuxt-link
           to="/"
           class="relative z-30"
+          aria-label="Logo"
           @click="scrollToElement('main-screen')"
         >
           <img
@@ -102,6 +103,7 @@ onUnmounted(() => {
           </base-button>
           <button
             class="w-6 h-6 relative z-30 lg:hidden ml-6"
+            aria-label="Toggle navigation"
             @click="toggleMobileMenu"
           >
             <span :class="['h-[2px] bg-white w-6 block mb-1 transform transition-all duration-300', { 'rotate-45': isMenuOpened }]" />
