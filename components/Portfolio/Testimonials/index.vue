@@ -22,44 +22,52 @@ const bottomRowRef = ref<HTMLElement | null>(null)
 onMounted(async () => {
   await nextTick()
 
-  setTimeout(() => {
-    if (topRowRef.value) {
-      const topX = topRowRef.value.scrollWidth - topRowRef.value.offsetWidth + SIDE_PADDING * 2
-      gsap.fromTo(
-        topRowRef.value,
-        { x: SIDE_PADDING },
-        {
-          x: -topX + SIDE_PADDING,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: topRowRef.value,
-            start: '150% bottom',
-            end: 'bottom 50%',
-            scrub: 1,
-          },
-        },
-      )
-    }
-
-    if (bottomRowRef.value) {
-      const bottomX = bottomRowRef.value.scrollWidth - bottomRowRef.value.offsetWidth + SIDE_PADDING * 8
-      gsap.fromTo(
-        bottomRowRef.value,
-        { x: -bottomX + SIDE_PADDING },
-        {
-          x: SIDE_PADDING,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: bottomRowRef.value,
-            start: '100% bottom',
-            end: 'bottom 50%',
-            scrub: 1,
-          },
-        },
-      )
-    }
-  }, 300)
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      initAnimations()
+    }, { timeout: 500 })
+  } else {
+    setTimeout(initAnimations, 300)
+  }
 })
+
+function initAnimations() {
+  if (topRowRef.value) {
+    const topX = topRowRef.value.scrollWidth - topRowRef.value.offsetWidth + SIDE_PADDING * 2
+    gsap.fromTo(
+      topRowRef.value,
+      { x: SIDE_PADDING },
+      {
+        x: -topX + SIDE_PADDING,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: topRowRef.value,
+          start: '150% bottom',
+          end: 'bottom 50%',
+          scrub: 1,
+        },
+      },
+    )
+  }
+
+  if (bottomRowRef.value) {
+    const bottomX = bottomRowRef.value.scrollWidth - bottomRowRef.value.offsetWidth + SIDE_PADDING * 8
+    gsap.fromTo(
+      bottomRowRef.value,
+      { x: -bottomX + SIDE_PADDING },
+      {
+        x: SIDE_PADDING,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: bottomRowRef.value,
+          start: '100% bottom',
+          end: 'bottom 50%',
+          scrub: 1,
+        },
+      },
+    )
+  }
+}
 </script>
 
 <template>
