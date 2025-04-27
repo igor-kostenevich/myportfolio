@@ -17,31 +17,31 @@ function handleAnalitycsEvent(event: string) {
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('about')"
           >
-            <a href="#">About</a>
+            <a href="#" aria-label="about">About</a>
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('projects')"
           >
-            <a href="#">Projects</a>
+            <a href="#" aria-label="projects">Projects</a>
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('services')"
           >
-            <a href="#">Services</a>
+            <a href="#" aria-label="services">Services</a>
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('testimonials')"
           >
-            <a href="#">Testimonials</a>
+            <a href="#" aria-label="testimonials">Testimonials</a>
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('contacts')"
           >
-            <a href="#">Contact me</a>
+            <a href="#" aria-label="contacts">Contact me</a>
           </li>
         </ul>
       </nav>
@@ -50,8 +50,9 @@ function handleAnalitycsEvent(event: string) {
           <a
             href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
             target="_blank"
+            aria-label="upwork"
           >
-            <SvgIcon name="upwork" />
+            <SvgIcon name="upwork profile" />
           </a>
         </li>
         <li @click="handleAnalitycsEvent('github')">
@@ -59,6 +60,7 @@ function handleAnalitycsEvent(event: string) {
             href="https://github.com/igor-kostenevich"
             target="_blank"
             class=""
+            aria-label="github profile"
           >
             <SvgIcon name="github" />
           </a>
@@ -68,6 +70,7 @@ function handleAnalitycsEvent(event: string) {
             href="https://www.linkedin.com/in/igor-kostenevich/"
             target="_blank"
             class=""
+            aria-label="linkedin link"
           >
             <SvgIcon name="linkedin-footer" />
           </a>
@@ -77,6 +80,7 @@ function handleAnalitycsEvent(event: string) {
             href="https://t.me/I_kostenevich"
             target="_blank"
             class=""
+            aria-label="telegram link"
           >
             <SvgIcon name="telegram" />
           </a>

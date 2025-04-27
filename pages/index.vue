@@ -12,9 +12,6 @@ const visibleProjectsCount = ref(5)
 
 useHead({
   title: 'Full-Stack Web Developer | Igor Kostenevich',
-  htmlAttrs: {
-    lang: 'en',
-  },
   meta: [
     {
       name: 'keywords',
@@ -93,10 +90,13 @@ onMounted(() => {
   <section id="main-screen" class="flex items-center bg-secondary-dark min-h-screen py-48 relative">
     <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px] relative z-[3]">
       <div class="flex flex-col gap-4 md:flex-row md:items-center mb-5 w-full">
-        <div class="relative inline-flex w-max">
+        <div class="relative inline-flex w-[84px] h-[56px] ">
           <img
-            src="/images/small-photo.png"
+            src="/images/photo.png"
             alt="avatar"
+            height="718"
+            width="660"
+            class="rounded-full w-full h-full object-cover object-top"
           />
           <div
             v-if="store.isAvailableForJob"
@@ -184,6 +184,8 @@ onMounted(() => {
           <img
             src="/images/photo.png"
             alt="Igor Kostenevich photo"
+            height="718"
+            width="660"
             class="xl:h-auto h-full w-full lg:max-h-[800px] xl:max-h-full object-[50%_15%] object-cover absolute xl:static inset-0 lg:rounded-br-2xl lg:rounded-tr-2xl overflow-hidden"
           />
         </div>
@@ -240,12 +242,12 @@ onMounted(() => {
   <!-- Skills section -->
   <section class="stack-section bg-secondary-dark py-20">
     <div class="container">
-      <h3
+      <h2
         v-gsap.whenVisible.once.from="{ autoAlpha: 0, x: -50 }"
         class="font-space-mono tracking-widest uppercase text-xl text-white mb-12 md:mb-20"
       >
         Main stack that i use
-      </h3>
+      </h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <div
           v-for="skill in store.skills"
@@ -431,7 +433,7 @@ onMounted(() => {
   >
     <div class="container">
       <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
-        <h3 class="text-center md:text-left font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h3>
+        <h2 class="text-center md:text-left font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h2>
         <div class="max-w-[600px] xl:max-w-[856px]">
           <h2 class="secondary-title text-center sm:text-left mb-6">Words <span class="text-primary-dark font-medium">That Count </span></h2>
           <p class="text-gray-150 text-center sm:text-left sm:text-lg">
