@@ -17,31 +17,51 @@ function handleAnalitycsEvent(event: string) {
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('about')"
           >
-            <a href="#" aria-label="about">About</a>
+            <a
+              href="#"
+              aria-label="about"
+              >About</a
+            >
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('projects')"
           >
-            <a href="#" aria-label="projects">Projects</a>
+            <a
+              href="#"
+              aria-label="projects"
+              >Projects</a
+            >
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('services')"
           >
-            <a href="#" aria-label="services">Services</a>
+            <a
+              href="#"
+              aria-label="services"
+              >Services</a
+            >
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('testimonials')"
           >
-            <a href="#" aria-label="testimonials">Testimonials</a>
+            <a
+              href="#"
+              aria-label="testimonials"
+              >Testimonials</a
+            >
           </li>
           <li
             class="hover:text-primary-dark transition cursor-pointer"
             @click.prevent="scrollToElement('contacts')"
           >
-            <a href="#" aria-label="contacts">Contact me</a>
+            <a
+              href="#"
+              aria-label="contacts"
+              >Contact me</a
+            >
           </li>
         </ul>
       </nav>

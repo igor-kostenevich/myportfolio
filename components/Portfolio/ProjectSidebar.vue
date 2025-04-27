@@ -126,7 +126,10 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <PortfolioGallery v-if="project.images.length" :images="project.images" />
+          <PortfolioGallery
+            v-if="project.images.length"
+            :images="project.images"
+          />
           <div v-if="project.videos.length">
             <div
               v-for="(video, index) in project.videos"

@@ -18,7 +18,7 @@ const swiperRef = ref<any>(null)
 const transitionDirection = ref<'left' | 'right'>('right')
 const activeIndex = ref(0)
 
-const setMainSwiper = (swiper) => {
+const setMainSwiper = swiper => {
   swiperRef.value = swiper
   swiper.on('slideChange', () => {
     activeIndex.value = swiper.activeIndex
@@ -31,12 +31,12 @@ const syncMainSwiper = (index: number) => {
   }
 }
 
-const setThumbsSwiper = (swiper) => {
+const setThumbsSwiper = swiper => {
   thumbsSwiper.value = swiper
 }
 
 const openModal = (img: string) => {
-  const index = props.images.findIndex((i) => i === img)
+  const index = props.images.findIndex(i => i === img)
   if (index !== -1) {
     currentIndex.value = index
     modalImage.value = props.images[index]
@@ -51,8 +51,7 @@ const closeModal = () => {
 const prevImage = () => {
   if (currentIndex.value !== null) {
     transitionDirection.value = 'left'
-    const newIndex =
-      (currentIndex.value - 1 + props.images.length) % props.images.length
+    const newIndex = (currentIndex.value - 1 + props.images.length) % props.images.length
     currentIndex.value = newIndex
     modalImage.value = props.images[newIndex]
     syncMainSwiper(newIndex)
@@ -75,10 +74,10 @@ const nextImage = () => {
     <Swiper
       :modules="[Thumbs, Navigation]"
       :thumbs="{ swiper: thumbsSwiper }"
-      :spaceBetween="10"
+      :space-between="10"
       :navigation="false"
       class="mb-4 max-w-[93%]"
-      :autoHeight="true"
+      :auto-height="true"
       @swiper="setMainSwiper"
     >
       <SwiperSlide
@@ -94,18 +93,18 @@ const nextImage = () => {
       </SwiperSlide>
     </Swiper>
     <Swiper
-      :spaceBetween="10"
+      :space-between="10"
       :modules="[Thumbs]"
       watch-slides-progress
       class="thumbs justify-center"
       :breakpoints="{
-          0: { slidesPerView: 2.5 },
-          460: { slidesPerView: 3.5 },
-          640: { slidesPerView: 5.5 },
-          768: { slidesPerView: 6.5 },
-          1024: { slidesPerView: 8.5 },
-          1280: { slidesPerView: 9.5 },
-        }"
+        0: { slidesPerView: 2.5 },
+        460: { slidesPerView: 3.5 },
+        640: { slidesPerView: 5.5 },
+        768: { slidesPerView: 6.5 },
+        1024: { slidesPerView: 8.5 },
+        1280: { slidesPerView: 9.5 },
+      }"
       @swiper="setThumbsSwiper"
     >
       <SwiperSlide
@@ -124,8 +123,18 @@ const nextImage = () => {
       :class="activeIndex === 0 ? 'opacity-30 cursor-not-allowed pointer-events-none' : ''"
       @click="swiperRef?.slidePrev()"
     >
-      <svg class="w-10 h-10 transition text-primary-light group-hover:text-primary-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      <svg
+        class="w-10 h-10 transition text-primary-light group-hover:text-primary-dark"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 19l-7-7 7-7"
+        />
       </svg>
     </button>
     <button
@@ -133,8 +142,18 @@ const nextImage = () => {
       :class="activeIndex === props.images.length - 1 ? 'opacity-30 cursor-not-allowed pointer-events-none' : ''"
       @click="swiperRef?.slideNext()"
     >
-      <svg class="w-10 h-10 transition text-primary-light group-hover:text-primary-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      <svg
+        class="w-10 h-10 transition text-primary-light group-hover:text-primary-dark"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 5l7 7-7 7"
+        />
       </svg>
     </button>
 
@@ -149,8 +168,18 @@ const nextImage = () => {
             class="absolute left-4 text-white text-4xl z-10"
             @click="prevImage"
           >
-            <svg class="w-8 h-8 md:w-12 md:h-12 hover:text-primary-dark transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            <svg
+              class="w-8 h-8 md:w-12 md:h-12 hover:text-primary-dark transition"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <transition
@@ -158,8 +187,8 @@ const nextImage = () => {
             mode="out-in"
           >
             <img
-              :src="modalImage"
               :key="modalImage"
+              :src="modalImage"
               class="max-h-[90vh] rounded-xl shadow-lg max-w-[80vw]"
             />
           </transition>
@@ -175,7 +204,11 @@ const nextImage = () => {
               stroke-width="2"
               viewBox="0 0 24 24"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
 
@@ -183,9 +216,21 @@ const nextImage = () => {
             class="absolute top-4 right-4 text-white text-4xl"
             @click="closeModal"
           >
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M37.9992 36.5715L19.4277 18L17.9992 19.4286L36.5706 38L37.9992 36.5715Z" fill="#fff"/>
-              <path d="M19.4285 38.0011L38 19.4297L36.5714 18.0011L18 36.5726L19.4285 38.0011Z" fill="#fff"/>
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M37.9992 36.5715L19.4277 18L17.9992 19.4286L36.5706 38L37.9992 36.5715Z"
+                fill="#fff"
+              />
+              <path
+                d="M19.4285 38.0011L38 19.4297L36.5714 18.0011L18 36.5726L19.4285 38.0011Z"
+                fill="#fff"
+              />
             </svg>
           </button>
         </div>
@@ -197,7 +242,7 @@ const nextImage = () => {
 <style scoped>
 .swiper-button-next,
 .swiper-button-prev {
-  color: #05E2BF;
+  color: #05e2bf;
 }
 .fade-enter-active,
 .fade-leave-active {

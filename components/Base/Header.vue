@@ -123,37 +123,61 @@ onUnmounted(() => {
                   class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"
                   @click.prevent="scrollToElement('about')"
                 >
-                  <a href="#" aria-label="about">About</a>
+                  <a
+                    href="#"
+                    aria-label="about"
+                    >About</a
+                  >
                 </li>
                 <li
                   class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"
                   @click.prevent="scrollToElement('projects')"
                 >
-                  <a href="#" aria-label="projects">Projects</a>
+                  <a
+                    href="#"
+                    aria-label="projects"
+                    >Projects</a
+                  >
                 </li>
                 <li
                   class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"
                   @click.prevent="scrollToElement('services')"
                 >
-                  <a href="#" aria-label="services">Services</a>
+                  <a
+                    href="#"
+                    aria-label="services"
+                    >Services</a
+                  >
                 </li>
                 <li
                   class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"
                   @click.prevent="scrollToElement('testimonials')"
                 >
-                  <a href="#" aria-label="testimonials">Testimonials</a>
+                  <a
+                    href="#"
+                    aria-label="testimonials"
+                    >Testimonials</a
+                  >
                 </li>
                 <li
                   class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"
                   @click.prevent="scrollToElement('contacts')"
                 >
-                  <a href="#" aria-label="contacts">Contact me</a>
+                  <a
+                    href="#"
+                    aria-label="contacts"
+                    >Contact me</a
+                  >
                 </li>
                 <li
                   class="text-[22px] px-6 py-8 border-b border-gray-250 text-white"
                   @click.prevent="scrollToElement('faq')"
                 >
-                  <a href="#" aria-label="FAQ">FAQ</a>
+                  <a
+                    href="#"
+                    aria-label="FAQ"
+                    >FAQ</a
+                  >
                 </li>
               </ul>
             </nav>

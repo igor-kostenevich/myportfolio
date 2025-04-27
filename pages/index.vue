@@ -87,10 +87,13 @@ onMounted(() => {
 
 <template>
   <!-- Main screen section -->
-  <section id="main-screen" class="flex items-center bg-secondary-dark min-h-screen py-48 relative">
+  <section
+    id="main-screen"
+    class="flex items-center bg-secondary-dark min-h-screen py-48 relative"
+  >
     <div class="container flex flex-col items-center !max-w-[768px] xl:!max-w-[1144px] relative z-[3]">
       <div class="flex flex-col gap-4 md:flex-row md:items-center mb-5 w-full">
-        <div class="relative inline-flex w-[84px] h-[56px] ">
+        <div class="relative inline-flex w-[84px] h-[56px]">
           <img
             src="/images/photo.png"
             alt="avatar"

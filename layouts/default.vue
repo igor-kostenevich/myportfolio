@@ -7,13 +7,14 @@ useHead({
       'data-domain': 'family-love-haven.com',
     },
     {
-      children: `
+      innerHTML: `
         window.plausible = window.plausible || function() {
           (window.plausible.q = window.plausible.q || []).push(arguments)
         }
-      `
-    }
-  ]
+      `,
+      type: 'text/javascript',
+    },
+  ],
 })
 
 onMounted(() => {
@@ -33,7 +34,6 @@ onMounted(() => {
 
   onBeforeUnmount(() => timers.forEach(clearTimeout))
 })
-
 </script>
 
 <template>

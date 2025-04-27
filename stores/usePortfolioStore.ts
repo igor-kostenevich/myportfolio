@@ -202,8 +202,8 @@ export const usePortfolioStore = defineStore('portfolio', {
         links: {
           github: 'https://github.com/igor-kostenevich/poweria',
           live: 'https://portal.poweria.pl/',
-        }
-      },      
+        },
+      },
       {
         id: 12,
         slug: 'pv-designer',

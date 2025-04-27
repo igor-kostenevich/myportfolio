@@ -10,9 +10,7 @@ defineProps({
   },
 })
 
-
 const emit = defineEmits(['open'])
-
 </script>
 
 <template>

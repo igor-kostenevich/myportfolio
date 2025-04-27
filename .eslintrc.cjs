@@ -22,6 +22,8 @@ module.exports = {
     watch: 'readonly',
     watchEffect: 'readonly',
     onMounted: 'readonly',
+    onBeforeUnmount: 'readonly',
+    useHelpers: 'readonly',
     onUnmounted: 'readonly',
     nextTick: 'readonly',
     defineProps: 'readonly',
