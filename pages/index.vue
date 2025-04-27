@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const route = useRoute()
 const router = useRouter()
-const selectedProject = ref(null)
+const selectedProject = ref<{ slug: string } | null>(null)
 const isSidebarOpen = ref(false)
 const serviceType = ref('')
 const visibleProjectsCount = ref(5)
@@ -50,7 +50,7 @@ const loadMoreProjects = async () => {
   ScrollTrigger.refresh()
 }
 
-const openProject = (project) => {
+const openProject = (project: { slug: string }) => {
   selectedProject.value = project
   isSidebarOpen.value = true
 
