@@ -78,10 +78,10 @@ onUnmounted(() => {
         <div class="flex items-center">
           <base-button
             class="group flex z-[999] !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
-            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
+            href="https://t.me/ikostenevich"
             target="_blank"
           >
-            Hire me on Upwork
+            Write me in Telegram
 
             <template #right>
               <svg
@@ -184,17 +184,6 @@ onUnmounted(() => {
               </ul>
             </nav>
           </div>
-          <!-- <base-button
-            class="sm:hidden"
-            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
-            target="_blank"
-          >
-            Hire me on Upwork
-            <SvgIcon
-              name="arrow-right"
-              class="ml-2"
-            />
-          </base-button> -->
         </div>
       </div>
     </div>

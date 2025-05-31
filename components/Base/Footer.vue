@@ -66,15 +66,6 @@ function handleAnalitycsEvent(event: string) {
         </ul>
       </nav>
       <ul class="flex justify-center items-center gap-7 mb-10">
-        <li @click="handleAnalitycsEvent('upwork')">
-          <a
-            href="https://www.upwork.com/freelancers/~01f00ee3a78f8c6d67"
-            target="_blank"
-            aria-label="upwork"
-          >
-            <SvgIcon name="upwork profile" />
-          </a>
-        </li>
         <li @click="handleAnalitycsEvent('github')">
           <a
             href="https://github.com/igor-kostenevich"
@@ -97,7 +88,7 @@ function handleAnalitycsEvent(event: string) {
         </li>
         <li @click="handleAnalitycsEvent('telegram')">
           <a
-            href="https://t.me/I_kostenevich"
+            href="https://t.me/ikostenevich"
             target="_blank"
             class=""
             aria-label="telegram link"

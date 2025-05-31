@@ -718,11 +718,11 @@ export const usePortfolioStore = defineStore('portfolio', {
         answer: `
           <p>I offer flexible payment and collaboration options:</p>
           <ul class="">
-            <li>- Upwork</li>
             <li>- Wise</li>
             <li>- IBAN transfer</li>
             <li>- Sole Proprietor (for Ukraine)</li>
             <li>- Official contract with NDA, if needed</li>
+            <li>- USDT</li>
           </ul>
           <p>If you have a different preference — I’m happy to accommodate.</p>
         `,
