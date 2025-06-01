@@ -12,6 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set Git remote to SSH
+        run: git remote set-url origin git@github.com:igor-kostenevich/myportfolio.git
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
