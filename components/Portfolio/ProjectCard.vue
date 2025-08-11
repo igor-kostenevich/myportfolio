@@ -48,15 +48,15 @@ const emit = defineEmits(['open'])
       :class="{ 'xl:flex-row xl:items-center justify-between': isFirstProject }"
     >
       <div :class="[isFirstProject ? 'xl:w-2/4' : 'flex flex-col h-full']">
-        <h3 class="text-xl md:text-2xl tracking-tight font-medium mb-2.5 transition">{{ project.title }}</h3>
-        <p class="text-gray-100 text-sm md:text-base">{{ project.shortDescription }}</p>
+        <h3 class="text-xl md:text-2xl tracking-tight font-medium mb-2.5 transition">{{ $t(project.title) }}</h3>
+        <p class="text-gray-100 text-sm md:text-base">{{ $t(project.shortDescription) }}</p>
       </div>
       <BaseButton
         variant="outline"
         class="group/button min-w-max w-full xl:w-auto"
         @click="emit('open', project)"
       >
-        View Case
+        {{ $t('View Case') }}
         <SvgIcon
           name="arrow-right"
           class="transition-transform group-hover/button:-rotate-45 ml-2 w-4 h-4"

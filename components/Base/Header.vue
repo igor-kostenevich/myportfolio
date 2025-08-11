@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LanguageSwitcher from '~/components/Portfolio/LanguageSwitcher.vue'
+
 const { scrollToElement } = useScrollTo()
 const isMenuOpened = ref(false)
 const isAtTop = ref(true)
@@ -47,12 +49,12 @@ onUnmounted(() => {
           <ul class="flex justify-center gap-y-4 gap-6 xl:gap-10 font-medium text-sm flex-wrap">
             <li
               v-for="item in [
-                { id: 'about', label: 'About' },
-                { id: 'projects', label: 'Projects' },
-                { id: 'services', label: 'Services' },
-                { id: 'testimonials', label: 'Testimonials' },
-                { id: 'contacts', label: 'Contact me' },
-                { id: 'faq', label: 'FAQ' },
+                { id: 'about', label: $t('About') },
+                { id: 'projects', label: $t('Projects') },
+                { id: 'services', label: $t('Services') },
+                { id: 'testimonials', label: $t('Testimonials') },
+                { id: 'contacts', label: $t('Contact me') },
+                { id: 'faq', label: $t('FAQ') },
               ]"
               :key="item.id"
               class="transition"
@@ -75,13 +77,14 @@ onUnmounted(() => {
             </li>
           </ul>
         </nav>
-        <div class="flex items-center">
-          <base-button
+        <div class="flex items-center z-30">
+          <LanguageSwitcher class="mr-3 lg:mr-4" />
+          <!-- <base-button
             class="group flex z-[999] !px-4 !py-2 !text-xs lg:!px-7 lg:!py-4 lg:!text-base"
             href="https://t.me/ikostenevich"
             target="_blank"
           >
-            Write me in Telegram
+            {{ $t('Write me') }}
 
             <template #right>
               <svg
@@ -100,7 +103,7 @@ onUnmounted(() => {
                 />
               </svg>
             </template>
-          </base-button>
+          </base-button> -->
           <button
             class="w-6 h-6 relative z-30 lg:hidden ml-6"
             aria-label="Toggle navigation"
@@ -128,7 +131,7 @@ onUnmounted(() => {
                   <a
                     href="#"
                     aria-label="about"
-                    >About</a
+                    >{{ $t('About') }}</a
                   >
                 </li>
                 <li
@@ -138,7 +141,7 @@ onUnmounted(() => {
                   <a
                     href="#"
                     aria-label="projects"
-                    >Projects</a
+                    >{{ $t('Projects') }}</a
                   >
                 </li>
                 <li
@@ -148,7 +151,7 @@ onUnmounted(() => {
                   <a
                     href="#"
                     aria-label="services"
-                    >Services</a
+                    >{{ $t('Services') }}</a
                   >
                 </li>
                 <li
@@ -158,7 +161,7 @@ onUnmounted(() => {
                   <a
                     href="#"
                     aria-label="testimonials"
-                    >Testimonials</a
+                    >{{ $t('Testimonials') }}</a
                   >
                 </li>
                 <li
@@ -168,7 +171,7 @@ onUnmounted(() => {
                   <a
                     href="#"
                     aria-label="contacts"
-                    >Contact me</a
+                    >{{ $t('Contact me') }}</a
                   >
                 </li>
                 <li
@@ -178,7 +181,7 @@ onUnmounted(() => {
                   <a
                     href="#"
                     aria-label="FAQ"
-                    >FAQ</a
+                    >{{ $t('FAQ') }}</a
                   >
                 </li>
               </ul>

@@ -10,7 +10,7 @@ function handleAnalitycsEvent(event: string) {
 
 <template>
   <footer class="py-10 md:py-12 xl:py-16 md:pt-16 xl:pt-24 bg-black">
-    <div class="container !max-w-[532px]">
+    <div class="container !max-w-[750px]">
       <nav>
         <ul class="flex justify-center items-center gap-y-4 gap-10 mb-10 font-medium text-sm flex-wrap max-w-[70%] sm:max-w-full mx-auto">
           <li
@@ -20,7 +20,7 @@ function handleAnalitycsEvent(event: string) {
             <a
               href="#"
               aria-label="about"
-              >About</a
+              >{{ $t('About') }}</a
             >
           </li>
           <li
@@ -30,7 +30,7 @@ function handleAnalitycsEvent(event: string) {
             <a
               href="#"
               aria-label="projects"
-              >Projects</a
+              >{{ $t('Projects') }}</a
             >
           </li>
           <li
@@ -40,7 +40,7 @@ function handleAnalitycsEvent(event: string) {
             <a
               href="#"
               aria-label="services"
-              >Services</a
+              >{{ $t('Services') }}</a
             >
           </li>
           <li
@@ -50,7 +50,7 @@ function handleAnalitycsEvent(event: string) {
             <a
               href="#"
               aria-label="testimonials"
-              >Testimonials</a
+              >{{ $t('Testimonials') }}</a
             >
           </li>
           <li
@@ -60,7 +60,17 @@ function handleAnalitycsEvent(event: string) {
             <a
               href="#"
               aria-label="contacts"
-              >Contact me</a
+              >{{ $t('Contact me') }}</a
+            >
+          </li>
+          <li
+            class="hover:text-primary-dark transition cursor-pointer"
+            @click.prevent="scrollToElement('faq')"
+          >
+            <a
+              href="#"
+              aria-label="faq"
+              >{{ $t('FAQ') }}</a
             >
           </li>
         </ul>

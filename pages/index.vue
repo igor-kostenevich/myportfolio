@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import ContactsMenu from '~/components/Portfolio/ContactsMenu.vue'
+
 const store = usePortfolioStore()
 const { scrollToElement } = useScrollTo()
 
@@ -113,24 +115,24 @@ onMounted(() => {
           </div>
         </div>
         <div class="md:ml-5">
-          <h2 class="text-white font-medium leading-6">Igor Kostenevich</h2>
-          <p class="text-gray-150">Crafting robust digital solutions for 6+ years</p>
+          <h2 class="text-white font-medium leading-6">{{ $t('Igor Kostenevich') }}</h2>
+          <p class="text-gray-150">{{ $t('Crafting robust digital solutions for 6+ years') }}</p>
         </div>
       </div>
       <h1 class="flex flex-col items-start w-full">
-        <span class="main-title md:self-start mb-3">Full-Stack Web Developer</span>
-        <span class="main-title md:self-center md:mb-3">Building Scalable,</span>
-        <span class="main-title flex md:items-center self-start flex-col md:flex-row w-full">
-          Efficient Apps
+        <span class="main-title gradient-title md:self-start mb-3">{{ $t('Full-Stack Web Developer') }}</span>
+        <span class="main-title md:self-center md:mb-3">{{ $t('Building') }} <span class="gradient-title">{{ $t('Scalable') }},</span></span>
+        <span class="main-title flex gap-3 md:items-center self-start flex-col md:flex-row w-full">
+          <span class="gradient-title">{{ $t('Efficient') }} </span> {{ $t('Apps') }}
 
           <div class="group flex items-center relative cursor-pointer mt-6 md:mt-0 w-[200px] md:w-auto">
-            <a
+            <!-- <a
               href="https://www.linkedin.com/in/igor-kostenevich/"
               target="_blank"
               class="md:mt-0 text-lg xl:text-2xl font-normal leading-7 tracking-normal md:ml-12 text-secondary-dark group-hover:text-white uppercase inline-block relative overflow-hidden px-5 py-1.5 xl:py-3 rounded-full transition-all duration-300 ease-out z-10"
             >
               Get in Touch
-            </a>
+            </a> -->
             <span
               class="flex items-center justify-end bg-primary-dark h-full absolute md:right-[-56px] w-full group-hover:md:w-[56px] transition-all ease-in duration-200 rounded-full"
             >
@@ -180,9 +182,9 @@ onMounted(() => {
         v-gsap.whenVisible.once.from="{ autoAlpha: 0, x: -50 }"
         class="main-title text-right max-w-max mb-10 md:mb-16 lg:mb-20"
       >
-        <span>Behind the Code.</span>
+        <span>{{ $t('Behind the Code.') }}</span>
         <br />
-        <span class="text-primary-dark">Who I Am?</span>
+        <span class="gradient-title">{{ $t('Who I Am?') }}</span>
       </h2>
     </div>
     <div class="w-full cont">
@@ -201,20 +203,17 @@ onMounted(() => {
         </div>
         <div class="flex flex-col px-4 lg:px-0 w-full max-w-[600px] md:max-w-max">
           <p class="text-gray-100 lg:text-lg">
-            I am a <span class="font-medium text-white">Full-Stack Web Developer</span> with extensive experience in
-            <span class="font-medium text-white">building scalable, high-performance applications</span>. My expertise covers the entire development
-            lifecycle—from crafting <span class="font-medium text-white">intuitive user interfaces</span> to designing
-            <span class="font-medium text-white">robust backend architectures</span>.
+            {{ $t('I am a') }} <span class="font-medium text-white">{{ $t('Full-Stack Web Developer') }}</span> {{ $t('with extensive experience in') }}
+            <span class="font-medium text-white">{{ $t('building scalable, high-performance applications') }}</span>. {{ $t('My expertise covers the entire development lifecycle—from crafting') }} <span class="font-medium text-white">{{ $t('intuitive user interfaces') }}</span> {{ $t('to designing') }}
+            <span class="font-medium text-white">{{ $t('robust backend architectures') }}</span>.
           </p>
           <p class="mt-4 text-gray-100 lg:text-lg">
-            I specialize in <span class="font-medium text-white">real-time applications, data visualization, and complex dashboards</span>, working with
-            businesses to turn their ideas into fully functional and optimized digital solutions. My development process is streamlined with
-            <span class="font-medium text-white">AI-powered tools like GitHub Copilot</span>, allowing me to write cleaner, more efficient code while
-            accelerating project delivery.
+            {{ $t('I specialize in') }} <span class="font-medium text-white">{{ $t('real-time applications, data visualization, and complex dashboards') }}</span>, {{ $t('working with businesses to turn their ideas into fully functional and optimized digital solutions. My development process is streamlined with') }}
+            <span class="font-medium text-white">{{ $t('AI-powered tools like GitHub Copilot') }}</span>, {{ $t('allowing me to write cleaner, more efficient code while accelerating project delivery.') }}
           </p>
           <p class="mt-4 text-gray-100 lg:text-lg flex-1">
-            Leveraging <span class="font-medium text-white">modern frameworks, cloud solutions, and automation</span>, I ensure every project is built for
-            <span class="font-medium text-white">speed, scalability, and maintainability</span>—delivering not just code, but business-driven results. 🚀
+            {{ $t('Leveraging') }} <span class="font-medium text-white">{{ $t('modern frameworks, cloud solutions, and automation') }}</span>, {{ $t('I ensure every project is built for') }}
+            <span class="font-medium text-white">{{ $t('speed, scalability, and maintainability') }}</span>{{ $t('—delivering not just code, but business-driven results.') }} 🚀
           </p>
           <div class="mt-10 lg:mt-16 flex flex-wrap gap-4">
             <BaseButton
@@ -222,7 +221,7 @@ onMounted(() => {
               href="/Igor_Kostenevich_FE_CV.cv"
               download="Igor_Kostenevich_CV.pdf"
             >
-              Download CV
+              {{ $t('Download CV') }}
 
               <template #right>
                 <SvgIcon
@@ -237,7 +236,7 @@ onMounted(() => {
               variant="outline"
               class="w-full xs:w-auto hover:bg-primary-dark"
             >
-              Let's Connect
+              {{ $t('Let\'s Connect') }}
               <SvgIcon
                 name="linkedin"
                 class="ml-2 w-4 h-4"
@@ -256,7 +255,7 @@ onMounted(() => {
         v-gsap.whenVisible.once.from="{ autoAlpha: 0, x: -50 }"
         class="font-space-mono tracking-widest uppercase text-xl text-white mb-12 md:mb-20"
       >
-        Main stack that i use
+        {{ $t('Main stack that I use') }}
       </h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <div
@@ -318,9 +317,9 @@ onMounted(() => {
                 duration: 1,
               }"
             >
-              <h2 class="secondary-title text-center mb-4">REAL PROJECTS, <span class="text-primary-dark font-medium">REAL IMPACT</span></h2>
+              <h2 class="secondary-title text-center mb-4">{{ $t('REAL PROJECTS,') }} <span class="gradient-title font-medium">{{ $t('REAL IMPACT') }}</span></h2>
               <p class="text-gray-100 text-center max-w-2xl mx-auto mb-10 md:mb-16 lg:mb-24">
-                From MVPs to fully scaled apps—explore the projects that showcase my expertise in creating impactful digital products.
+                {{ $t('Projects intro') }}
               </p>
             </div>
 
@@ -353,7 +352,7 @@ onMounted(() => {
               v-if="visibleProjectsCount < store.projects.length"
               class="flex justify-center"
             >
-              <BaseButton @click="loadMoreProjects"> VIEW MORE CASE STUDIES </BaseButton>
+              <BaseButton @click="loadMoreProjects"> {{ $t('VIEW MORE CASE STUDIES') }} </BaseButton>
             </div>
           </div>
         </div>
@@ -382,10 +381,9 @@ onMounted(() => {
               duration: 1,
             }"
           >
-            <h2 class="secondary-title text-center mb-4">From Pixels <span class="text-primary-dark font-medium">to Production</span></h2>
+            <h2 class="secondary-title text-center mb-4">{{ $t('From Pixels') }} <span class="gradient-title font-medium">{{ $t('to Production') }}</span></h2>
             <p class="text-gray-100 text-center max-w-2xl mx-auto mb-10 md:mb-16 lg:mb-24">
-              I deliver end-to-end web solutions that let you focus on growing your vision. From intuitive frontends to robust backends, I handle every detail
-              for a seamless digital experience.
+              {{ $t('Services intro') }}
             </p>
           </div>
 
@@ -413,15 +411,15 @@ onMounted(() => {
                 ></SvgIcon>
               </div>
               <div class="">
-                <h3 class="font-medium text-lg md:text-2xl tracking-tight mb-4 mt-3 text-center md:text-left">{{ service.title }}</h3>
-                <p class="tracking-tight text-gray-150 mb-4 text-center md:text-left">{{ service.description }}</p>
+                <h3 class="font-medium text-lg md:text-2xl tracking-tight mb-4 mt-3 text-center md:text-left">{{ $t(service.title) }}</h3>
+                <p class="tracking-tight text-gray-150 mb-4 text-center md:text-left">{{ $t(service.description) }}</p>
                 <button
                   class="flex items-center justify-center w-full md:w-auto"
                   @click="handleServiceClick(service.id)"
                 >
                   <span
-                    class="text-primary-dark uppercase font-space-mono md:max-w-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-w-[160px] whitespace-nowrap group-hover:mr-3 mr-3 md:mr-0"
-                    >Contact me</span
+                    class="text-primary-dark uppercase font-space-mono md:max-w-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-w-[200px] whitespace-nowrap group-hover:mr-3 mr-3 md:mr-0"
+                    >{{ $t('Contact me') }}</span
                   >
                   <SvgIcon
                     name="arrow-right"
@@ -443,12 +441,11 @@ onMounted(() => {
   >
     <div class="container">
       <div class="flex justify-between mb-10 md:mb-16 lg:mb-[100px] md:gap-10 flex-col md:flex-row">
-        <h2 class="text-center md:text-left font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">Testimonials</h2>
+        <h2 class="text-center md:text-left font-space-mono tracking-widest uppercase text-xl text-white mb-3 md:mb-20">{{ $t('Testimonials') }}</h2>
         <div class="max-w-[600px] xl:max-w-[856px]">
-          <h2 class="secondary-title text-center sm:text-left mb-6">Words <span class="text-primary-dark font-medium">That Count </span></h2>
+          <h2 class="secondary-title text-center sm:text-left mb-6">{{ $t('Words') }} <span class="gradient-title font-medium">{{ $t('That Count') }} </span></h2>
           <p class="text-gray-150 text-center sm:text-left sm:text-lg">
-            Genuine feedback from clients I’ve partnered with, showcasing the real results and seamless collaboration my approach provides. Discover how we
-            tackle challenges together to achieve exceptional outcomes.
+            {{ $t('Testimonials intro') }}
           </p>
         </div>
       </div>
@@ -469,9 +466,9 @@ onMounted(() => {
           class="sm:max-w-[360px] lg:max-w-[526px]"
         >
           <h2 class="secondary-title text-center sm:text-left mb-4 !leading-8 md:!leading-10 xl:!leading-[65px]">
-            Let’s build your project <span class="text-primary-dark font-medium">together</span>
+            {{ $t('Let’s build your project') }} <span class="gradient-title font-medium">{{ $t('together') }}</span>
           </h2>
-          <p class="text-gray-150 text-center sm:text-left">Submit your project details and I’ll get back to you.</p>
+          <p class="text-gray-150 text-center sm:text-left">{{ $t('Submit your project details and I’ll get back to you.') }}</p>
         </div>
         <div class="w-full">
           <PortfolioContactForm :service-type="serviceType" />
@@ -495,7 +492,7 @@ onMounted(() => {
         }"
         class="secondary-title text-center mb-10 md:mb-16 xl:mb-20"
       >
-        Got Questions? <br /><span class="text-primary-dark font-medium">I’ve Got Answers</span>
+        {{ $t('Got Questions?') }} <br /><span class="gradient-title font-medium">{{ $t('I’ve Got Answers') }}</span>
       </h2>
 
       <div
@@ -511,6 +508,8 @@ onMounted(() => {
       </div>
     </div>
   </section>
+
+  <ContactsMenu />
 </template>
 
 <style>

@@ -51,7 +51,7 @@ function leave(el: Element) {
       as="div"
       @click="handleToggle(index)"
     >
-      <span>{{ item.question }}</span>
+      <span>{{ $t(item.question) }}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 min-w-5 w-5 ml-6 text-gray-400 transition-transform"
@@ -80,7 +80,7 @@ function leave(el: Element) {
         >
           <div
             class="pb-6"
-            v-html="item.answer"
+            v-html="$t(item.answer)"
           />
         </div>
       </transition>

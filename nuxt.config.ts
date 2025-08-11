@@ -1,7 +1,19 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'nuxt3-notifications', '@pinia/nuxt', 'unplugin-svg-transformer/nuxt', 'v-gsap-nuxt'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt3-notifications', '@pinia/nuxt', 'unplugin-svg-transformer/nuxt', '@nuxtjs/i18n', 'v-gsap-nuxt'],
   components: true,
   ssr: true,
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'uk', name: 'Українська', file: 'uk.json' },
+    ],
+    lazy: true,
+    langDir: '../locales/',
+    defaultLocale: 'en',
+    compilation: {
+      strictMessage: false,
+    },
+  },
   app: {
     head: {
       htmlAttrs: {

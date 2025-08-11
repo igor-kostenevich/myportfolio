@@ -46,7 +46,7 @@ onMounted(() => {
       >
         <div class="fixed top-0 right-0 h-full bg-gray-50 w-full md:max-w-[80vw] overflow-y-auto px-6 md:px-8 py-10 transition-transform duration-300 z-50">
           <div class="mb-8 lg:mb-16">
-            <h2 class="text-dark-additional text-2xl md:text-3xl lg:text-5xl uppercase font-medium tracking-tight pr-12 lg:pr-20">{{ project.title }}</h2>
+            <h2 class="text-dark-additional text-2xl md:text-3xl lg:text-5xl uppercase font-medium tracking-tight pr-12 lg:pr-20">{{ $t(project.title) }}</h2>
             <button @click="closeSidebar">
               <SvgIcon
                 name="close"
@@ -57,15 +57,15 @@ onMounted(() => {
           <div class="lg:flex gap-24 xl:gap-32 mb-20 w-full">
             <div
               class="project-description mb-8 lg:mb-0 lg:max-w-[608px] text-gray-500 tracking-tight"
-              v-html="project.longDescription"
+              v-html="$t(project.longDescription)"
             />
             <div class="w-full min-w-[40%]">
               <div class="flex pt-4 pb-8 border-b border-gray-150">
-                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-40">My Role</h4>
-                <p class="text-gray-500 tracking-tight text-sm">{{ project.myRole }}</p>
+                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-48">{{ $t('My Role') }}</h4>
+                <p class="text-gray-500 tracking-tight text-sm">{{ $t(project.myRole) }}</p>
               </div>
               <div class="flex pb-8 pt-4 border-b border-gray-150">
-                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-40">Industries</h4>
+                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-48">{{ $t('Industries') }}</h4>
                 <div class="text-gray-500 tracking-tight text-sm">
                   <ul>
                     <li
@@ -73,13 +73,13 @@ onMounted(() => {
                       :key="industry"
                       class="mb-1"
                     >
-                      {{ industry }}
+                      {{ $t(industry) }}
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="flex pb-8 pt-4 border-b border-gray-150">
-                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-40">techstack</h4>
+                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-48">{{ $t('techstack') }}</h4>
                 <div class="text-gray-500 tracking-tight text-sm">
                   <ul>
                     <li
@@ -93,7 +93,7 @@ onMounted(() => {
                 </div>
               </div>
               <div class="flex pt-4 pb-8 border-b border-gray-150">
-                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-40">View on github</h4>
+                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-48">{{ $t('View on github') }}</h4>
                 <a
                   :href="project.links.github"
                   target="_blank"
@@ -102,7 +102,7 @@ onMounted(() => {
                 >
               </div>
               <div class="flex pt-4 pb-8 border-b border-gray-150">
-                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-40">Live</h4>
+                <h4 class="uppercase text-sm text-gray-250 font-space-mono min-w-48">{{ $t('Live') }}</h4>
                 <ul v-if="Array.isArray(project.links.live)">
                   <li
                     v-for="link in project.links.live"
